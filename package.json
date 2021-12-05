@@ -1,0 +1,22 @@
+{
+  "name": "grupo_6_meckdesign",
+  "version": "1.0.0",
+  "description": "![logo-Meck-Design](https://soulfix.com.ar/wp-content/uploads/2021/11/logo-meck-design.jpg)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevald12/Grupo_6_MeckDesign.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevald12/Grupo_6_MeckDesign/issues"
+  },
+  "homepage": "https://github.com/kevald12/Grupo_6_MeckDesign#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
