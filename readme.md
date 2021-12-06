@@ -18,6 +18,12 @@ MeckDesign somos Matias, Eloisa, Catalina y Kevin, un equipo de apasionados por 
 
 ### **Nombre de página web:** MeckDesign ###
 
+### Trello ###
+https://trello.com/invite/b/qCh92Lh2/fa172f7e53da059a6fabfd00b6ae7ee3/grupo-6
+
+### GitHub ###
+https://github.com/kevald12/Grupo_6_MeckDesign.git
+
 #### Referencias: ####
 
 - https://www.boconcept.com/es-co/rooms/home-offices
