@@ -8,9 +8,12 @@ app.use(express.static(publicPath))
 app.listen(4000, () => {
     console.log('Servidor corriendo en puerto 4000')
 })
-
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/index.html'))
+});
+
+app.get('/footer', (req, res) => {
+    res.sendFile(path.join(__dirname, '/views/indexFooter.html'))
 });
 
 app.get('/product', (req, res) => {
