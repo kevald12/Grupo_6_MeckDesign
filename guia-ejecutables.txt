@@ -1,10 +1,10 @@
 =============GUIA DE EJECUTABLES===============
 
 ====PALETA DE COLORES====
-.color1 {color: #000000;}
-.color2 {color: #25252c;}
-.color3 {color: #4d4c5a;}
-.color4 {color: #7c798e;}
+.color1 {color: #000000;} negro
+.color2 {color: #25252c;} gris
+.color3 {color: #4d4c5a;} gris claro
+.color4 {color: #7c798e;} gris violeta
 .color5 {color: #b4acc9;}
 
 ====TIPOGRAFIAS====
@@ -14,4 +14,8 @@ Okaso light
 
 <p> - Poppins Extra light 200 14px
 
+========MEDIA QUERIES BREAKPOINTS========
+min-width 576 tablets
+min-width 768 larger tablets
+min-width 992 desktop
 
