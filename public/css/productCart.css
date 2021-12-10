@@ -1,14 +1,36 @@
 @import url(normalize.css);
-@import url();
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 *{
     box-sizing: border-box;
+   
 }
 body{
     background-color: #000000 ;
+    color: #ebebeb;
+    font-family: "Poppins";
+
 }
-.product-info{
-    border-top: solid 1px #ebebeb;
-    color: #39b54a;
+.item{
+    color: white;
     padding: 15px;
     text-align: left;
+    font-family: "Poppins";
+    display: flex;
+    flex-wrap: wrap;
+    border: white solid 1px;
+    
+}
+.litte-icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.price{
+    display: flex;
+    align-self:flex-end;
+}
+
+
+@media (min-width: 576px ){
+
 }
