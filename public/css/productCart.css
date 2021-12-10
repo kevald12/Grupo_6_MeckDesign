@@ -1,0 +1,14 @@
+@import url(normalize.css);
+@import url();
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #000000 ;
+}
+.product-info{
+    border-top: solid 1px #ebebeb;
+    color: #39b54a;
+    padding: 15px;
+    text-align: left;
+}
