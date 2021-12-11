@@ -15,41 +15,39 @@
     <header>
         <!-- Cabecera de la Página -->
         <section class="main-header">
-
-            <i class="fas fa-bars"></i>
-
-            <img class="img-logo" src="/img/logo/logo-meck-design-100.jpg" alt="logo-meck-design">
+            <div class="burguer-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        
+            <a href="/"><img class="img-logo" src="/img/logo/logo-meck-design-100.jpg" alt="logo-meck-design"></a>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Products</a></li>
+                    <li><a href="">Inspiration</a></li>
+                </ul>
+            </nav>
+            <div>
+                <p class="search-desktop">
+                    <input class="search-bar-desktop" type="search" action="/productos" method="POST" name="busquedapruductos"
+                        placeholder="Buscar">
+                    <button><i class="fas fa-search"></i></button></p>
+            </div>
             <div class="icons-header">
                 <i class="fas fa-light fa-heart"></i>
-
-                    <a href="/productCart"><i class="fas fa-shopping-bag"></i></a>
-                </div>
-        </section>    
+                <a href="/productCart"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+        </section>
         </div class="search">
-            <div> 
-            <p class="search">
-                <input class="search-bar" type="search" action="/productos" method="POST" name="busquedapruductos"
+        <div>
+            <p class="search-mobile">
+                <input class="search-bar-mobile" type="search" action="/productos" method="POST" name="busquedapruductos"
                     placeholder="Buscar">
                 <button><i class="fas fa-search"></i></button></p>
         </div>
 
-
-        <nav class="navbar">
-            <ul>
-                <li><a href="">1</a></li>
-                <li><a href="">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-            </ul>
-            <ul class="login-bar">
-                <li><a href="/register">Creá tu cuenta<i class="far fa-id-card"></i></a></li>
-                <li><a href="login">Ingresá<i class="fas fa-sign-in-alt"></i></a></li>
-                <li><a href="">Mis compras</a><i class="fas fa-shopping-basket"></i></li>
-            </ul>
-        </nav>
-
     </header>
-
 </body>
 
 </html></i>

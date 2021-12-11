@@ -42,10 +42,6 @@ body {
     display: none;
 }
 
-.login-bar {
-    display: none;
-}
-
 .navbar a {
     text-decoration: none;
     color: inherit;
@@ -74,7 +70,7 @@ body {
 
 /* Search */
 
-.search {
+.search-mobile {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -83,7 +79,7 @@ body {
     margin-top: 0px;
 }
 
-.search-bar {
+.search-bar-mobile {
     width: 90vw;
     border-bottom: solid 0.5px #000;
     border-top: 0px;
@@ -93,12 +89,86 @@ body {
 
 }
 
-.search button {
+.search-mobile button {
     border: 0px;
     border-bottom: solid 0.5px #000;
     background-color: #fff;
     height: 25px;
 }
 
+.search-desktop {
+    display:none;
+    width: 0%;       
+}
 
+/* Navegación en Tablets */
+@media (min-width: 361px) {
 
+}
+
+/* Navegación en Desktop */
+@media (min-width: 769px) {
+    .burguer-menu {
+        display: none;
+    }
+
+    .navbar {
+        display: flex;
+    }
+
+    .navbar ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+  
+    }
+
+    .navbar li{
+        padding-right: 30px;
+        text-transform: uppercase;
+        font-weight: 200;
+        transform: all;
+    }
+
+    .navbar li:hover {
+        text-decoration-line: underline;
+    }
+
+    .main-header{
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+     /* BARRA DE BUSQUEDA */
+
+     .search-mobile {
+         display: none;
+     }
+
+     .search-desktop {
+        display: flex;
+     }
+
+     .search-bar-desktop {
+        width: 15vw;
+        border-bottom: solid 0.5px #000;
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
+        height: 25px;
+    
+    }
+    
+    .search-desktop button {
+        border: 0px;
+        border-bottom: solid 0.5px #000;
+        background-color: #fff;
+        height: 25px;
+    }
+}
