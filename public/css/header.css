@@ -30,10 +30,6 @@ body {
     font-size: 22px;
 }
 
-.burguer-menu:hover {
-    transform: rotate(-45deg);
-}
-
 .icons-header {
     display: flex;
 }
