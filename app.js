@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/indexHeader', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/indexHeader.html'))
+    res.sendFile(path.join(__dirname, '/views/header.html'))
 });
 
 app.get('/footer', (req, res) => {
