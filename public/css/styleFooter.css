@@ -1,16 +1,112 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 *{
     box-sizing: border-box;
+    padding: 0;
+    margin:0;
 }
 
 
 .main-footer{
+    font-family: "Poppins";
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding:15px;
+    background-color:#000000;
+    color: #ffffff;
+}
+
+.title-navbar{
+    font-weight: bold;
+}
+.footer-navbar ul{
+    list-style: none;
+}
+.footer-navbar li{
+    padding: 5px;
+}
+.footer-navbar a{
+    all: unset;
 }
 
 .logo{
     width: auto;
+}
 
+.iconos-footer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.social-media-icons{
+    width: 100px;
+    text-align: center;
+    font-size: 20px;
+    margin:15px;
+}
+.author{
+    text-align: center;
+    margin: 10px;
+}
+
+.payment-methods{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+.payment-methods p{
+    width: 100%;
+    text-align: center;
+}
+.payment-icons{
+font-size: 30px;
+padding: 10px;
+}
+.footer-copy{
+    text-align: center;
+}
+@media (min-width: 576px ){
+    .main-footer{
+        font-family: "Poppins";
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding:15px;
+        background-color:#000000;
+        color: #ffffff;
+    } 
+    .logo {
+        width: 100%;
+        
+    }
+.middle-footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 0 20px
+}
+.middle-footer1 {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.footer-navbar{
+    width: 45%;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+    .middle-footer1, .middle-footer2 {
+        width: 50%;
+        justify-content: space-between;
+        align-items: flex-start
+       }
+    
+    .bottom-footer {
+        justify-content: center;
+        flex-direction: row;
+        width: 100%
+    }
 }
