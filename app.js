@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/index.html'))
 });
 
-app.get('/indexHeader', (req, res) => {
+app.get('/header', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/header.html'))
 });
 
