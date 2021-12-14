@@ -30,7 +30,7 @@
 }
 
 .logo{
-    width: auto;
+    width: 100px;
 }
 
 .iconos-footer{
@@ -44,6 +44,7 @@
     text-align: center;
     font-size: 20px;
     margin:15px;
+    color: #ffffff;
 }
 .author{
     text-align: center;
