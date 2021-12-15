@@ -2,35 +2,220 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 *{
     box-sizing: border-box;
-   
-}
-body{
-    background-color: #000000 ;
-    color: #ebebeb;
-    font-family: "Poppins";
+
+/* Body */
 
 }
+body{
+    background-color: white ;
+    color: black;
+    font-family: "Poppins";
+    font-size: smaller;
+
+}
+/* main content */ 
+
+
+.product-info{
+    margin: auto;
+
+}
+.product-page{
+    padding-top: 15px;
+    margin-bottom: 50px;
+}
+.product-info h2{
+    font-size: small;
+    
+}
 .item{
-    color: white;
-    padding: 15px;
+    color: black;
+    padding: 5px;
     text-align: left;
     font-family: "Poppins";
     display: flex;
     flex-wrap: wrap;
-    border: white solid 1px;
-    
+    border-top: grey solid 1px;
+    border-bottom: grey solid 1px;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    margin: auto;
+    position: relative;
 }
-.litte-icons{
+.image-product{
+    max-width: 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.item-action{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-top: solid 2px #ebebeb;
+    font-size: xx-small;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+.first-cont{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowwrap;
+    justify-content: space-between;
+    font-size: small;
+    padding: 0px;
+    width: 100%;
+    margin: auto;
 }
 .price{
     display: flex;
     align-self:flex-end;
 }
+.product-info ul{
+    list-style: none;
+}
+.final-price{
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: space-between;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.other-product-section {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 0px;
+}
+
+.other-product-article {
+    margin-bottom: 50px
+}
+
+.other-product-text {
+    font-size: 30px;
+    font-weight: 500;
+    text-decoration-line: underline;
+}
+
+.other-product-image img {
+    width: 50vw;
+}
+
+.other-title-product {
+    font-size: 20px;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+.other-product-price {
+    font-size: 18px;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    font-weight: 200;
+}
 
 
-@media (min-width: 576px ){
+/*  BOTONES */
+.quantity-button {
+    display: block;
+    font-size: 16px;
+    border-radius: 6px;
+    background-color: #FFF;
+    right: 20px;
+    position: absolute;
+    top: -15px;
+}
+.quantity-button {
+    width: 15px;
+    background-color: #fff;
+    color: black;
+    font-size: 10   px;
+    height: 18px;
+    text-align: center;
+    margin: auto;
+  display: flex;
+  align-self: flex-end;
+  bottom: 10px;
+  width: 20px;
+  height: 20px;
+  
+}
+.buy{
+    width: 50%;
+    height: 25px;
+    font-size: 13px;
+    border-radius: 6px;
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+    padding: 5px, 5px, 5px, 5px;
+}
+.buy:hover{
+    color: black;
+    border-color: white;
+    background-color: #ababab;
+}
 
+/* media querys*/
+
+
+@media (min-width: 361px) {
+    .buy{
+        align-self: center;
+    }
+
+}
+
+@media (min-width: 769px) {
+    .image-product{
+        max-width: 250px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .buy{
+        align-self: center;
+    }
+    .product-info h2{
+        font-size:30px;
+    }
+    .item-action{
+        font-size: 20px;
+        
+    }
+    .item{
+        width: auto;
+        font-size: 20px;
+    }
+    .price{
+        font-size: 20px;
+        align-self: flex-end;
+    }
+    .quantity-button{
+        width: 35px;
+        height: 35px;
+    }
+    .other-product-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-content: center;
+    }
+
+    .other-product-image img {
+        width: 20vw;
+    }
+
+    .other-product-text {
+        text-align: center;
+        font-size: 35px;
+    }
+    
 }
