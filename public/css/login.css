@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* containers*/
+
+.main-container {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #fff;
+    
+}
+
+
+.form-group {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    width: 90%;
+    margin: 20px;
+    padding: 15px;
+}
+
+.seccion-account1,
+.seccion-account2 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+   
+}
+.seccion-account2{
+    border-top: #4d4c5a solid 2px;
+    padding-top: 20px;
+}
+/* texto */
+
+.title {
+    font-weight: bolder;
+    text-align: left;
+    font-size: 28px;
+}
+
+.seccion-account p {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top:10px;
+}
+
+.anchor-password {
+    text-align: center;
+    color: #000000;
+    width: 100%;
+    margin: 10px;
+    font-weight: bold;
+}
+
+/* boxes and Buttons */
+
+.login-button {
+    padding: 10px;
+    border: solid 1px black;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.send {
+    width: 100%;
+    padding: 10px 25px;
+    background-color: #000000;
+    color: #fff;
+    border-radius: 28px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.send:hover{
+    background-color: #fff;
+    color: #000000;
+
+    transition: backgroun-color, 0.08s, color, 0.08;
+}
+.create-account{
+    padding: 10px 25px;
+    background-color: #fff;
+    color: #000000;
+    border-radius: 28px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #000000;
+}
+.create-account:hover{
+background-color: #000000;
+color: #fff;
+
+transition: backgroun-color, 0.08s, color, 0.08;
+}
+
+/* .seccion-account2{
+    border-left: solid 1px;
+} */
+.form-button{
+    width: 100%;
+}
+
+
+/* <<<<< Media >>>> */
+
+@media (min-width: 576px) {
+
+    /* containers*/
+    
+    .form-group {
+        justify-content: space-between;
+        text-align: left;
+        padding: 20px;
+        flex-direction: row;
+    }
+
+    .seccion-account1,
+    .seccion-account2 {
+        width: 46%;
+        margin: 10px 0px;
+        text-align: left;
+    }
+    .seccion-account2{
+        border-left: #4d4c5a solid 2px ;
+        padding-left:20px;
+        border-top:0px;
+        padding-top: 0px;
+    }
+
+    /* texto */
+
+    .seccion-account p {
+        margin: 10px 0px;
+    }
+
+}
