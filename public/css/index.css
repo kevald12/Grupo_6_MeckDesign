@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+.banner{
+display: none;
+}
+
+.categories-img img{
+    width: 100%;
+}
+
+
+
+
+
+/* Navegación en Tablets */
+@media (min-width: 361px) {
+    
+}
+
+/* Navegación en Desktop */
+@media (min-width: 769px) {
+    .banner{
+        display: block;
+        width: 100%;
+    }
+    .banner img{
+        width: 100%;
+    }
+
+    .categories-img {
+        width: 48%;
+    }
+    .categories-article{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px;
+
+    }
+}
