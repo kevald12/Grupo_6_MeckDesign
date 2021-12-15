@@ -17,6 +17,7 @@
 <body>
 
     <header>
+
         <!-- Cabecera de la Página -->
 
         <section class="main-header">
@@ -33,37 +34,32 @@
                     <li><a href="">Inspiration</a></li>
                 </ul>
             </nav>
-            <div>
-                <p class="search-desktop">
-                    <input class="search-bar-desktop" type="search" action="/productos" method="POST"
-                        name="busquedapruductos" placeholder="Buscar">
-                    <button><i class="fas fa-search"></i></button>
-                </p>
-            </div>
+
+            <p class="search-desktop">
+                <input class="search-bar-desktop" type="search" action="/productos" method="POST"
+                    name="busquedapruductos" placeholder="Buscar">
+                <button><i class="fas fa-search"></i></button></p>
+
             <div class="icons-header">
                 <i class="fas fa-light fa-heart"></i>
                 <a href="/productCart"><i class="fas fa-shopping-bag"></i></a>
             </div>
         </section>
         </div class="search">
-        <div>
-            <p class="search-mobile">
-                <input class="search-bar-mobile" type="search" action="/productos" method="POST"
-                    name="busquedapruductos" placeholder="Buscar">
-                <button><i class="fas fa-search"></i></button>
-            </p>
+        <p class="search-mobile">
+            <input class="search-bar-mobile" type="search" action="/productos" method="POST" name="busquedapruductos"
+                placeholder="Buscar">
+            <button><i class="fas fa-search"></i></button></p>
         </div>
 
     </header>
-
-
     <!-- <<<< Main >>>> -->
 
     <main class="main-container">
 
         <div class="form-group">
 
-            <div class="seccion-account">
+            <div class="seccion-account1">
                 <h1 class="title">Have a MeckDesign account?</h1>
                 <p>Access it now to save time when you shop</p>
                 <form class="form-button" action="/login" method="get">
@@ -77,7 +73,7 @@
             </div>
 
 
-            <div class="seccion-account">
+            <!-- <div class="seccion-account"> -->
                 <div class="seccion-account2">
                     <h1 class="title">Don't have an account?</h1>
                     <p>Create your own MeckDesign account today. It makes shopping smoother and faster, while also
@@ -86,7 +82,7 @@
                     <a href="/register"><button class="create-account" type="submit">Create Your
                             Account</button></a>
 
-                </div>
+                <!-- </div> -->
 
             </div>
 
@@ -94,56 +90,57 @@
 
 
     </main>
+
     <!-- <<<< footer >>>> -->
 
     <footer>
 
         <div class="main-footer">
-            <div class="logo"><img src="/img/logo/logo-meck-design.jpg" alt="logo"></div>
+            <div class="logo"><img src="/img/logo/logo-meck-design-black.png" alt="logo"></div>
+            <!-- <div class="middle-footer"> -->
+            <!--  -->
             <div class="middle-footer">
-                <!--  -->
-                <div class="middle-footer">
-                    <div class="middle-footer1">
-                        <nav class="footer-navbar">
-                            <ul>
-                                <li class="title-navbar">All About Us</li>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Gift Cards</a></li>
-                                <li><a href="#">Support</a></li>
+                <div class="middle-footer1">
+                    <nav class="footer-navbar">
+                        <ul>
+                            <li class="title-navbar">All About Us</li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Gift Cards</a></li>
+                            <li><a href="#">Support</a></li>
 
-                            </ul>
-                        </nav>
-                        <nav class="footer-navbar">
-                            <ul>
-                                <li class="title-navbar">All About Your Order</li>
-                                <li><a href="#">Shipping</a></li>
-                                <li><a href="#">Exchange & Returns</a></li>
-                                <li><a href="#">FAQs</a></li>
-                            </ul>
-                        </nav>
+                        </ul>
+                    </nav>
+                    <nav class="footer-navbar">
+                        <ul>
+                            <li class="title-navbar">All About Your Order</li>
+                            <li><a href="#">Shipping</a></li>
+                            <li><a href="#">Exchange & Returns</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="middle-footer2">
+                    <div class="payment-methods">
+                        <p>Accepted Payment payment methods</p>
+                        <div class="payment-icons"><i class="fab fa-cc-amex"></i></div>
+                        <div class="payment-icons"><i class="fab fa-cc-visa"></i></div>
+                        <div class="payment-icons"><i class="fab fa-cc-mastercard"></i></div>
+                        <div class="payment-icons"><i class="fab fa-cc-paypal"></i></div>
                     </div>
-                    <div class="middle-footer2">
-                        <div class="payment-methods">
-                            <p>Accepted Payment payment methods</p>
-                            <div class="payment-icons"><i class="fab fa-cc-amex"></i></div>
-                            <div class="payment-icons"><i class="fab fa-cc-visa"></i></div>
-                            <div class="payment-icons"><i class="fab fa-cc-mastercard"></i></div>
-                            <div class="payment-icons"><i class="fab fa-cc-paypal"></i></div>    
-                        </div>
-                        <div class="footer-copy">
+                    <div class="footer-copy">
 
-                            <p>Calle Falsa 123
-                                Springfield
-                                Antioquia
-                                Argentina
-                                (C.P: 050032)
-                            </p>
-                        </div>
-                        <!--  -->
+                        <p>Calle Falsa 123
+                            Springfield
+                            Antioquia
+                            Argentina
+                            
+                        </p>
                     </div>
+                    <!--  -->
                 </div>
             </div>
+            <!-- </div> -->
             <div class="bottom-footer">
                 <div class="author">
                     <h4>Copyright</h4>
@@ -153,8 +150,6 @@
                     <div class="social-media-icons"><i class="fab fa-instagram"></i></div>
                     <div class="social-media-icons"><i class="fab fa-twitter"></i></div>    
                 </div>
-
-                <div class="language"></div>
 
 
 

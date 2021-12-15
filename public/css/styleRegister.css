@@ -73,6 +73,12 @@
     text-decoration: none;
     font-size: 25px;
 }
+.register-btn:hover{
+    background-color: #fff;
+    color: #000000;
+    
+    transition: backgroun-color, 0.08s, color, 0.08;
+    }
 
 .return-link {
     display: flex;
@@ -91,7 +97,7 @@
     flex-wrap: wrap;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 30px 30px 30px;
+    padding: 20px 30px 30px 30px;
 }
 .login-header {
     display: flex;
@@ -118,6 +124,12 @@
     font-size: 16px;
     font-weight: bold;
 }
+.login-btn:hover{
+    background-color: #000000;
+    color: #fff;
+    
+    transition: backgroun-color, 0.08s, color, 0.08;
+    }
 
 
 /* ========MEDIA QUERIES BREAKPOINTS========
@@ -137,6 +149,7 @@ min-width 992 desktop */
     }
     .register-bottom {
         width: 50%;
+        padding: 0px 30px 30px 30px;
     }
 
     .register-container {

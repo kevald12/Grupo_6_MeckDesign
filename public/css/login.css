@@ -30,7 +30,8 @@
     padding: 15px;
 }
 
-.seccion-account {
+.seccion-account1,
+.seccion-account2 {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -38,7 +39,10 @@
     width: 100%;
    
 }
-
+.seccion-account2{
+    border-top: #4d4c5a solid 2px;
+    padding-top: 20px;
+}
 /* texto */
 
 .title {
@@ -125,15 +129,17 @@ transition: backgroun-color, 0.08s, color, 0.08;
         flex-direction: row;
     }
 
-    .seccion-account {
+    .seccion-account1,
+    .seccion-account2 {
         width: 46%;
         margin: 10px 0px;
         text-align: left;
-
-        /* display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-around; */
+    }
+    .seccion-account2{
+        border-left: #4d4c5a solid 2px ;
+        padding-left:20px;
+        border-top:0px;
+        padding-top: 0px;
     }
 
     /* texto */

@@ -8,11 +8,45 @@
     <title>Meck Design</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styleFooter.css">
+    <link rel="stylesheet"  href="/css/header.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 </head>
-
+ 
 <body>
     <header>
+        <!-- Cabecera de la Página -->
+        <section class="main-header">
+            <div class="burguer-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <a href="/"><img class="img-logo" src="/img/logo/logo-meck-design-100.jpg" alt="logo-meck-design"></a>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Products</a></li>
+                    <li><a href="">Inspiration</a></li>
+                </ul>
+            </nav>
+
+            <p class="search-desktop">
+                <input class="search-bar-desktop" type="search" action="/productos" method="POST"
+                    name="busquedapruductos" placeholder="Buscar">
+                <button><i class="fas fa-search"></i></button></p>
+
+            <div class="icons-header">
+                <i class="fas fa-light fa-heart"></i>
+                <a href="/productCart"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+        </section>
+        </div class="search">
+        <p class="search-mobile">
+            <input class="search-bar-mobile" type="search" action="/productos" method="POST" name="busquedapruductos"
+                placeholder="Buscar">
+            <button><i class="fas fa-search"></i></button></p>
+        </div>
 
     </header>
     <br>
@@ -34,6 +68,70 @@
     <br>
 
     <a href="/register">REGISTER</a>
+    <footer>
+
+        <div class="main-footer">
+            <div class="logo"><img src="/img/logo/logo-meck-design-black.png" alt="logo"></div>
+            <!-- <div class="middle-footer"> -->
+            <!--  -->
+            <div class="middle-footer">
+                <div class="middle-footer1">
+                    <nav class="footer-navbar">
+                        <ul>
+                            <li class="title-navbar">All About Us</li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Gift Cards</a></li>
+                            <li><a href="#">Support</a></li>
+
+                        </ul>
+                    </nav>
+                    <nav class="footer-navbar">
+                        <ul>
+                            <li class="title-navbar">All About Your Order</li>
+                            <li><a href="#">Shipping</a></li>
+                            <li><a href="#">Exchange & Returns</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="middle-footer2">
+                    <div class="payment-methods">
+                        <p>Accepted Payment payment methods</p>
+                        <div class="payment-icons"><i class="fab fa-cc-amex"></i></div>
+                        <div class="payment-icons"><i class="fab fa-cc-visa"></i></div>
+                        <div class="payment-icons"><i class="fab fa-cc-mastercard"></i></div>
+                        <div class="payment-icons"><i class="fab fa-cc-paypal"></i></div>
+                    </div>
+                    <div class="footer-copy">
+
+                        <p>Calle Falsa 123
+                            Springfield
+                            Antioquia
+                            Argentina
+                            
+                        </p>
+                    </div>
+                    <!--  -->
+                </div>
+            </div>
+            <!-- </div> -->
+            <div class="bottom-footer">
+                <div class="author">
+                    <h4>Copyright</h4>
+                </div>
+                <div class="iconos-footer">
+                    <div class="social-media-icons"><i class="fab fa-facebook-f"></i></div>
+                    <div class="social-media-icons"><i class="fab fa-instagram"></i></div>
+                    <div class="social-media-icons"><i class="fab fa-twitter"></i></div>    
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </footer>
 </body>
 
-</html></i>
+</html>
