@@ -139,8 +139,8 @@ body {
 }
 
 .other-product-text {
-    font-size: 30px;
-    font-weight: 500;
+    font-size: 28px;
+    font-weight: bolder;
 }
 
 .other-product-image img {
@@ -273,7 +273,9 @@ body {
 
     .other-product-text {
         text-align: center;
-        font-size: 35px;
+        font-size: 28px;
+        font-weight: bolder;
+        padding-top: 25px;
     }
 
 }

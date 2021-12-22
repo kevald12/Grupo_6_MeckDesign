@@ -12,10 +12,43 @@ display: none;
 
 .categories-img img{
     width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgb(100 100 100);
 }
 
+.categories-img {
+    padding-bottom: 25px;
+}
 
+.categories-title {
+    font-size: 28px;
+    font-weight: bolder;
+    padding-bottom: 25px;
+    text-align: center;
+}
 
+.categories-img:hover .text-image {
+    display: block;
+    background-color: #000;
+    color: #fff;
+    margin-top: -40px;
+    font-size: 16px;
+    z-index: 1;
+    position: relative;
+    border-radius: 0px 0px 5px 5px;
+    padding:5px;
+    text-align: center;
+
+}
+
+.text-image:hover {
+    display: contents;
+    transition: ease-in;
+}
+
+.text-image {
+    display: none;
+}
 
 
 /* Navegación en Tablets */
