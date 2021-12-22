@@ -94,6 +94,7 @@
 
 .footer-copy {
     text-align: center;
+    margin-bottom: 10px;
 }
 
 @media (min-width: 576px) {
