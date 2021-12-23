@@ -19,3 +19,12 @@ min-width 576 tablets
 min-width 768 larger tablets
 min-width 992 desktop
 
+=========TEXTOS==========
+
+H1 "Titulos"  = font-weight: bolder, y font-size: 28px.  (desktop)
+p bold = font-size: 16px, font-weight:bold(700),
+p light = font-weight: 200, font-size:16px,
+button = border-radius: 28px, (font-size y weight = p), padding: 10px 25px,
+button white = border: 2px solid black,
+form field = border-radius:5px, padding: 10px, border: solid 1px black, margin-bottom: 20px
+
