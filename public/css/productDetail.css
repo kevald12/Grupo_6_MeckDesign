@@ -102,6 +102,13 @@ body {
     border-color: #000;
     color: #fff;
     padding: 10px, 10px, 10px, 10px;
+
+}
+.add-to-cart:hover{
+    background-color: #fff;
+    color: #000000;
+
+    transition: backgroun-color, 0.08s, color, 0.08;
 }
 
 /* Other Products */

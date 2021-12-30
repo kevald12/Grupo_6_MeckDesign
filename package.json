@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/kevald12/Grupo_6_MeckDesign#readme",
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "node": "^17.2.0",
     "nodemon": "^2.0.15"
