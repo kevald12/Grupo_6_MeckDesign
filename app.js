@@ -4,34 +4,35 @@ const app = express();
 const path = require('path');
 const publicPath = path.join(__dirname, '/public')
 app.use(express.static(publicPath));
+app.set('view engine', 'ejs')
 
 app.listen(4000, () => {
     console.log('Servidor corriendo en puerto 4000')
 })
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/index.html'))
-});
-
-app.get('/header', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/header.html'))
-});
-
-app.get('/footer', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/indexFooter.html'))
+    res.render('index.ejs')
 });
 
 app.get('/productDetail', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/productDetail.html'))
+    res.render('./products/productDetail.ejs')
 });
 
 app.get('/productCart', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/productCart.html'))
+    res.render('./products/productCart.ejs')
+});
+app.get('/products', (req, res) => {
+    res.render('./products/products.ejs')
 });
 
 app.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/register.html'))
+    res.render('./users/register.ejs')
 });
 
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/login.html'))
+    res.render('./users/login.ejs')
 });
+
+app.get('/productsCreate', (req, res) => {
+    res.render('./products/productsCreate.ejs')
+});
+
