@@ -9,30 +9,15 @@ app.set('view engine', 'ejs')
 app.listen(4000, () => {
     console.log('Servidor corriendo en puerto 4000')
 })
-app.get('/', (req, res) => {
-    res.render('index.ejs')
-});
 
-app.get('/productDetail', (req, res) => {
-    res.render('./products/productDetail.ejs')
-});
+const mainRouter = require('./routes/mainRouter.js')
+const usersRouter = require('./routes/usersRouter.js')
+const productsRouter = require ('./routes/productsRouter')
 
-app.get('/productCart', (req, res) => {
-    res.render('./products/productCart.ejs')
-});
-app.get('/products', (req, res) => {
-    res.render('./products/products.ejs')
-});
+app.use('/', mainRouter);
 
-app.get('/register', (req, res) => {
-    res.render('./users/register.ejs')
-});
+app.use('/users', usersRouter);
 
-app.get('/login', (req, res) => {
-    res.render('./users/login.ejs')
-});
+app.use('/products', productsRouter);
 
-app.get('/productsCreate', (req, res) => {
-    res.render('./products/productsCreate.ejs')
-});
 
