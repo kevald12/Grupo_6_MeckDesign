@@ -1,3 +1,5 @@
+
+
 const controller = {
     mainRouter: (req, res) => {
         return res.render('index.ejs')
@@ -12,7 +14,7 @@ const controller = {
         return res.render('./products/products.ejs')
     },
     productsCreate:  (req, res) => {
-        res.render('./products/productsCreate.ejs')
+       return res.render('./products/productsCreate.ejs')
     }
 }
 

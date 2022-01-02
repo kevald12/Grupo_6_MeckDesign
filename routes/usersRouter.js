@@ -2,11 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/register', (req, res) => {
-    res.render('./users/register.ejs')
-});
-router.get('/login', (req, res) => {
-    res.render('./users/login.ejs')
-});
+const controller = require ('../controllers/usersController.js');
+
+
+router.get('/register', controller.register)
+router.get('/login', controller.login)
 
 module.exports = router;

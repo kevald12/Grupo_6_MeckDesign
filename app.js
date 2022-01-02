@@ -12,11 +12,11 @@ app.listen(4000, () => {
 
 const mainRouter = require('./routes/mainRouter.js')
 const usersRouter = require('./routes/usersRouter.js')
-const productsRouter = require ('./routes/productsRouter')
+const productsRouter = require ('./routes/productsRouter.js')
 
 app.use('/', mainRouter);
 
-app.use('/users', usersRouter);
+app.use('/user', usersRouter);
 
 app.use('/products', productsRouter);
 
