@@ -19,3 +19,31 @@
 .banner2 img {
     width: 90%;
 }
+
+/* main Formulario create*/
+
+.form-group-create {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    width: 90%;
+}
+.form-group-create h1 {
+    text-align: left;
+    margin-bottom: 10px;
+}
+.main-container-create {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+margin-bottom: 20px;
+}
+
+
+@media (min-width: 576px) {
+    
+    .form-group-create {
+        width: 50%;
+    }
+
+}
