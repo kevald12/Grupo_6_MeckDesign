@@ -11,15 +11,30 @@
         <div class="banner2">
             <img src="/img/inspo/minimal_table-768x484.jpg" >
         </div>
-       
+        <div class="other-product-text">
+            <a href="/products">
+                <h2>Products</h2>
+            </a>
+        </div>
+        <section class="product-list-section">
+<% for( let i = 0; i < products.length; i++ ) { %>
+    <article class="product-list-article">
+        <a href="/products/detail">
+            <div class="other-product-image">
+                <img src= <%=products[i].img%>  alt="Product">
+                <p class="text-image">VIEW PRODUCT</p>
+            </div>
+            <div class="other-product-detail">
+                <h3 class="other-title-product">
+                    <%= products[i].name %> </h3>
+                <p class="other-product-price">
+                   <%= products[i].price %> </p>
                     
-    
+            </div>
 
-<!-- producto del carrito-->
-<!-- Other Products-->
-<%- include('../partials/otherProducts')%>
-
-
+    </article>
+<% } %>
+</section>
 
 </main> 
 <!-- footer -->

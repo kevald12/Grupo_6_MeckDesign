@@ -6,6 +6,7 @@
 <!-- header -->
 <%- include('../partials/header')%>
 <!-- producto del carrito-->
+<main>
 <section class="product-page">
   <article class="item">
     <div>
@@ -13,7 +14,7 @@
     </div>
     <div class="product-info">
         <div class="first-cont">
-        <h2>Nombre del producto</h2>
+        <h2>Product Name</h2>
         <form class="form-shopping" action="" method="post">
             <div class="quantity">
                 <input type="text" value="1" class="quantity-button">
@@ -22,8 +23,8 @@
         </div>
         <div class="little-icons">
             <ul class="item-action">
-                <li><a href="#">Eliminar</a></li>
-                <li><a href="#">comprar ahora</a></li>
+                <li><a href="#">Delete</a></li>
+                <li><a href="#">Buy Now</a></li>
                 <i class="fas fa-heart"></i>
                
             </ul>
@@ -36,7 +37,7 @@
     </div>
     <div class="product-info">
         <div class="first-cont">
-        <h2>Nombre del producto</h2>
+        <h2>Product Name</h2>
         <form class="form-shopping" action="" method="post">
             <div class="quantity">
                 <input type="text" value="1" class="quantity-button">
@@ -45,8 +46,8 @@
     </div>
         <div>
             <ul class="item-action">
-                <li><a href="#">Eliminar</a></li>
-                <li><a href="#">comprar ahora</a></li>
+                <li><a href="#">Delete</a></li>
+                <li><a href="#">Buy Now</a></li>
                 <i class="fas fa-heart"></i>
                
             </ul>
@@ -58,15 +59,16 @@
 </section>
 <section class="carry">
     <div class="final-price">
-        <p>precio 30$</p>
-        <p>total con envio  40$</p>
+        <p>Price 30$</p>
+        <p>Subtotal 40$</p>
        <div class="cart-button"></div>
-       <input type="submit" value="continuar con la compra" class="buy">
+       <input type="submit" value="Checkout " class="buy">
    </div>
 
 </section>
 <!-- other products -->
 <%- include('../partials/otherProducts')%>
+</main>
 <!-- footer -->
 <%- include('../partials/footer')%>
 </body>

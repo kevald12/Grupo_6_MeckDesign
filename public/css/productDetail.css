@@ -44,7 +44,9 @@ body {
     display: flex;
     flex-direction: column;
 }
-
+.other-product-text h2{
+    text-decoration: none;
+}
 
 /* Product Detail */
 
@@ -150,6 +152,7 @@ body {
     font-size: 28px;
     font-weight: bolder;
     text-align: center;
+    text-decoration: none;
 }
 
 .other-product-image img {
@@ -188,11 +191,11 @@ body {
 
 
 /* Navegación en Tablets */
-@media (min-width: 361px) {}
+@media (min-width: 576px) {}
 
 
 /* Navegación en Desktop */
-@media (min-width: 769px) {
+@media (min-width: 768px) {
 
 
     /* Product Detail */

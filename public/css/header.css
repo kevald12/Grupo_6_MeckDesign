@@ -98,10 +98,10 @@ body {
 }
 
 /* Navegación en Tablets */
-@media (min-width: 361px) {}
+@media (min-width: 576px) {}
 
 /* Navegación en Desktop */
-@media (min-width: 769px) {
+@media (min-width: 768px) {
     .burguer-menu {
         display: none;
     }

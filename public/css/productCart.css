@@ -23,6 +23,7 @@ body{
 .product-page{
     padding-top: 15px;
     margin-bottom: 50px;
+    margin: 10px 20px 50px 20px
 }
 .product-info h2{
     font-size: small;
@@ -74,6 +75,10 @@ body{
 .product-info ul{
     list-style: none;
 }
+.carry {
+    margin: 10px 20px 50px 20px
+}
+
 .final-price{
     display: flex;
     flex-wrap: nowrap;
@@ -101,7 +106,7 @@ body{
 .other-product-text {
     font-size: 30px;
     font-weight: 500;
-    text-decoration-line: underline;
+    text-decoration:none;
 }
 
 .other-product-image img {
@@ -146,42 +151,43 @@ body{
   align-self: flex-end;
   bottom: 10px;
   width: 20px;
-  height: 20px;
-  
+  height: 20px; 
 }
-.buy{
+.buy {
     width: 50%;
-    height: 25px;
-    font-size: 13px;
+    font-size: 16px;
     border-radius: 6px;
     background-color: #000;
     border-color: #000;
     color: #fff;
-    padding: 5px, 5px, 5px, 5px;
+    padding: 10px;
+    text-align: center;
 }
 .buy:hover{
-    color: black;
-    border-color: white;
-    background-color: #ababab;
+    background-color: #fff;
+    color: #000000;
+    transition: backgroun-color, 0.08s, color, 0.08;
 }
 
 /* media querys*/
 
 
-@media (min-width: 361px) {
+@media (min-width: 576px) {
     .buy{
-        align-self: center;
+        align-self: right;
     }
 
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
     .image-product{
         max-width: 250px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
     .buy{
-        align-self: center;
+        align-self: right;
+        padding: 15px 15px 15px 15px;
+        font-size: 28px;
     }
     .product-info h2{
         font-size:30px;
