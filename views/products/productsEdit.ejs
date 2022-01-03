@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- head -->
+<%- include('../partials/head')%>
+<body>
+     <!-- header -->
+     <%- include('../partials/header')%>
+     <!--main  -->
+<main>
+
+     <main class="main-container-create">
+
+          <div class="form-group-create">
+
+
+              <h1 class="title">Edit your product</h1>
+              
+              <form class="form-button" action="/edit" method="get">
+                  <input class="login-button" type="text" name="name" placeholder="New Name" >
+                  <br>
+                  <input class="login-button" type="textarea" name="description" placeholder="New Description">
+                  <br>
+                  <input class="login-button" type="file" name="image" placeholder="Upload Image">
+                  <br>
+                  <label for="price">New Price</label>
+                  <input class="login-button" type="number" name="price" step="any" min="1"
+                      placeholder="Insert Only Numbers">
+
+                <button class="send" type="submit">Edit</button>
+              </form>
+
+          </div>
+
+
+      </main>
+
+</main>
+
+     <!-- footer -->
+     <%- include('../partials/footer')%>
+</body>
+</html>

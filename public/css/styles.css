@@ -68,10 +68,12 @@ margin-bottom: 20px;
 
 .product-list-article {
     margin-bottom: 0px;
+    width: 100%;
+    padding: 20px
 }
 
 .product-list-image img {
-    width: 100%;
+    width: 90%;
     z-index: 1;
     position: relative;
     border-radius: 12px;
@@ -92,4 +94,10 @@ margin-bottom: 20px;
     width:48%;
     }
     
+}
+
+@media (min-width: 992px) {
+    .product-list-article{
+        width:25%;
+        }
 }

@@ -122,6 +122,9 @@ const controller = {
     },
     productsCreate:  (req, res) => {
        return res.render('./products/productsCreate.ejs')
+    },
+    productsEdit: (req,res) => {
+        return res.render ('./products/productsEdit.ejs')
     }
 }
 

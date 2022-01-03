@@ -12,4 +12,6 @@ router.get('/list', controller.products);
 
 router.get('/create', controller.productsCreate);
 
+router.get ('/edit', controller.productsEdit);
+
 module.exports = router;
