@@ -8,7 +8,7 @@ router.get('/detail', controller.productsDetail);
 
 router.get('/cart', controller.productsCart);
 
-router.get('/list', controller.products);
+router.get('/list/:page?', controller.products);
 
 router.get('/create', controller.productsCreate);
 

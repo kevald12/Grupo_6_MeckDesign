@@ -109,22 +109,22 @@ const products = [
 ]
 const controller = {
     mainRouter: (req, res) => {
-        return res.render('index.ejs')
+        return res.render('index.ejs', {products: products})
     },
     productsDetail: (req, res) => {
-       return res.render('./products/productDetail.ejs')
+       return res.render('./products/productDetail.ejs', {products: products})
     },
     productsCart: (req, res) => {
-        return res.render('./products/productCart.ejs')
+        return res.render('./products/productCart.ejs', {products: products})
     },
     products: (req, res) => {
         return res.render('./products/products.ejs', {products: products})
     },
     productsCreate:  (req, res) => {
-       return res.render('./products/productsCreate.ejs')
+       return res.render('./products/productsCreate.ejs', {products: products})
     },
     productsEdit: (req,res) => {
-        return res.render ('./products/productsEdit.ejs')
+        return res.render ('./products/productsEdit.ejs', {products: products})
     }
 }
 
