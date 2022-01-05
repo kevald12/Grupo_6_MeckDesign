@@ -9,7 +9,7 @@
 /* BANNER */
 
 .banner2 {
-    display: flex;
+    display: none;
     justify-content: center;
     padding: 10px 30px 30px;
     margin-bottom: 35px;
@@ -17,7 +17,8 @@
 }
 
 .banner2 img {
-    width: 90%;
+    width: 100%;
+
 }
 
 /* main Formulario create*/
@@ -98,6 +99,9 @@ margin-bottom: 20px;
     }
     .product-list-article{
     width:48%;
+    }
+    .banner2 {
+        display: flex;
     }
     
 }

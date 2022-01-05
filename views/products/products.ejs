@@ -9,7 +9,7 @@
 <main>
 
         <div class="banner2">
-            <img src="/img/inspo/minimal_table-768x484.jpg" >
+            <img src="/img/minimal_table-768x484.jpeg" >
         </div>
         <div class="other-product-text">
             <a href="/products">
@@ -19,7 +19,7 @@
         <section class="product-list-section">
 <% for( let i = 0; i < 8; i++ ) { %>
     <article class="product-list-article">
-        <a href="/products/detail">
+        <a href="/products/detail/<%= i %>">
             <div class="product-list-image">
                 <img src= <%=products[i].img%>  alt="Product">
                 <p class="text-image">VIEW PRODUCT</p>
@@ -38,6 +38,7 @@
     <div class="pages">
         <p><a href="#">Pagina 1 2</a></p>
     </div>
+
 
 </main> 
 <!-- footer -->

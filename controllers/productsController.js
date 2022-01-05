@@ -107,11 +107,24 @@ const products = [
 
     },
 ]
+const categories = [
+    {
+        room: 'bedroom',
+        texture: 'wood'
+    },
+    {
+        room: 'bedroom',
+        texture: 'fabric'
+    }
+]
+
+
 const controller = {
     mainRouter: (req, res) => {
         return res.render('index.ejs', {products: products})
     },
     productsDetail: (req, res) => {
+        res.locals.id = req.params.idProduct;
        return res.render('./products/productDetail.ejs', {products: products})
     },
     productsCart: (req, res) => {
@@ -121,6 +134,7 @@ const controller = {
         return res.render('./products/products.ejs', {products: products})
     },
     productsCreate:  (req, res) => {
+        
        return res.render('./products/productsCreate.ejs', {products: products})
     },
     productsEdit: (req,res) => {
