@@ -17,18 +17,18 @@
             </a>
         </div>
         <section class="product-list-section">
-<% for( let i = 0; i < 8; i++ ) { %>
+<% for( let i = 0; i < 20; i++ ) { %>
     <article class="product-list-article">
         <a href="/products/detail/<%= i %>">
             <div class="product-list-image">
-                <img src= <%=products[i].img%>  alt="Product">
+                <img src= "/img/products/<%=products[i].img%>"  alt="Product">
                 <p class="text-image">VIEW PRODUCT</p>
             </div>
             <div class="other-product-detail">
                 <h3 class="other-title-product">
                     <%= products[i].name %> </h3>
                 <p class="other-product-price">
-                   <%= products[i].price %> </p>
+                   $<%= products[i].price %> </p>
                     
             </div>
 

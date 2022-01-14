@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+const methodOverride = require('method-override')
+app.use (methodOverride('_method'))
+
 const path = require('path');
 const publicPath = path.join(__dirname, '/public')
 app.use(express.static(publicPath));

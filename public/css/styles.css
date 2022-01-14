@@ -21,6 +21,13 @@
 
 }
 
+.borrar {
+    background: none;
+    color: white;
+    border: none;
+    justify-self: flex-end;
+}
+
 /* main Formulario create*/
 
 .form-group-create {
