@@ -19,8 +19,8 @@
                         <div class="edit-product">
                         <h2 class="title-product" >
                             <%= products[id].name %>  </h2>
-                           <a href="/products/edit"><i class="fas fa-pencil-alt"></i></a> 
-                           <form action="/products/list?_method=DELETE" method="post">
+                           <a href="/products/edit/<%= products[id].id %> "><i class="fas fa-pencil-alt"></i></a> 
+                           <form action="/products/list/<%= products[id].id%>?_method=DELETE" method="post">
                           <button class="borrar" type="submit" > <i class="fas fa-trash-alt"></i></button>
                            </form>
 
@@ -30,12 +30,7 @@
 
                     </div>
                     <div class="description-product">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores harum incidunt dolorem
-                            perspiciatis omnis
-                            corrupti maiores inventore! Dolorem numquam provident, aut labore harum, minus consequatur
-                            fugit
-                            natus ducimus
-                            repellendus aliquid.</p>
+                        <p><%= products[id].description %> </p>
                     </div>
                     <!-- <div> -->
                         <form class="form-shopping" action="" method="post">

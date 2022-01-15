@@ -9,6 +9,9 @@ const publicPath = path.join(__dirname, '/public')
 app.use(express.static(publicPath));
 app.set('view engine', 'ejs')
 
+app.use(express.urlencoded({ extended:false }));
+app.use(express.json());
+
 app.listen(4000, () => {
     console.log('Servidor corriendo en puerto 4000')
 })
