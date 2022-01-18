@@ -94,6 +94,98 @@ margin-bottom: 20px;
     text-align: center;
 }
 
+/* Footer */
+
+.main-footer {
+    font-family: "Poppins";
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.title-navbar {
+    font-weight: bold;
+    color: #7c798e;
+}
+
+.footer-navbar ul {
+    list-style: none;
+}
+
+.footer-navbar li {
+    padding: 0 5px 10px 5px;
+}
+
+.footer-navbar a {
+    all: unset;
+}
+.footer-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-logo img {
+    width: 200px;
+}
+
+.middle-footer {
+    border-top: solid 1px #7c798e;
+    border-bottom: solid 1px #7c798e;
+    padding-top: 10px;
+}
+
+.bottom-footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.footer-payment-methods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-payment-methods p {
+    width: 100%;
+    text-align: center;
+}
+
+.footer-payment-icons {
+    font-size: 30px;
+    padding: 10px;
+}
+.footer-address {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.footer-copyright {
+    text-align: center;
+    margin: 10px;
+}
+.footer-socialmedia-icons-div {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+.footer-social-media-icons {
+    width: 70px;
+    text-align: center;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+
+
+
+
+/* Tablets */
+
 @media (min-width: 576px) {
     
     .form-group-create {
@@ -110,7 +202,47 @@ margin-bottom: 20px;
     .banner2 {
         display: flex;
     }
-    
+
+
+    /* Footer */
+    .footer-logo {
+        justify-content: flex-start;
+    }
+    .middle-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 100%;
+        padding: 10px 20px
+    }
+    .middle-footer-navbars-div {
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+    .footer-navbar {
+        width: 45%;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    .middle-footer-navbars-div,
+    .middle-footer-info-div {
+        width: 50%;
+        justify-content: space-between;
+        align-items: flex-start
+    }
+    .middle-footer-info-div {
+        padding-left: 20px;
+     }
+     .middle-footer-info-div p {
+         text-align: center;
+         
+     }
+     .bottom-footer {
+        justify-content: space-between;
+        flex-direction: row;
+        width: 100%
+    }
 }
 
 @media (min-width: 992px) {

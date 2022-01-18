@@ -1,52 +1,49 @@
-.main-container {
-    font-family: 'Poppins', Arial, Helvetica, sans-serif;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    background-color: #fff;
-    justify-content: center;
-}
-.register-container {
-    width: 90%;
-    margin: 20px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-}
-.register-top {
+
+
+/* .register-top, .register-bottom {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: flex-start;
-    border-bottom: 2px solid #4d4c5a;
-}
-.register-header {
+    width: 100%;
+    
+} */
+/* .register-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 2px solid #4d4c5a;
+} */
+/* .register-header {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     padding: 0 30px 10px 30px;
-}
-.register-header h1, .login-header h1 {
+} */
+
+
+/* .register-header h1, .login-header h1 {
     display: block;
     font-size: 28px;
     font-weight: bolder;
-}
+} */
 
-.register-header p, .login-header p {
+/* .register-header p, .login-header p {
     font-weight: normal;
     margin-bottom: 15px;
     margin-top:10px;
     font-size: 16px;
-}
+} */
 
-.register-form {
+/* .register-form {
     width: 100%;
     display: flex;
     flex-direction: column;
     padding: 0 30px 30px 30px;
-}
+} */
 /* .form-fields {
     margin: 0 0 20px 0;
     border: 2px solid black;
@@ -55,29 +52,16 @@
     padding: 10px 25px;
     width: 90%;
 } */
-.form-fields {
+/* .form-fields {
     padding: 10px;
     border: solid 1px black;
     width: 100%;
     background-color: #fff;
     border-radius: 5px;
     margin-bottom: 20px;
-}
+} */
 
-.terms {
-    align-self: flex-start;
-    font-size: 100%;
-    padding-bottom: 10px;
-    font-weight: 400;
-}
 
-.terms input {
-    margin-right: 15px;
-}
-.terms a {
-    color: #000000;
-    font-weight: bold;
-}
 
 /* .register-btn {
     width: 90%;
@@ -92,6 +76,7 @@
     font-size: 25px;
 } */
 
+/* hasta aca llegamos  */
 .register-btn {
     width: 100%;
     padding: 10px 25px;
@@ -123,13 +108,6 @@
     font-weight: bold;
 }
 
-.register-bottom {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px 30px 30px 30px;
-}
 .login-header {
     display: flex;
     flex-wrap: wrap;
