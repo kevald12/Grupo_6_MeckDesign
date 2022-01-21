@@ -1,14 +1,5 @@
 [
  {
-  "id": 29,
-  "name": "Product 4",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-  "price": 40,
-  "img": "1-4.jpg",
-  "categoriesRoom": "undefined",
-  "categoriesTexture": "undefined"
- },
- {
   "id": 30,
   "name": "Product 5",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
