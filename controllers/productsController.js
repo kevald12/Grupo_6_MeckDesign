@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const req = require('express/lib/request');
+// const req = require('express/lib/request');
 
 const productsJSONpath = path.resolve(__dirname, '../data/products.json');
 

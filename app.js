@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const session = require('express-session')
 
 const methodOverride = require('method-override')
 app.use (methodOverride('_method'))
@@ -20,10 +21,17 @@ const mainRouter = require('./routes/mainRouter.js')
 const usersRouter = require('./routes/usersRouter.js')
 const productsRouter = require ('./routes/productsRouter.js')
 
+app.use(session({
+    secret: 'ok',
+    resave: 'false', 
+    saveUninitialized: 'false',
+}));
+
 app.use('/', mainRouter);
 
 app.use('/user', usersRouter);
 
 app.use('/products', productsRouter);
+
 
 

@@ -1,181 +1,198 @@
-[{
-        "id": 1,
-        "first_name": "Carlye",
-        "last_name": "Arson",
-        "email": "carson0@artisteer.com",
-        "password": "JHCY8o",
-        "admin": true,
-        "avatar": "https://robohash.org/itaquemolestiasconsequuntur.jpg?size=50x50&set=set1"
-    },
-    {
-        "id": 2,
-        "first_name": "Mil",
-        "last_name": "Biaggioni",
-        "email": "mbiaggioni1@people.com.cn",
-        "password": "cp73kvBC9e4",
-        "admin": false,
-        "avatar": "https://robohash.org/etlaudantiumdeleniti.bmp?size=50x50&set=set1"
-    },
-    {
-        "id": 3,
-        "first_name": "Cheslie",
-        "last_name": "Martusewicz",
-        "email": "cmartusewicz2@vkontakte.ru",
-        "password": "F75DepsNS",
-        "admin": true,
-        "avatar": "https://robohash.org/etreiciendisomnis.png?size=50x50&set=set1"
-    },
-    {
-        "id": 4,
-        "first_name": "Marcello",
-        "last_name": "McShee",
-        "email": "mmcshee3@webs.com",
-        "password": "IMhHjvSTFg",
-        "admin": true,
-        "avatar": "https://robohash.org/hiclaboresapiente.jpg?size=50x50&set=set1"
-    },
-    {
-        "id": 5,
-        "first_name": "Irwin",
-        "last_name": "Grantham",
-        "email": "igrantham4@ning.com",
-        "password": "DF74rpEpOP",
-        "admin": false,
-        "avatar": "https://robohash.org/nonain.jpg?size=50x50&set=set1"
-    },
-    {
-        "id": 6,
-        "first_name": "Felisha",
-        "last_name": "Charity",
-        "email": "fcharity5@theatlantic.com",
-        "password": "M8ZwCKi",
-        "admin": true,
-        "avatar": "https://robohash.org/quisquamexsaepe.bmp?size=50x50&set=set1"
-    },
-    {
-        "id": 7,
-        "first_name": "Darcee",
-        "last_name": "Felder",
-        "email": "dfelder6@wp.com",
-        "password": "ZedDc7",
-        "admin": true,
-        "avatar": "https://robohash.org/eoscorporisautem.jpg?size=50x50&set=set1"
-    },
-    {
-        "id": 8,
-        "first_name": "Emilee",
-        "last_name": "Barnson",
-        "email": "ebarnson7@kickstarter.com",
-        "password": "5rFcCNdk3",
-        "admin": true,
-        "avatar": "https://robohash.org/cumrepudiandaedebitis.jpg?size=50x50&set=set1"
-    },
-    {
-        "id": 9,
-        "first_name": "Kermy",
-        "last_name": "Lucock",
-        "email": "klucock8@php.net",
-        "password": "nFYgyeN",
-        "admin": true,
-        "avatar": "https://robohash.org/etquiaet.jpg?size=50x50&set=set1"
-    },
-    {
-        "id": 10,
-        "first_name": "Berky",
-        "last_name": "Skehens",
-        "email": "bskehens9@nydailynews.com",
-        "password": "I54uWS11",
-        "admin": true,
-        "avatar": "https://robohash.org/nequeutvoluptas.png?size=50x50&set=set1"
-    },
-    {
-        "id": 11,
-        "first_name": "Gallard",
-        "last_name": "Balleine",
-        "email": "gballeinea@blogspot.com",
-        "password": "4MKaQZ",
-        "admin": true,
-        "avatar": "https://robohash.org/eosfugaquo.jpg?size=50x50&set=set1"
-    },
-    {
-        "id": 12,
-        "first_name": "Neille",
-        "last_name": "Chalice",
-        "email": "nchaliceb@seattletimes.com",
-        "password": "DX1lWKHv6N4",
-        "admin": false,
-        "avatar": "https://robohash.org/officiisfugarepudiandae.png?size=50x50&set=set1"
-    },
-    {
-        "id": 13,
-        "first_name": "Karlee",
-        "last_name": "Hachard",
-        "email": "khachardc@vk.com",
-        "password": "qEGWCvs9zemf",
-        "admin": false,
-        "avatar": "https://robohash.org/quidistinctioveritatis.png?size=50x50&set=set1"
-    },
-    {
-        "id": 14,
-        "first_name": "Brinn",
-        "last_name": "Davidescu",
-        "email": "bdavidescud@indiegogo.com",
-        "password": "5HXNPbpNLnFE",
-        "admin": true,
-        "avatar": "https://robohash.org/nonnamsapiente.png?size=50x50&set=set1"
-    },
-    {
-        "id": 15,
-        "first_name": "Kittie",
-        "last_name": "Aleksandrev",
-        "email": "kaleksandreve@artisteer.com",
-        "password": "3uE4PZDZrA",
-        "admin": false,
-        "avatar": "https://robohash.org/consecteturquasreiciendis.bmp?size=50x50&set=set1"
-    },
-    {
-        "id": 16,
-        "first_name": "Tobie",
-        "last_name": "Shorrock",
-        "email": "tshorrockf@toplist.cz",
-        "password": "ovwvDpMzg",
-        "admin": true,
-        "avatar": "https://robohash.org/quiaaliquiditaque.jpg?size=50x50&set=set1"
-    },
-    {
-        "id": 17,
-        "first_name": "Rik",
-        "last_name": "Schwier",
-        "email": "rschwierg@cnn.com",
-        "password": "qYHJ0X1",
-        "admin": false,
-        "avatar": "https://robohash.org/voluptatemaomnis.jpg?size=50x50&set=set1"
-    },
-    {
-        "id": 18,
-        "first_name": "Ives",
-        "last_name": "Meas",
-        "email": "imeash@domainmarket.com",
-        "password": "MfIbyWzG",
-        "admin": true,
-        "avatar": "https://robohash.org/inciduntexercitationemadipisci.jpg?size=50x50&set=set1"
-    },
-    {
-        "id": 19,
-        "first_name": "Raoul",
-        "last_name": "Lambell",
-        "email": "rlambelli@studiopress.com",
-        "password": "CXdYYo",
-        "admin": true,
-        "avatar": "https://robohash.org/laudantiumquibusdammollitia.png?size=50x50&set=set1"
-    },
-    {
-        "id": 20,
-        "first_name": "Dredi",
-        "last_name": "Fitt",
-        "email": "dfittj@exblog.jp",
-        "password": "BuUK1NH",
-        "admin": true,
-        "avatar": "https://robohash.org/inventoreconsecteturest.bmp?size=50x50&set=set1"
-    }
+[
+ {
+  "id": 1,
+  "first_name": "Carlye",
+  "last_name": "Arson",
+  "email": "carson0@artisteer.com",
+  "password": "JHCY8o",
+  "admin": true,
+  "avatar": "https://robohash.org/itaquemolestiasconsequuntur.jpg?size=50x50&set=set1"
+ },
+ {
+  "id": 2,
+  "first_name": "Mil",
+  "last_name": "Biaggioni",
+  "email": "mbiaggioni1@people.com.cn",
+  "password": "cp73kvBC9e4",
+  "admin": false,
+  "avatar": "https://robohash.org/etlaudantiumdeleniti.bmp?size=50x50&set=set1"
+ },
+ {
+  "id": 3,
+  "first_name": "Cheslie",
+  "last_name": "Martusewicz",
+  "email": "cmartusewicz2@vkontakte.ru",
+  "password": "F75DepsNS",
+  "admin": true,
+  "avatar": "https://robohash.org/etreiciendisomnis.png?size=50x50&set=set1"
+ },
+ {
+  "id": 4,
+  "first_name": "Marcello",
+  "last_name": "McShee",
+  "email": "mmcshee3@webs.com",
+  "password": "IMhHjvSTFg",
+  "admin": true,
+  "avatar": "https://robohash.org/hiclaboresapiente.jpg?size=50x50&set=set1"
+ },
+ {
+  "id": 5,
+  "first_name": "Irwin",
+  "last_name": "Grantham",
+  "email": "igrantham4@ning.com",
+  "password": "DF74rpEpOP",
+  "admin": false,
+  "avatar": "https://robohash.org/nonain.jpg?size=50x50&set=set1"
+ },
+ {
+  "id": 6,
+  "first_name": "Felisha",
+  "last_name": "Charity",
+  "email": "fcharity5@theatlantic.com",
+  "password": "M8ZwCKi",
+  "admin": true,
+  "avatar": "https://robohash.org/quisquamexsaepe.bmp?size=50x50&set=set1"
+ },
+ {
+  "id": 7,
+  "first_name": "Darcee",
+  "last_name": "Felder",
+  "email": "dfelder6@wp.com",
+  "password": "ZedDc7",
+  "admin": true,
+  "avatar": "https://robohash.org/eoscorporisautem.jpg?size=50x50&set=set1"
+ },
+ {
+  "id": 8,
+  "first_name": "Emilee",
+  "last_name": "Barnson",
+  "email": "ebarnson7@kickstarter.com",
+  "password": "5rFcCNdk3",
+  "admin": true,
+  "avatar": "https://robohash.org/cumrepudiandaedebitis.jpg?size=50x50&set=set1"
+ },
+ {
+  "id": 9,
+  "first_name": "Kermy",
+  "last_name": "Lucock",
+  "email": "klucock8@php.net",
+  "password": "nFYgyeN",
+  "admin": true,
+  "avatar": "https://robohash.org/etquiaet.jpg?size=50x50&set=set1"
+ },
+ {
+  "id": 10,
+  "first_name": "Berky",
+  "last_name": "Skehens",
+  "email": "bskehens9@nydailynews.com",
+  "password": "I54uWS11",
+  "admin": true,
+  "avatar": "https://robohash.org/nequeutvoluptas.png?size=50x50&set=set1"
+ },
+ {
+  "id": 11,
+  "first_name": "Gallard",
+  "last_name": "Balleine",
+  "email": "gballeinea@blogspot.com",
+  "password": "4MKaQZ",
+  "admin": true,
+  "avatar": "https://robohash.org/eosfugaquo.jpg?size=50x50&set=set1"
+ },
+ {
+  "id": 12,
+  "first_name": "Neille",
+  "last_name": "Chalice",
+  "email": "nchaliceb@seattletimes.com",
+  "password": "DX1lWKHv6N4",
+  "admin": false,
+  "avatar": "https://robohash.org/officiisfugarepudiandae.png?size=50x50&set=set1"
+ },
+ {
+  "id": 13,
+  "first_name": "Karlee",
+  "last_name": "Hachard",
+  "email": "khachardc@vk.com",
+  "password": "qEGWCvs9zemf",
+  "admin": false,
+  "avatar": "https://robohash.org/quidistinctioveritatis.png?size=50x50&set=set1"
+ },
+ {
+  "id": 14,
+  "first_name": "Brinn",
+  "last_name": "Davidescu",
+  "email": "bdavidescud@indiegogo.com",
+  "password": "5HXNPbpNLnFE",
+  "admin": true,
+  "avatar": "https://robohash.org/nonnamsapiente.png?size=50x50&set=set1"
+ },
+ {
+  "id": 15,
+  "first_name": "Kittie",
+  "last_name": "Aleksandrev",
+  "email": "kaleksandreve@artisteer.com",
+  "password": "3uE4PZDZrA",
+  "admin": false,
+  "avatar": "https://robohash.org/consecteturquasreiciendis.bmp?size=50x50&set=set1"
+ },
+ {
+  "id": 16,
+  "first_name": "Tobie",
+  "last_name": "Shorrock",
+  "email": "tshorrockf@toplist.cz",
+  "password": "ovwvDpMzg",
+  "admin": true,
+  "avatar": "https://robohash.org/quiaaliquiditaque.jpg?size=50x50&set=set1"
+ },
+ {
+  "id": 17,
+  "first_name": "Rik",
+  "last_name": "Schwier",
+  "email": "rschwierg@cnn.com",
+  "password": "qYHJ0X1",
+  "admin": false,
+  "avatar": "https://robohash.org/voluptatemaomnis.jpg?size=50x50&set=set1"
+ },
+ {
+  "id": 18,
+  "first_name": "Ives",
+  "last_name": "Meas",
+  "email": "imeash@domainmarket.com",
+  "password": "MfIbyWzG",
+  "admin": true,
+  "avatar": "https://robohash.org/inciduntexercitationemadipisci.jpg?size=50x50&set=set1"
+ },
+ {
+  "id": 19,
+  "first_name": "Raoul",
+  "last_name": "Lambell",
+  "email": "rlambelli@studiopress.com",
+  "password": "CXdYYo",
+  "admin": true,
+  "avatar": "https://robohash.org/laudantiumquibusdammollitia.png?size=50x50&set=set1"
+ },
+ {
+  "id": 20,
+  "first_name": "Dredi",
+  "last_name": "Fitt",
+  "email": "dfittj@exblog.jp",
+  "password": "BuUK1NH",
+  "admin": true,
+  "avatar": "https://robohash.org/inventoreconsecteturest.bmp?size=50x50&set=set1"
+ },
+ {
+  "id": 21,
+  "first_name": "Eloísa",
+  "last_name": "Cardona",
+  "userAvatar": "1643766589244-avatar.jpg",
+  "email": "eloisacardona84@hotmail.com",
+  "password": "$2a$10$oETt/vlufEfx8GUXpNdKVuYPFqtbMr0YStBc.KeebRK1HUVQNpwVi"
+ },
+ {
+  "id": 22,
+  "first_name": "Eloísa",
+  "last_name": "Cardona",
+  "userAvatar": "1643766638382-avatar.jpg",
+  "email": "eloisacardona84@hotmail.com",
+  "password": "$2a$10$XQIk231BqCwaIp.pVH6iB.mD24wSoL3Jv80DSV1JcqM95qOq6bv9m"
+ }
 ]
