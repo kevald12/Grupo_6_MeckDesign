@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const bcryptjs = require('bcryptjs');
+const { validationResult } = require('express-validator');
 const usersJSONpath = path.resolve(__dirname, '../data/users.json');
 
 const users = JSON.parse(fs.readFileSync(usersJSONpath, 'utf-8'));
@@ -19,12 +20,18 @@ processLogin: (req, res) => {
    if (userToLogin) {
       const passwordIsCorrect = bcryptjs.compareSync(req.body.password, userToLogin.password);
           if (passwordIsCorrect) {
-      delete userToLogin.password;
-      req.session.userLogged = userToLogin; 
+            //  delete userToLogin.password;
+              req.session.userLogged = userToLogin; 
+      if (req.body.rememberUser){
+        res.cookie('userEmail', req.body.email, {maxAge: 1000 * 60})
+    }
+
    
    }
-   return res.redirect("/")
-   } console.log("session" + req.session.userLogged)
+   return res.render("./users/profile.ejs", {
+       userLogged: req.session.userLogged
+   })
+   }
 },
 createUser: (req,res)=> {
    var generateID = () => {
@@ -44,6 +51,13 @@ createUser: (req,res)=> {
           return 1
       }
   };
+    var validationsResults = validationResult(req);
+    if (resultValidation.errors.length > 0) {
+        return res.render("register", {
+            errors: resultValidation.mapped(),
+            oldData: req.body
+        });
+    }
   let passEncriptada = bcryptjs.hashSync(req.body.password, 10);
       users.push({
           id: generateID (),
@@ -57,6 +71,16 @@ createUser: (req,res)=> {
       fs.writeFileSync(usersJSONpath, JSON.stringify(users, null, ' '));
 
   return res.send('Este es el profile de usuario')
+},
+profile: (req, res) => {
+    res.render('./users/profile.ejs', {
+        userLogged: req.session.userLogged
+    })
+},
+logout: (req, res) => {
+    res.clearCookie("userEmail");
+    req.session.destroy();
+    return res.redirect("/");
 }
 }
 

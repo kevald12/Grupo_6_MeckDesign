@@ -1,41 +1,23 @@
+// Modules
 const express = require('express');
 const path = require('path');
 const router = express.Router();
 
+// Middlewares 
+const upload = require ('../middlewares/multerMiddleware')
+const validations = require('../middlewares/validateRegisterMiddleware')
+const authMiddleware = require('../middlewares/authMiddleware');
+const guestMiddleware = require('../middlewares/guestMiddleware');
+
+
 const controller = require ('../controllers/usersController.js');
-const multer = require ('multer');
-// const { path } = require('express/lib/application');
 
-const diskStorage = multer.diskStorage ({
-
-    destination:(req,file,cb) => {
-        cb (null,path.resolve(__dirname,'../public/img/usersImg')); 
-        
-    },
-    
-    filename:(req,file,cb) => {
-        const finalName = Date.now() + '-' + 'avatar' + path.extname(file.originalname)
-        cb(null,finalName)
-    }
-
-});
-const upload = multer({ 
-	storage: diskStorage,
-	fileFilter: (req, file, cb) => {
-		const acceptedExtensions = [".jpg", ".png", ".jpeg", ".gif"];
-		const fileExtension = path.extname(file.originalname).toLowerCase();
-		if (acceptedExtensions.includes(fileExtension)) {
-			cb(null, true);
-		} else {
-			return cb("Only .png, .jpg, .jpeg and .gif format allowed!");
-		}
-	}
-});
-
-
-router.get('/register', controller.register);
-router.post('/register', upload.single('userAvatar'), controller.createUser);
-router.get('/login', controller.login);
-router.post('/login', controller.processLogin)
+// Routes
+router.get('/register', authMiddleware, controller.register);
+router.post('/register', upload.single('userAvatar'), validations, controller.createUser);
+router.get('/login', authMiddleware, controller.login);
+router.post('/login', controller.processLogin);
+router.get('/profile', guestMiddleware, controller.profile);
+router.post('/logout', controller.logout);
 
 module.exports = router;

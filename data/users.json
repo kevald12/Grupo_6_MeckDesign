@@ -194,5 +194,13 @@
   "userAvatar": "1643766638382-avatar.jpg",
   "email": "eloisacardona84@hotmail.com",
   "password": "$2a$10$XQIk231BqCwaIp.pVH6iB.mD24wSoL3Jv80DSV1JcqM95qOq6bv9m"
+ },
+ {
+  "id": 23,
+  "first_name": "Matias",
+  "last_name": "Carrasco",
+  "userAvatar": "1644071865884-avatar.jpg",
+  "email": "matiascarrasco.2290@gmail.com",
+  "password": "$2a$10$zHTpJFLBm2.VypxgjFfZfOpDjADU/j1PbfCsL8FMuagpvesqYRXXm"
  }
 ]

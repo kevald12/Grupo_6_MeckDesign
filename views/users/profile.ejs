@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- head -->
+<%- include('../partials/head') %>
+
+    <body>
+        <!-- header -->
+        <%- include('../partials/header')%>
+            <!-- <<<< Main >>>> -->
+
+            <main class="main-container">
+
+                <div class="form-login-register">
+
+                    <div class="seccion-account1">
+                        <h1 class="title">Hi <%= locals.userLogged.first_name %>  </h1>
+                        <img src="/img/usersImg/<%= locals.userLogged.userAvatar %> " alt="">
+                    </div>
+
+
+                    <!-- <div class="seccion-account"> -->
+                    <div class="seccion-account2">
+                        <form action="/user/logout" method="post">
+                            <button href="/user/Logout"> Logout </button>
+                        </form>
+                   
+                        <!-- </div> -->
+
+                    </div>
+                </div>
+
+
+
+            </main>
+
+            <!-- <<<< footer >>>> -->
+            <%- include('../partials/footer') %>
+    </body>
+
+</html>
