@@ -543,11 +543,17 @@ margin-bottom: 20px;
 /* Register */
 
 .form-fields-invalid {
-    border: red
+    padding: 10px;
+    border: solid 1px red;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 .text-danger {
     color: red
+    
 }
 
 /* Footer */

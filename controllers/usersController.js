@@ -70,7 +70,7 @@ createUser: (req,res)=> {
       
       fs.writeFileSync(usersJSONpath, JSON.stringify(users, null, ' '));
 
-  return res.send('Este es el profile de usuario')
+  return res.redirect('/user/profile')
 },
 profile: (req, res) => {
     res.render('./users/profile.ejs', {

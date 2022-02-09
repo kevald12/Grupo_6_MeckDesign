@@ -3,6 +3,10 @@ const path = require('path');
 const validations = [
         body('first_name').notEmpty().withMessage('Please enter your first name'),
         body('last_name').notEmpty().withMessage('Please enter your last name'),
+        body('email').notEmpty().withMessage('Please enter an email').bail()
+        .isEmail().withMessage('Please enter a valid email format').bail()
+        .normalizeEmail(),
+        body('password').notEmpty().withMessage('Please enter a valid password').bail(),
         body('userAvatar').custom((value, {req})=> {
             let file = req.file;
             let acceptedExtensions = ['.png', '.jpg', '.jpeg'];
@@ -15,11 +19,7 @@ const validations = [
             }
         }
         return true;
-        }).bail(),
-        body('email').notEmpty().withMessage('Please enter an email').bail()
-        .isEmail().withMessage('Please enter a valid email format').bail()
-        .normalizeEmail(),
-        body('password').notEmpty().withMessage('Please enter a valid password').bail(),
-];
-
+        })
+    ];
+    
 module.exports = validations

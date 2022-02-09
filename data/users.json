@@ -210,5 +210,29 @@
   "userAvatar": "1644369255333-avatar.jpg",
   "email": "kevin123@gmail.com",
   "password": "$2a$10$MfPoLBsp5nZBrDoh9KP4X.UoJLRYJZzCV6cfVMjQFkcVCIFM05Qga"
+ },
+ {
+  "id": 25,
+  "first_name": "Javier",
+  "last_name": "Montero",
+  "userAvatar": "1644374297669-avatar.jpg",
+  "email": "ventas@soulfix.com.ar",
+  "password": "$2a$10$LwHw.Jmfu0MA3IIsnbu6T.ZveV3tQYDQy69SrVNnvl3rr63g8TF9m"
+ },
+ {
+  "id": 26,
+  "first_name": "Javier",
+  "last_name": "Montero",
+  "userAvatar": "1644374335224-avatar.jpg",
+  "email": "ventas@soulfix.com.ar",
+  "password": "$2a$10$LifS49wUHWxuYxhLXSy9QeLZQn.nXFtE9kCfzOIG6r9mEYEE4bgr2"
+ },
+ {
+  "id": 27,
+  "first_name": "Usuario",
+  "last_name": "Nuevo",
+  "userAvatar": "1644374386214-avatar.jpg",
+  "email": "pasa@gmail.com",
+  "password": "$2a$10$yF4n3p9lJB4hMuTrlB5o0.s6aO4g5xj29/UoKLmKMe7CIA1F9xR1G"
  }
 ]

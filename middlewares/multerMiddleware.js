@@ -15,16 +15,16 @@ const diskStorage = multer.diskStorage ({
 
 });
 const upload = multer({ 
-	storage: diskStorage,
-	fileFilter: (req, file, cb) => {
-		const acceptedExtensions = [".jpg", ".png", ".jpeg", ".gif"];
-		const fileExtension = path.extname(file.originalname).toLowerCase();
-		if (acceptedExtensions.includes(fileExtension)) {
-			cb(null, true);
-		} else {
-			return cb("Only .png, .jpg, .jpeg and .gif format allowed!");
-		}
-	}
+	storage: diskStorage
+	// fileFilter: (req, file, cb) => {
+	// 	const acceptedExtensions = [".jpg", ".png", ".jpeg", ".gif"];
+	// 	const fileExtension = path.extname(file.originalname).toLowerCase();
+	// 	if (acceptedExtensions.includes(fileExtension)) {
+	// 		cb(null, true);
+	// 	} else {
+	// 		return cb("Only .png, .jpg, .jpeg and .gif format allowed!");
+	// 	}
+	// }
 });
 
 module.exports = upload;

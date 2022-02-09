@@ -17,15 +17,20 @@
                         earning you reward points on every purchase.</p>
                 <!-- </div> -->
                 <form action="/user/register" method="post" enctype="multipart/form-data" class="form-button">
+                    <% if (locals.errors && errors.first_name) { %>
+                        <div class="text-danger">
+                            <%= errors.first_name.msg %> 
+                        </div>
+                    <% } %>
                     <input type="text" 
                     name="first_name" 
                     id="name" 
                     placeholder="Enter First Name" 
                     class="form-fields<%= locals.errors && errors.first_name ? '-invalid' : null %>" 
                     value="<%= locals.oldData ? oldData.first_name : null %>">
-                    <% if (locals.errors && errors.firts_name) { %>
+                    <% if (locals.errors && errors.last_name) { %>
                         <div class="text-danger">
-                            <%= errors.first_name.msg %> 
+                            <%= errors.last_name.msg %> 
                         </div>
                     <% } %>
                     <input 
@@ -35,29 +40,34 @@
                     placeholder="Enter Last Name"
                     value="<%= locals.oldData ? oldData.last_name : null %>"
                         class="form-fields<%= locals.errors && errors.last_name ? '-invalid' : null %>" >
-                        <% if (locals.errors && errors.last_name) { %>
+                        <label for="userAvatar">Upload your avatar</label>
+                        <% if (locals.errors && errors.userAvatar) { %>
                             <div class="text-danger">
-                                <%= errors.last_name.msg %> 
+                                <%= errors.userAvatar.msg %> 
                             </div>
                         <% } %>
-                        <label for="userAvatar">Upload your avatar</label>
                     <input 
                     class="form-fields<%= locals.errors && errors.userAvatar ? '-invalid' : null %>"  
                     type="file" 
                     id="userAvatar" 
                     name="userAvatar">
+                    <% if (locals.errors && errors.email) { %>
+                        <div class="text-danger">
+                            <%= errors.email.msg %> 
+                        </div>
+                    <% } %>
                     <input 
                     type="email" 
-                    ame="email" 
+                    name="email" 
                     id="email" 
                     placeholder="Email Address*" 
                     value="<%= locals.oldData ? oldData.email : null %>"
                     class="form-fields<%= locals.errors && errors.email ? '-invalid' : null %>" >
-                        <% if (locals.errors && errors.email) { %>
-                            <div class="text-danger">
-                                <%= errors.email.msg %> 
-                            </div>
-                        <% } %>
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="text-danger">
+                            <%= errors.password.msg %> 
+                        </div>
+                    <% } %> 
                     <input 
                     type="password" 
                     name="password" 
@@ -65,11 +75,7 @@
                     placeholder="Password*" 
                     value="<%= locals.oldData ? oldData.password : null %>"
                     class="form-fields<%= locals.errors && errors.password ? '-invalid' : null %>" >
-                    <% if (locals.errors && errors.password) { %>
-                        <div class="text-danger">
-                            <%= errors.password.msg %> 
-                        </div>
-                    <% } %>
+                   
                         <div class="terms">
                         <input type="checkbox" name="admin" id="admin" value="true"> <label for="admin">Are you an admin?</label>
                 </div>
