@@ -17,15 +17,59 @@
                         earning you reward points on every purchase.</p>
                 <!-- </div> -->
                 <form action="/user/register" method="post" enctype="multipart/form-data" class="form-button">
-                    <input type="text" name="first_name" id="name" placeholder="Enter First Name" class="form-fields">
-                    <input type="text" name="last_name" id="last-name" placeholder="Enter Last Name"
-                        class="form-fields">
+                    <input type="text" 
+                    name="first_name" 
+                    id="name" 
+                    placeholder="Enter First Name" 
+                    class="form-fields<%= locals.errors && errors.first_name ? '-invalid' : null %>" 
+                    value="<%= locals.oldData ? oldData.first_name : null %>">
+                    <% if (locals.errors && errors.firts_name) { %>
+                        <div class="text-danger">
+                            <%= errors.first_name.msg %> 
+                        </div>
+                    <% } %>
+                    <input 
+                    type="text" 
+                    name="last_name" 
+                    id="last-name" 
+                    placeholder="Enter Last Name"
+                    value="<%= locals.oldData ? oldData.last_name : null %>"
+                        class="form-fields<%= locals.errors && errors.last_name ? '-invalid' : null %>" >
+                        <% if (locals.errors && errors.last_name) { %>
+                            <div class="text-danger">
+                                <%= errors.last_name.msg %> 
+                            </div>
+                        <% } %>
                         <label for="userAvatar">Upload your avatar</label>
-                    <input class="form-fields" type="file" id="userAvatar" name="userAvatar">
-                    <input type="email" name="email" id="email" placeholder="Email Address*" class="form-fields"
-                        required>
-                    <input type="password" name="password" id="password" placeholder="Password*" class="form-fields"
-                        required>
+                    <input 
+                    class="form-fields<%= locals.errors && errors.userAvatar ? '-invalid' : null %>"  
+                    type="file" 
+                    id="userAvatar" 
+                    name="userAvatar">
+                    <input 
+                    type="email" 
+                    ame="email" 
+                    id="email" 
+                    placeholder="Email Address*" 
+                    value="<%= locals.oldData ? oldData.email : null %>"
+                    class="form-fields<%= locals.errors && errors.email ? '-invalid' : null %>" >
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="text-danger">
+                                <%= errors.email.msg %> 
+                            </div>
+                        <% } %>
+                    <input 
+                    type="password" 
+                    name="password" 
+                    id="password" 
+                    placeholder="Password*" 
+                    value="<%= locals.oldData ? oldData.password : null %>"
+                    class="form-fields<%= locals.errors && errors.password ? '-invalid' : null %>" >
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="text-danger">
+                            <%= errors.password.msg %> 
+                        </div>
+                    <% } %>
                         <div class="terms">
                         <input type="checkbox" name="admin" id="admin" value="true"> <label for="admin">Are you an admin?</label>
                 </div>

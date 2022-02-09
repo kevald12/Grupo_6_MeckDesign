@@ -202,5 +202,13 @@
   "userAvatar": "1644071865884-avatar.jpg",
   "email": "matiascarrasco.2290@gmail.com",
   "password": "$2a$10$zHTpJFLBm2.VypxgjFfZfOpDjADU/j1PbfCsL8FMuagpvesqYRXXm"
+ },
+ {
+  "id": 24,
+  "first_name": "Kevin",
+  "last_name": "De Arco",
+  "userAvatar": "1644369255333-avatar.jpg",
+  "email": "kevin123@gmail.com",
+  "password": "$2a$10$MfPoLBsp5nZBrDoh9KP4X.UoJLRYJZzCV6cfVMjQFkcVCIFM05Qga"
  }
 ]

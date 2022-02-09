@@ -523,7 +523,32 @@ margin-bottom: 20px;
 
     transition: backgroun-color, 0.08s, color, 0.08;
 }
+/* Profile */
 
+.profile-account {
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;    
+    justify-content: center;
+    align-items: center;
+}
+
+.userImg img {
+    width: 200px;
+    border-radius: 12px;
+    filter: drop-shadow(0 1px 5px rgba(0, 0, 0, 0.2));
+    padding: 10px
+}
+
+/* Register */
+
+.form-fields-invalid {
+    border: red
+}
+
+.text-danger {
+    color: red
+}
 
 /* Footer */
 

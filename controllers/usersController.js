@@ -51,9 +51,9 @@ createUser: (req,res)=> {
           return 1
       }
   };
-    var validationsResults = validationResult(req);
+    var resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
-        return res.render("register", {
+        return res.render("./users/register.ejs", {
             errors: resultValidation.mapped(),
             oldData: req.body
         });

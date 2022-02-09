@@ -10,24 +10,20 @@
 
             <main class="main-container">
 
-                <div class="form-login-register">
+            
 
-                    <div class="seccion-account1">
-                        <h1 class="title">Hi <%= locals.userLogged.first_name %>  </h1>
+                    <div class="profile-account">
+
+                        <h1 class="title">My Account</h1>
+                        <h2 class="title"><%= locals.userLogged.first_name %></h2>
+                            <div class="userImg">
                         <img src="/img/usersImg/<%= locals.userLogged.userAvatar %> " alt="">
-                    </div>
-
-
-                    <!-- <div class="seccion-account"> -->
-                    <div class="seccion-account2">
+                            </div>
                         <form action="/user/logout" method="post">
-                            <button href="/user/Logout"> Logout </button>
+                            <button class="send" href="/user/Logout"> Logout </button>
                         </form>
-                   
-                        <!-- </div> -->
-
                     </div>
-                </div>
+
 
 
 
