@@ -15,23 +15,23 @@
                     <h1 class="title">Create a new product</h1>
                     
                     <form class="form-button" action="/products/list" method="post"  enctype="multipart/form-data">
-                        <input class="login-button" type="text" name="name" placeholder="Product Name" required>
+                        <input class="form-fields" type="text" name="name" placeholder="Product Name" required>
                         <br>
-                        <input class="login-button" type="textarea" name="description" placeholder="Product Description"
+                        <input class="form-fields" type="textarea" name="description" placeholder="Product Description"
                             required>
                         <br>
                         <label for="img">Upload Image</label>
-                        <input class="login-button" type="file" name="img" placeholder="Upload Image" required>
+                        <input class="form-fields" type="file" name="img" placeholder="Upload Image" required>
                         <br>
                         <label for="By Room">Select By Room</label>
-                        <select class="login-button" value="By Room" name="By Room" placeholder="Select By Room">
+                        <select class="form-fields" value="By Room" name="By Room" placeholder="Select By Room">
                             <option value="categories">Living Room</option>
                             <option value="categories">Dinig Room</option>
                             <option value="categories">Kitchen</option>
                         </select>
                         <br>
                         <label for="By Texture">Select By Texture</label>
-                        <select class="login-button" value="By Texture" name="By Texture"
+                        <select class="form-fields" value="By Texture" name="By Texture"
                             placeholder="Select By Texture">
                             <option value="categories">Wood</option>
                             <option value="categories">Fabric</option>
@@ -41,7 +41,7 @@
 
                         <br>
                         <label for="price">Product Price</label>
-                        <input class="login-button" type="number" name="price" step="any" min="1"
+                        <input class="form-fields" type="number" name="price" step="any" min="1"
                             placeholder="Insert Only Numbers" required>
 
                         <button class="send" type="submit">Submit</button>

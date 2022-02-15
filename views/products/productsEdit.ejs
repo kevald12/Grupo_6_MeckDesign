@@ -16,22 +16,22 @@
               <h1 class="title">Edit the product <%= theProduct.name %> </h1>
               
               <form class="form-button" action="/products/edit/<%= theProduct.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-                  <input class="login-button" type="text" name="name" value="<%= theProduct.name%>" placeholder="New Name" >
+                  <input class="form-fields" type="text" name="name" value="<%= theProduct.name%>" placeholder="New Name" >
                   <br>
-                  <input class="login-button" type="textarea" name="description" value="<%= theProduct.description%>" placeholder="New Description">
+                  <input class="form-fields" type="textarea" name="description" value="<%= theProduct.description%>" placeholder="New Description">
                   <br>
                   <label for="img">Upload New Image</label>
-                  <input class="login-button" type="file" name="img" placeholder="Upload Image">
+                  <input class="form-fields" type="file" name="img" placeholder="Upload Image">
                   <br>
                   <label for="By Room">Select By Room</label>
-                  <select class="login-button" value="By Room" name="categoriesRoom" placeholder="Select By Room">
+                  <select class="form-fields" value="By Room" name="categoriesRoom" placeholder="Select By Room">
                       <option value="categories">Living Room</option>
                       <option value="categories">Dinig Room</option>
                       <option value="categories">Kitchen</option>
                   </select>
                   <br>
                   <label for="By Texture">Select By Texture</label>
-                  <select class="login-button" value="By Texture" name="categoriesTexture"
+                  <select class="form-fields" value="By Texture" name="categoriesTexture"
                       placeholder="Select By Texture">
                       <option value="categories">Wood</option>
                       <option value="categories">Fabric</option>
@@ -40,7 +40,7 @@
                   </select>
                   <br>
                   <label for="price">New Price</label>
-                  <input class="login-button" type="number" value="<%= theProduct.price%>" name="price" step="any" min="1"
+                  <input class="form-fields" type="number" value="<%= theProduct.price%>" name="price" step="any" min="1"
                       placeholder="Insert Only Numbers">
 
                 <button class="send" type="submit">Edit</button>
