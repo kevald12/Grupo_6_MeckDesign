@@ -8,29 +8,35 @@ const users = JSON.parse(fs.readFileSync(usersJSONpath, 'utf-8'));
 
 const controller ={
  register:  (req, res) => {
-    return res.render('./users/register.ejs')
+    let userToRegister = users.find(oneuser => oneuser.email == req.body.email);
+    return res.render('./users/register.ejs', {userToRegister: userToRegister})
 },
 login: (req, res) => {
    return res.render('./users/login.ejs')
 },
 processLogin: (req, res) => {
-
-   let userToLogin = users.find(oneuser => oneuser.email == req.body.email);
+    let userToLogin = users.find(oneuser => oneuser.email == req.body.email);
    // console.log('usuario encontrado' + userToLogin)
    if (userToLogin) {
       const passwordIsCorrect = bcryptjs.compareSync(req.body.password, userToLogin.password);
           if (passwordIsCorrect) {
             //  delete userToLogin.password;
               req.session.userLogged = userToLogin; 
-      if (req.body.rememberUser){
-        res.cookie('userEmail', req.body.email, {maxAge: 1000 * 60})
-    }
+        if (req.body.rememberUser){
+            res.cookie('userEmail', req.body.email, {maxAge: 1000 * 60})
+        }
 
+        return res.render("./users/profile.ejs", {
+            userLogged: req.session.userLogged
+        })
+   } else {
+    let loginError = 'The credentials provided are invalid'
+    return res.render('./users/login', {loginError: loginError })
+} 
+} else {
+    let loginError = 'The credentials provided are invalid'
+    return res.render('./users/login', {loginError: loginError })
    
-   }
-   return res.render("./users/profile.ejs", {
-       userLogged: req.session.userLogged
-   })
    }
 },
 createUser: (req,res)=> {
@@ -51,6 +57,13 @@ createUser: (req,res)=> {
           return 1
       }
   };
+  let userAlreadyRegistered = users.find(oneuser => oneuser.email == req.body.email);
+      if (userAlreadyRegistered) {
+        return res.render("./users/register.ejs", {
+            userAlreadyRegistered,
+            oldData: req.body
+        });
+      }
     var resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
         return res.render("./users/register.ejs", {
@@ -66,8 +79,7 @@ createUser: (req,res)=> {
           userAvatar: req.file.filename,
           email: req.body.email,
           password: passEncriptada
-      });
-      
+      });      
       fs.writeFileSync(usersJSONpath, JSON.stringify(users, null, ' '));
 
   return res.redirect('/user/profile')

@@ -17,6 +17,7 @@
                         earning you reward points on every purchase.</p>
                 <!-- </div> -->
                 <form action="/user/register" method="post" enctype="multipart/form-data" class="form-button">
+
                     <% if (locals.errors && errors.first_name) { %>
                         <div class="text-danger">
                             <%= errors.first_name.msg %> 
@@ -28,6 +29,7 @@
                     placeholder="Enter First Name" 
                     class="form-fields<%= locals.errors && errors.first_name ? '-invalid' : null %>" 
                     value="<%= locals.oldData ? oldData.first_name : null %>">
+
                     <% if (locals.errors && errors.last_name) { %>
                         <div class="text-danger">
                             <%= errors.last_name.msg %> 
@@ -40,6 +42,7 @@
                     placeholder="Enter Last Name"
                     value="<%= locals.oldData ? oldData.last_name : null %>"
                         class="form-fields<%= locals.errors && errors.last_name ? '-invalid' : null %>" >
+
                         <label for="userAvatar">Upload your avatar</label>
                         <% if (locals.errors && errors.userAvatar) { %>
                             <div class="text-danger">
@@ -51,9 +54,15 @@
                     type="file" 
                     id="userAvatar" 
                     name="userAvatar">
+                    
                     <% if (locals.errors && errors.email) { %>
                         <div class="text-danger">
                             <%= errors.email.msg %> 
+                        </div>
+                    <% } %>
+                    <% if (locals.userAlreadyRegistered) { %>
+                        <div class="text-danger">
+                           This email is already registered 
                         </div>
                     <% } %>
                     <input 
@@ -63,6 +72,7 @@
                     placeholder="Email Address*" 
                     value="<%= locals.oldData ? oldData.email : null %>"
                     class="form-fields<%= locals.errors && errors.email ? '-invalid' : null %>" >
+
                     <% if (locals.errors && errors.password) { %>
                         <div class="text-danger">
                             <%= errors.password.msg %> 
