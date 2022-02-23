@@ -1,17 +1,15 @@
-# RETROSPECTIVA SPRINT 3 #
+# RETROSPECTIVA SPRINT 5 #
 
 ## Start doing ##
-* Tener mas compromiso con cada sprint.
-* Realizar una reunion semanal para revisar como va el proyecto.
-* Optimizar el tiempo de reuniones.
-
+* Organizar tareas a cumplir, detallando como hacer las tareas en lugar de que hay que hacer.
 
 ## Keep doing ##
+* Realizar una reunion semanal para revisar como va el proyecto.
+* Optimizar el tiempo de reuniones.
 * Planificar el cronograma de la siguiente reunion al final de cada reunion y agregarlo a trello.
 * Revisar lo que faltó el sprint anterior.
 * Avanzar en grupo al comienzo para tener una estructura en común y evitar duplicar el trabajo en la puesta en común.
 * Dividir el trabajo en pares en lugar de individual (pair programming).
-* Mantener agil la resolución de dudas para tener más tiempo para la práctica. 
 * Trabajo en equipo y reuniones exitosas. 
 * Trabajo colaborativo con el grupo completo en linea (group programming).
 * Coordinación de horarios apropiados para las diferencias horarias y las actividades personales de cada quien.  
@@ -31,7 +29,6 @@
 * Pair programming.
 
 ## Less of ## 
-* Dilatar las reuniones por no saber como continuar o que temas vamos a trabajar.
 * Trabajo individual.
 
 
