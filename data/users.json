@@ -250,5 +250,13 @@
   "userAvatar": "1644972656979-avatar.jpeg",
   "email": "kevin123@gmail.com",
   "password": "$2a$10$0quWyd3T3v/Am0uWCfGSX.hnEMKis5.d0nVTcm6oYDCy7UByKWJXO"
+ },
+ {
+  "id": 30,
+  "first_name": "Goten",
+  "last_name": "Son",
+  "userAvatar": "1644989323998-avatar.jpeg",
+  "email": "goten@dbz.com",
+  "password": "$2a$10$36tHavoTQxQA8yOxGdpSouD3IVLW3.cU4w7ouSHs//t9yqPW8fOSi"
  }
 ]
