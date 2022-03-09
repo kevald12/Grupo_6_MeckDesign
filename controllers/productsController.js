@@ -1,7 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-// const req = require('express/lib/request');
-
+const {Product} = require('../database/models')
 const productsJSONpath = path.resolve(__dirname, '../data/products.json');
 
 const products = JSON.parse(fs.readFileSync(productsJSONpath, 'utf-8'));
@@ -47,7 +46,12 @@ const controller = {
             id: productID
         })
     },
-    store: (req, res) => {
+    store: async (req, res) => {
+        const productStored = await Product.create(req.body)
+        productStored.addbyRoom(req.body.byRoom)
+        productStored.addbyTexture(req.body.byTexture)
+        productStored.addColor(req.body.Color)
+        return res.redirect('/')
 
         var generateID = () => {
             return 1;
@@ -80,6 +84,9 @@ const controller = {
 
         return res.redirect('/products/list')
     },
+    // categoriesRoom: Product.findAll(where: room = req.query.room)
+    // ,
+    // categoriesTexture: 
 
     update: (req, res) => {
 
