@@ -20,8 +20,11 @@ processLogin: (req, res) => {
    if (userToLogin) {
       const passwordIsCorrect = bcryptjs.compareSync(req.body.password, userToLogin.password);
           if (passwordIsCorrect) {
-            //  delete userToLogin.password;
-              req.session.userLogged = userToLogin; 
+              const userToLog = {...userToLogin}
+             delete userToLog.password;
+            //  console.log(userToLogin)
+              req.session.userLogged = userToLog; 
+            //   console.log(req.session.userLogged)
         if (req.body.rememberUser){
             res.cookie('userEmail', req.body.email, {maxAge: 1000 * 60})
         }
