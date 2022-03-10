@@ -47,10 +47,15 @@ const controller = {
         })
     },
     store: async (req, res) => {
-        const productStored = await Product.create(req.body)
-        productStored.addbyRoom(req.body.byRoom)
-        productStored.addbyTexture(req.body.byTexture)
-        productStored.addColor(req.body.Color)
+        let productToStore = {
+            ...req.body,
+            image: req.file.filename,
+            by_Room_id: req.body.byRoom,
+            by_Texture_id: req.body.byTexture
+
+        }
+        const productStored = await Product.create(productToStore)
+        productStored.addColor(req.body.color)
         return res.redirect('/')
 
         var generateID = () => {

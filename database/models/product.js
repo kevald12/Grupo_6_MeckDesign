@@ -16,14 +16,14 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Product.associate = function (models) {
-        // Product.belongsTo(models.byRoom, {
-        //         as: "byRoom",
-        //         foreignKey: "byRoomId"
-        //     }),
-        //     Product.belongsTo(models.byTexture, {
-        //         as: "byTexture",
-        //         foreignKey: "byTextureId"
-        //     })
+        Product.belongsTo(models.ByRoom, {
+                as: "byRoom",
+                foreignKey: "byRoomId"
+            }),
+            Product.belongsTo(models.ByTexture, {
+                as: "byTexture",
+                foreignKey: "byTextureId"
+            })
 
         Product.belongsToMany(models.Color, {
             as: 'color',
