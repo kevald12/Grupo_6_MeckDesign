@@ -25,26 +25,25 @@
                         <br>
                         <label for="By Room">Select By Room</label>
                         <select class="form-fields"  name="byRoom">
-                            <option value="1">Living Room</option>
-                            <option value="2">Dining Room</option>
-                            <option value="3">Kitchen</option>
+                            <% byroom.forEach(oneRoom => {%>
+                            <option value=" <%= oneRoom.id %>"><%= oneRoom.room %></option>
+                            <% }) %>
                         </select>
                         <br>
                         <label for="By Texture">Select By Texture</label>
-                        <select class="form-fields" value="By Texture" name="byTexture"
-                            placeholder="Select By Texture">
-                            <option value="1">Wood</option>
-                            <option value="2">Fabric</option>
-                            <option value="3">Plastic</option>
+                        <select class="form-fields" name="byTexture">
+                            <% bytexture.forEach(onetexture => {%>
+                                <option value=" <%= onetexture.id %>"><%= onetexture.texture %></option>
+                                <% }) %>
+                            
 
                         </select>
                         <br>
                         <label for="Color">Select Color</label>
-                        <select class="form-fields" value="Color" name="Color"
-                            placeholder="Select Color" multiple>
-                            <option value="white">White</option>
-                            <option value="black">Black</option>
-                            <option value="brown">Brown</option>
+                        <select class="form-fields" name="color" multiple>
+                            <% color.forEach(oneColor => {%>
+                                <option value=" <%= oneColor.id %>"><%= oneColor.color %></option>
+                                <% }) %>
 
                         </select>
 
