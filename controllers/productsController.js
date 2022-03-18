@@ -7,18 +7,21 @@ const products = JSON.parse(fs.readFileSync(productsJSONpath, 'utf-8'));
 
 
 const controller = {
-    mainRouter: (req, res) => {
+    mainRouter: async (req, res) => {
+        const otherProducts = await Product.findAll({include: ['byRoom', 'byTexture', 'color']})
         return res.render('index.ejs', {
-            products: products
+            otherProducts: otherProducts
         })
     },
     productsDetail: async (req, res) => {
+        const otherProducts = await Product.findAll({include: ['byRoom', 'byTexture', 'color']})
         const id = Number(req.params.id);
     try{
 		const product = await Product.findByPk(id, {include: ["byRoom", "byTexture", "color"]});              
         return res.render('./products/productDetail.ejs', {
             product: product,
             id: id,
+            otherProducts: otherProducts
             
         });
     }
@@ -98,22 +101,21 @@ const controller = {
 try {
         const productUpdate = await Product.findByPk(productID, {
             include : ['byRoom','byTexture','color'] });
-        console.log("ESTO ES EL PRODUCT UPDATE!!!!!" + productUpdate)
-        console.log("ESTO ES EL PRODUCT UPDATE con byRoom!!!!!" + productUpdate.byRoom)
 
-            productUpdate.removeByRoom(productUpdate.byRoomId);
-            
-            productUpdate.removeByTextureId(productUpdate.byTextureId);
+                if (req.body.color){
             productUpdate.removeColor(productUpdate.color);
-            
-            productUpdate.addByroom(req.body.byRoom);
-            productUpdate.addByTexture(req.body.byTexture);
             productUpdate.addColor(req.body.color);
+                }
+                
+            if (req.file){
+                productUpdate.image = req.file.filename
+                }
+            productUpdate.name = req.body.name ? req.body.name : productUpdate.name;
+            productUpdate.description = req.body.description ? req.body.description : productUpdate.description;
+            productUpdate.price = req.body.price ? req.body.price : productUpdate.price;
+            productUpdate.byRoomId = req.body.byRoom ? req.body.byRoom : productUpdate.byRoom;
+            productUpdate.byTextureId = req.body.byTexture ? req.body.byTexture : productUpdate.byTexture;
 
-            productUpdate.name = req.body.name ? req.body.name : product.name;
-            productUpdate.description = req.body.description ? req.body.description : product.description;
-            productUpdate.image = req.file ? req.file.filename : "default_img.png";
-            productUpdate.price = req.body.price ? req.body.price : product.price;
             
             productUpdate.save();
 
@@ -124,12 +126,13 @@ try {
     },
 
 
-    delete: (req, res) => {
+    delete: async (req, res) => {
         const idDelete = Number(req.params.id);
+        const deletedProduct = await Product.findByPk(idDelete, {include: ["byRoom", "byTexture", "color"]})
+        deletedProduct.removeColor(deletedProduct.color)
+        Product.destroy({where: {id: idDelete}})
 
-        const arrayDelete = products.filter(oneProduct => oneProduct.id !== idDelete);
-
-        fs.writeFileSync(productsJSONpath, JSON.stringify(arrayDelete, null, ' '));
+        
 
         return res.redirect('/products/list');
     }
