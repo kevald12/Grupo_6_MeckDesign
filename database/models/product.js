@@ -6,25 +6,14 @@ module.exports = (sequelize, DataTypes) => {
         byRoomId: DataTypes.INTEGER,
         byTextureId: DataTypes.INTEGER,
         image: DataTypes.STRING,
-        // createdAt: {
-        //     field: "created_at",
-        //     type: DataTypes.DATE
-        // },
-        // updatedAt: {
-        //     field: "updated_at",
-        //     type: DataTypes.DATE
-        // },
-        // deletedAt: {
-        //     field: "deleted_at",
-        //     type: DataTypes.DATE
-        // },
-        // deleted_at: DataTypes.DATETIME,
         stock: DataTypes.INTEGER
     }, {
         tableName: 'products',
         paranoid: true,
         timestamps: true,
-        // underscored: true
+        createdAt: true,
+        updatedAt: true
+        
     });
 
     Product.associate = function (models) {
@@ -41,7 +30,8 @@ module.exports = (sequelize, DataTypes) => {
             as: 'color',
             through: 'product_color',
             foreignKey: 'productId',
-            otherKey: 'colorId'
+            otherKey: 'colorId',
+            timestamps: false
 
         })
     }

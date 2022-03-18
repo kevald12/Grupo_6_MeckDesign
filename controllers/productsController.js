@@ -12,12 +12,19 @@ const controller = {
             products: products
         })
     },
-    productsDetail: (req, res) => {
+    productsDetail: async (req, res) => {
         const id = Number(req.params.id);
+    try{
+		const product = await Product.findByPk(id, {include: ["byRoom", "byTexture", "color"]});              
         return res.render('./products/productDetail.ejs', {
-            products: products,
-            id: id
+            product: product,
+            id: id,
+            
         });
+    }
+        catch (error) { 
+            console.log(error)
+        }
     },
     productsCart: (req, res) => {
         return res.render('./products/productCart.ejs', {
@@ -48,15 +55,21 @@ const controller = {
         console.log(error)
     }
     },
-    productsEdit: (req, res) => {
+    productsEdit: async (req, res) => {
         
         const productID = Number(req.params.id);
+        const byroom = await ByRoom.findAll({});
+        const bytexture = await ByTexture.findAll({});
+        const color = await Color.findAll({});
 
-		const theProduct = products.find(product => product.id === productID);
+		const product = await Product.findByPk(req.params.id, {include: ["byRoom", "byTexture", "color"]});
 
         return res.render('./products/productsEdit.ejs', {
-            theProduct: theProduct,
-            id: productID
+            product: product,
+            id: productID,
+            byroom,
+            bytexture,
+            color
         })
     },
     store: async (req, res) => {
@@ -70,8 +83,8 @@ const controller = {
         
         try {
         const productStored = await Product.create(productToStore)
-        // productStored.addColor(req.body.color)
-        return res.redirect('/list')
+        productStored.addColor(req.body.color)
+        return res.redirect('/products/list')
         }
         catch (error){
             console.log(error)
@@ -79,28 +92,35 @@ const controller = {
     },
    
 
-    update: (req, res) => {
+    update: async (req, res) => {
 
         const productID = Number(req.params.id);
+try {
+        const productUpdate = await Product.findByPk(productID, {
+            include : ['byRoom','byTexture','color'] });
+        console.log("ESTO ES EL PRODUCT UPDATE!!!!!" + productUpdate)
+        console.log("ESTO ES EL PRODUCT UPDATE con byRoom!!!!!" + productUpdate.byRoom)
 
-        const productUpdate = products.map(theProduct =>{
-            if(theProduct.id === productID){
-                return {
-                    ...theProduct,
-                        name: req.body.name,
-                        description: req.body.description,
-                        price: req.body.price,
-                        categoriesRoom: req.body.categoriesRoom,
-                        categoriesTexture: req.body.categoriesTexture,
-                        img: req.file ? req.file.filename : theProduct.img
-                    };
-                };
-            return theProduct;
-        });
+            productUpdate.removeByRoom(productUpdate.byRoomId);
+            
+            productUpdate.removeByTextureId(productUpdate.byTextureId);
+            productUpdate.removeColor(productUpdate.color);
+            
+            productUpdate.addByroom(req.body.byRoom);
+            productUpdate.addByTexture(req.body.byTexture);
+            productUpdate.addColor(req.body.color);
 
-        fs.writeFileSync(productsJSONpath, JSON.stringify(productUpdate, null, ' '));
+            productUpdate.name = req.body.name ? req.body.name : product.name;
+            productUpdate.description = req.body.description ? req.body.description : product.description;
+            productUpdate.image = req.file ? req.file.filename : "default_img.png";
+            productUpdate.price = req.body.price ? req.body.price : product.price;
+            
+            productUpdate.save();
 
         return res.redirect('/products/list')
+} catch (error){
+    console.log(error)
+}
     },
 
 

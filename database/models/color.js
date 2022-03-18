@@ -3,15 +3,17 @@ module.exports = (sequelize, DataTypes) => {
         color: DataTypes.STRING,
     }, {
         tableName: 'color',
-        timestamps: false
+        timestamps: true,
+        createdAt: true,
+        updatedAt: true
     });
 
     Color.associate = function (models) {
         Color.belongsToMany(models.Product, {
             as: 'product',
             through: 'product_color',
-            foreignKey: 'productId',
-            otherKey: 'colorId'
+            foreignKey: 'colorId',
+            otherKey: 'productId'
 
         })
     }
