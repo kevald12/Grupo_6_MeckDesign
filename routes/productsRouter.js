@@ -47,6 +47,8 @@ router.put('/edit/:id?', upload.single('image'), controller.update);
 
 router.get('/detail/:id', controller.productsDetail);
 
-router.delete('/list/:id', controller.delete)
+router.delete('/list/:id', controller.delete);
+
+router.get('/search', controller.search);
 
 module.exports = router;

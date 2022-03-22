@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const {Product, ByRoom, ByTexture, Color} = require('../database/models');
 const productsJSONpath = path.resolve(__dirname, '../data/products.json');
+const {Op} = require('sequelize')
 
 const products = JSON.parse(fs.readFileSync(productsJSONpath, 'utf-8'));
 
@@ -123,8 +124,23 @@ try {
 } catch (error){
     console.log(error)
 }
+
     },
 
+search : async (req, res) =>{
+    const products = await Product.findAll(
+        {
+            where: {
+name:{
+[Op.like]: "%" + req.query.search + "%"
+}
+        }})
+
+    return res.render('./products/products.ejs', {
+        products
+    })
+
+},
 
     delete: async (req, res) => {
         const idDelete = Number(req.params.id);
