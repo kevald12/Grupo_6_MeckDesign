@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const bcryptjs = require('bcryptjs');
 const {User} = require('../database/models');
+const {Op} = require('sequelize');
 
 const { validationResult } = require('express-validator');
 
@@ -30,17 +31,14 @@ processLogin: async (req, res) => {
               req.session.userLogged = userToLogin; 
             
         if (req.body.rememberUser){
-            res.cookie('userEmail', req.body.email, {maxAge: 1000 * 60})
+            res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60)*60})
         }
 
-        return res.render("./users/profile.ejs", {
-            userLogged: req.session.userLogged
-        }) }
+        return res.redirect("/user/profile")
    } else {
     let loginError = 'The credentials provided are invalid'
     return res.render('./users/login', {loginError: loginError })
-} 
-},
+}}},
 createUser: async (req,res)=> {
 //    var generateID = () => {
 //       return 1;
@@ -92,38 +90,41 @@ if (resultValidation.errors.length > 0) {
     }
 },
 
-editUser: (req, res) => {
-  let user = User.findOne({wherereq.params.userLogged).then((user) => {
-    res.render('./users/editUser.ejs', {
-        user: user
-   })
-  })
-},
-//editUserResult: (req, res) => {
-    
-    //db.users.update({
-      //  name: req.body.firstName,
-       // lastName: req.body.lastName,
-     
-   // },
-      //  {
-        //    where: {
-          //      id: req.params.id,
-                //user: req.session.userLogged
-           // }
-        //})
-        //.then(() => {
-          //  res.redirect("/profile");
-        //})
-        //.catch(err =>
-          //  console.log(err)
+editUser: async (req, res) => {
+  // let userLogged = req.session.userLogged;
+  try {
+  // let user = await User.findOne({where: {email: {[Op.like]: userLogged.email}}})
+  let user = await User.findByPk(req.params.id)
 
-    
-        //)
-        //return res.redirect('./users/profile.ejs')
-//},
+    res.render('./users/editUser.ejs', {
+        user: user,
+        // oldData: {...userLogged}
+   })
+  } catch (error){
+    console.log(error)
+  }
+  },
+updateUser: async (req, res) => {
+
+  try{
+    let userToUpdate = await User.findByPk(req.params.id);
+    if (req.file){
+      userToUpdate.avatar = req.file.filename
+      }
+  userToUpdate.firstName = req.body.firstName ? req.body.firstName : userToUpdate.firstName;
+  userToUpdate.lastName = req.body.lastName ? req.body.lastName : userToUpdate.lastName;
+  // userToUpdate.password = req.body.oldPassword ? req.body.lastName : userToUpdate.lastName;
+
+
+  userToUpdate.save();
+  return res.redirect('/user/profile')
+  } catch(error){
+    console.log(error)
+  }
+},
         
 profile: (req, res) => {
+  console.log(req.session.userLogged)
     res.render('./users/profile.ejs', {
         userLogged: req.session.userLogged
     })

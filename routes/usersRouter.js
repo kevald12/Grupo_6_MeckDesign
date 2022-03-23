@@ -19,7 +19,7 @@ router.get('/login', authMiddleware, controller.login);
 router.post('/login', controller.processLogin);
 router.get('/profile', guestMiddleware, controller.profile);
 router.post('/logout', controller.logout);
-router.get('/editUser', authMiddleware, controller.editUser);
-//router.post('/editUserResult', controller.editUserResult);
+router.get('/editUser/:id', guestMiddleware, controller.editUser);
+router.put('/updateUser/:id', upload.single('avatar'), controller.updateUser);
 
 module.exports = router;
