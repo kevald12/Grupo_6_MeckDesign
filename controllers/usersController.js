@@ -91,6 +91,38 @@ if (resultValidation.errors.length > 0) {
         console.log(error)
     }
 },
+
+editUser: (req, res) => {
+  let user = User.findOne({wherereq.params.userLogged).then((user) => {
+    res.render('./users/editUser.ejs', {
+        user: user
+   })
+  })
+},
+//editUserResult: (req, res) => {
+    
+    //db.users.update({
+      //  name: req.body.firstName,
+       // lastName: req.body.lastName,
+     
+   // },
+      //  {
+        //    where: {
+          //      id: req.params.id,
+                //user: req.session.userLogged
+           // }
+        //})
+        //.then(() => {
+          //  res.redirect("/profile");
+        //})
+        //.catch(err =>
+          //  console.log(err)
+
+    
+        //)
+        //return res.redirect('./users/profile.ejs')
+//},
+        
 profile: (req, res) => {
     res.render('./users/profile.ejs', {
         userLogged: req.session.userLogged

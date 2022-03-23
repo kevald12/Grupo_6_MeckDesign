@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- head -->
+<%- include('../partials/head')%>
+<body>
+     <!-- header -->
+     <%- include('../partials/header')%>
+     <!--main  -->
+<main>
+
+     <main class="main-container-create">
+
+          <div class="form-group-create">
+
+
+              <h1 class="title">Edit User <%= user.firstName %> </h1>
+              
+              <form class="form-button" action="./users/editUserResult/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                  <input class="form-fields" type="text" name="firstName" value="<%= user.firstName%>" placeholder="New Name" >
+                  <br>
+                  <input class="form-fields" type="text" name="lastName" value="<%= user.lastName%>" placeholder="New Last Name">
+                  <br>
+                  <label for="image">Upload Image</label>
+                  <input class="form-fields" type="file" name="avatar" placeholder="Upload Image">
+                  <div><button type="submit" class="send">Edit Changes</button></div>
+              </form>
+
+          </div>
+
+
+      </main>
+
+</main>
+
+     <!-- footer -->
+     <%- include('../partials/footer')%>
+</body>
+</html>
