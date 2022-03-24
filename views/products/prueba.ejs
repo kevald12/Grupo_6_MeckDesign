@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- head -->
+<%- include('../partials/head')%>
+<body>
+<!-- header -->
+<%- include('../partials/header')%>
+
+<main>
+
+        <div class="banner2">
+            <img src="/img/minimal_table-768x484.jpeg" >
+        </div>
+        <div class="other-product-text">
+            <a href="/products/list">
+                <h2>Products</h2>
+            </a>
+        </div>
+        <section class="product-list-section">
+<% for( let i = 0; i < productFinded.length; i++ ) { %>
+    <article class="product-list-article">
+        <a href="/products/detail/<%= productFinded[i].id %>">
+            <div class="product-list-image">
+                <img src= "/img/products/<%=productFinded[i].image%>"  alt="Product">
+                <p class="text-image">VIEW PRODUCT</p>
+            </div>
+            <div class="other-product-detail">
+                <h3 class="other-title-product">
+                    <%= productFinded[i].name %> </h3>
+                <p class="other-product-price">
+                   $<%= productFinded[i].price %> </p>
+                    
+            </div>
+
+    </article>
+<% } %>
+</section>
+    <div class="pages">
+        <p><a href="#">Pagina 1 2</a></p>
+    </div>
+
+
+</main> 
+<!-- footer -->
+<%- include('../partials/footer')%>
+</body>
+</html>

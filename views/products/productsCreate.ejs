@@ -24,18 +24,26 @@
                         <input class="form-fields" type="file" name="img" placeholder="Upload Image" required>
                         <br>
                         <label for="By Room">Select By Room</label>
-                        <select class="form-fields" value="By Room" name="By Room" placeholder="Select By Room">
-                            <option value="categories">Living Room</option>
-                            <option value="categories">Dinig Room</option>
-                            <option value="categories">Kitchen</option>
+                        <select class="form-fields"  name="byRoom">
+                            <% byroom.forEach(oneRoom => {%>
+                            <option value=" <%= oneRoom.id %>"><%= oneRoom.room %></option>
+                            <% }) %>
                         </select>
                         <br>
                         <label for="By Texture">Select By Texture</label>
-                        <select class="form-fields" value="By Texture" name="By Texture"
-                            placeholder="Select By Texture">
-                            <option value="categories">Wood</option>
-                            <option value="categories">Fabric</option>
-                            <option value="categories">Plastic</option>
+                        <select class="form-fields" name="byTexture">
+                            <% bytexture.forEach(onetexture => {%>
+                                <option value=" <%= onetexture.id %>"><%= onetexture.texture %></option>
+                                <% }) %>
+                            
+
+                        </select>
+                        <br>
+                        <label for="Color">Select Color</label>
+                        <select class="form-fields" name="color" multiple>
+                            <% color.forEach(oneColor => {%>
+                                <option value=" <%= oneColor.id %>"><%= oneColor.color %></option>
+                                <% }) %>
 
                         </select>
 

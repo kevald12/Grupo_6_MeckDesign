@@ -15,10 +15,13 @@
             </ul>
         </nav>
 
-        <p class="search-desktop">
-            <input class="search-bar-desktop" type="search" action="/productos" method="POST"
-                name="busquedapruductos" placeholder="Search">
-            <button><i class="fas fa-search"></i></button></p>
+       
+            <form class="search-desktop" action="/products/search" method="GET">
+            <input class="search-bar-desktop" type="search" 
+                name="search" placeholder="Search">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+
 
         <div class="icons-header">
          <% if (locals.isUserLogged) { %>
@@ -32,11 +35,12 @@
             <a href="/products/cart"><i class="fas fa-shopping-bag"></i></a>
         </div>
     </section>
-    </div class="search">
-    <p class="search-mobile">
-        <input class="search-bar-mobile" type="search" action="/productos" method="POST" name="busquedapruductos"
-            placeholder="Search">
-        <button><i class="fas fa-search"></i></button></p>
-    </div>
+
+    <form class="search-mobile" action="/products/search" method="GET">
+        <input class="search-bar-mobile" type="search" 
+            name="search" placeholder="Search">
+        <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+
 
 </header>

@@ -2,9 +2,10 @@
 <html lang="es">
 <!-- head -->
 <%- include('../partials/head') %>
+
 <body>
-<!-- header -->
-<%- include('../partials/header')%>
+    <!-- header -->
+    <%- include('../partials/header')%>
 
     <!-- MAIN REGISTER -->
     <main class="main-container">
@@ -12,83 +13,62 @@
         <div class="form-login-register">
             <div class="seccion-account1">
                 <!-- <div class="register-header"> -->
-                    <h1 class="title">Create your account</h1>
-                    <p>Create your own MeckDesign account today. It makes shopping smoother and faster, while also
-                        earning you reward points on every purchase.</p>
+                <h1 class="title">Create your account</h1>
+                <p>Create your own MeckDesign account today. It makes shopping smoother and faster, while also
+                    earning you reward points on every purchase.</p>
                 <!-- </div> -->
                 <form action="/user/register" method="post" enctype="multipart/form-data" class="form-button">
 
-                    <% if (locals.errors && errors.first_name) { %>
-                        <div class="text-danger">
-                            <%= errors.first_name.msg %> 
-                        </div>
+                    <% if (locals.errors && errors.firstName) { %>
+                    <div class="text-danger">
+                        <%= errors.firstName.msg %>
+                    </div>
                     <% } %>
-                    <input type="text" 
-                    name="first_name" 
-                    id="name" 
-                    placeholder="Enter First Name" 
-                    class="form-fields<%= locals.errors && errors.first_name ? '-invalid' : null %>" 
-                    value="<%= locals.oldData ? oldData.first_name : null %>">
+                    <input type="text" name="firstName" id="name" placeholder="Enter First Name"
+                        class="form-fields<%= locals.errors && errors.firstName ? '-invalid' : null %>"
+                        value="<%= locals.oldData ? oldData.firstName : null %>">
 
-                    <% if (locals.errors && errors.last_name) { %>
-                        <div class="text-danger">
-                            <%= errors.last_name.msg %> 
-                        </div>
+                    <% if (locals.errors && errors.lastName) { %>
+                    <div class="text-danger">
+                        <%= errors.lastName.msg %>
+                    </div>
                     <% } %>
-                    <input 
-                    type="text" 
-                    name="last_name" 
-                    id="last-name" 
-                    placeholder="Enter Last Name"
-                    value="<%= locals.oldData ? oldData.last_name : null %>"
-                        class="form-fields<%= locals.errors && errors.last_name ? '-invalid' : null %>" >
+                    <input type="text" name="lastName" id="last-name" placeholder="Enter Last Name"
+                        value="<%= locals.oldData ? oldData.lastName : null %>"
+                        class="form-fields<%= locals.errors && errors.lastName ? '-invalid' : null %>">
 
-                        <label for="userAvatar">Upload your avatar</label>
-                        <% if (locals.errors && errors.userAvatar) { %>
-                            <div class="text-danger">
-                                <%= errors.userAvatar.msg %> 
-                            </div>
-                        <% } %>
-                    <input 
-                    class="form-fields<%= locals.errors && errors.userAvatar ? '-invalid' : null %>"  
-                    type="file" 
-                    id="userAvatar" 
-                    name="userAvatar">
-                    
+                    <label for="avatar">Upload your avatar</label>
+                    <% if (locals.errors && errors.avatar) { %>
+                    <div class="text-danger">
+                        <%= errors.avatar.msg %>
+                    </div>
+                    <% } %>
+                    <input class="form-fields<%= locals.errors && errors.avatar ? '-invalid' : null %>" type="file"
+                        id="avatar" name="avatar">
+
                     <% if (locals.errors && errors.email) { %>
-                        <div class="text-danger">
-                            <%= errors.email.msg %> 
-                        </div>
+                    <div class="text-danger">
+                        <%= errors.email.msg %>
+                    </div>
                     <% } %>
                     <% if (locals.userAlreadyRegistered) { %>
-                        <div class="text-danger">
-                           This email is already registered 
-                        </div>
+                    <div class="text-danger">
+                        This email is already registered
+                    </div>
                     <% } %>
-                    <input 
-                    type="email" 
-                    name="email" 
-                    id="email" 
-                    placeholder="Email Address*" 
-                    value="<%= locals.oldData ? oldData.email : null %>"
-                    class="form-fields<%= locals.errors && errors.email ? '-invalid' : null %>" >
+                    <input type="email" name="email" id="email" placeholder="Email Address*"
+                        value="<%= locals.oldData ? oldData.email : null %>"
+                        class="form-fields<%= locals.errors && errors.email ? '-invalid' : null %>">
 
                     <% if (locals.errors && errors.password) { %>
-                        <div class="text-danger">
-                            <%= errors.password.msg %> 
-                        </div>
-                    <% } %> 
-                    <input 
-                    type="password" 
-                    name="password" 
-                    id="password" 
-                    placeholder="Password*" 
-                    value="<%= locals.oldData ? oldData.password : null %>"
-                    class="form-fields<%= locals.errors && errors.password ? '-invalid' : null %>" >
-                   
-                        <div class="terms">
-                        <input type="checkbox" name="admin" id="admin" value="true"> <label for="admin">Are you an admin?</label>
-                </div>
+                    <div class="text-danger">
+                        <%= errors.password.msg %>
+                    </div>
+                    <% } %>
+                    <input type="password" name="password" id="password" placeholder="Password*"
+                        value="<%= locals.oldData ? oldData.password : null %>"
+                        class="form-fields<%= locals.errors && errors.password ? '-invalid' : null %>">
+
                     <div class="terms"><input type="checkbox" name="terms" id="terms" value="terms"><label for="terms">I
                             have read and agreed to <a href="#">terms & conditions</a></label></div>
                     <div><button type="submit" class="send">Create your account</button>
@@ -98,9 +78,9 @@
             </div>
             <!-- ======LOGIN====== -->
             <div class="seccion-account2">
-               
-                    <h1 class="title">Already have an account?</h1>
-                    <p>Access it now to save time when you shop.</p>
+
+                <h1 class="title">Already have an account?</h1>
+                <p>Access it now to save time when you shop.</p>
 
                 <form action="/user/login" method="get">
                     <button type="submit" class="redirect-btn">Sign in here</button>

@@ -19,9 +19,9 @@
         <section class="product-list-section">
 <% for( let i = 0; i < products.length; i++ ) { %>
     <article class="product-list-article">
-        <a href="/products/detail/<%= i %>">
+        <a href="/products/detail/<%= products[i].id %>">
             <div class="product-list-image">
-                <img src= "/img/products/<%=products[i].img%>"  alt="Product">
+                <img src= "/img/products/<%=products[i].image%>"  alt="Product">
                 <p class="text-image">VIEW PRODUCT</p>
             </div>
             <div class="other-product-detail">
