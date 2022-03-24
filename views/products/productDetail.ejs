@@ -12,26 +12,51 @@
             <article class="product-detail-article">
                 <div class="product-detail-image">
 
-                    <img src="/img/products/<%=products[id].img%>" alt="Product">
+                    <img src="/img/products/<%=product.image%>" alt="Product">
                 </div>
                 <div class="product-detail-info">
                     <div class="product-detail">
                         <div class="edit-product">
                         <h2 class="title-product" >
-                            <%= products[id].name %>  </h2>
-                           <a href="/products/edit/<%= products[id].id %> "><i class="fas fa-pencil-alt"></i></a> 
-                           <form action="/products/list/<%= products[id].id%>?_method=DELETE" method="post">
+                            <%= product.name %>  </h2>
+                           <a href="/products/edit/<%= product.id %> "><i class="fas fa-pencil-alt"></i></a> 
+                           <form action="/products/list/<%= product.id%>?_method=DELETE" method="post">
                           <button class="borrar" type="submit" > <i class="fas fa-trash-alt"></i></button>
                            </form>
 
                         </div>
                         <p class="product-price">
-                            $<%= products[id].price %> </p>
+                            $<%= product.price %> </p>
 
                     </div>
                     <div class="description-product">
-                        <p><%= products[id].description %> </p>
+                        <p><%= product.description %> </p>
                     </div>
+                    <div class="description-product">
+                        <% if (product.color) { %>
+                            
+                            <h4>Color:</h4>
+                        
+                            <% for( let i = 0; i < product.color.length; i++ ) { %>
+                                <span> <%= product.color[i].color %> </span>
+                            
+                            <% } %>
+                         
+                        <% } %>
+                    </div>
+                    <div class="description-product">
+                        <% if(product.byRoom){ %>
+                            <h4>Room:</h4>
+                        <span><%= product.byRoom.room %> </span>
+                       <% } %> 
+                    
+                    </div>
+                    <div class="description-product">
+                        <% if (product.byTexture) { %>
+                            <h4>Texture:</h4>
+                        <span> <%= product.byTexture.texture %> </span>
+                            <%}%>
+                        </div>
                     <!-- <div> -->
                         <form class="form-shopping" action="" method="post">
                             <div class="quantity">

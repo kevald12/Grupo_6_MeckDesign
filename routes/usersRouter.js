@@ -14,10 +14,12 @@ const controller = require ('../controllers/usersController.js');
 
 // Routes
 router.get('/register', authMiddleware, controller.register);
-router.post('/register', upload.single('userAvatar'), validations, controller.createUser);
+router.post('/register', upload.single('avatar'), validations, controller.createUser);
 router.get('/login', authMiddleware, controller.login);
 router.post('/login', controller.processLogin);
 router.get('/profile', guestMiddleware, controller.profile);
 router.post('/logout', controller.logout);
+router.get('/editUser/:id', guestMiddleware, controller.editUser);
+router.put('/updateUser/:id', upload.single('avatar'), controller.updateUser);
 
 module.exports = router;

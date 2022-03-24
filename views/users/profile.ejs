@@ -15,13 +15,14 @@
                     <div class="profile-account">
 
                         <h1 class="title">My Account</h1>
-                        <h2 class="title"><%= locals.userLogged.first_name %></h2>
+                        <h2 class="title"><%= locals.userLogged.firstName %></h2>
                             <div class="userImg">
-                        <img src="/img/usersImg/<%= locals.userLogged.userAvatar %> " alt="">
+                        <img src="/img/usersImg/<%= locals.userLogged.avatar %> " alt="">
                             </div>
                         <form action="/user/logout" method="post">
                             <button class="send" href="/user/Logout"> Logout </button>
                         </form>
+                        <a href="/user/editUser/ <%= locals.userLogged.userId %> "><i class="fas fa-pencil-alt"></i></a> 
                     </div>
 
 

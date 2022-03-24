@@ -1,13 +1,12 @@
 const { body } = require('express-validator');
 const path = require('path');
 const validations = [
-        body('first_name').notEmpty().withMessage('Please enter your first name'),
-        body('last_name').notEmpty().withMessage('Please enter your last name'),
+        body('firstName').notEmpty().withMessage('Please enter your first name'),
+        body('lastName').notEmpty().withMessage('Please enter your last name'),
         body('email').notEmpty().withMessage('Please enter an email').bail()
-        .isEmail().withMessage('Please enter a valid email format').bail()
-        .normalizeEmail(),
+        .isEmail().withMessage('Please enter a valid email format').bail(),
         body('password').notEmpty().withMessage('Please enter a valid password').bail(),
-        body('userAvatar').custom((value, {req})=> {
+        body('avatar').custom((value, {req})=> {
             let file = req.file;
             let acceptedExtensions = ['.png', '.jpg', '.jpeg'];
             if (!file){

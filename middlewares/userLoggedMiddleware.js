@@ -6,9 +6,9 @@ function userLoggedMiddleware (req, res, next) {
 	if (req.session.userLogged) {
 		res.locals.isUserLogged = true;
 		res.locals.userData = {
-			firstName: req.session.userLogged.first_name,
-            lastName: req.session.userLogged.last_name,
-			avatar: req.session.userLogged.userAvatar,
+			firstName: req.session.userLogged.firstName,
+            lastName: req.session.userLogged.lastName,
+			avatar: req.session.userLogged.avatar,
 		}
 	}
 

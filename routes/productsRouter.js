@@ -40,13 +40,15 @@ router.get('/list', controller.products);
 router.get('/cart', controller.productsCart);
 
 router.get('/create', controller.productsCreate);
-router.post('/list', upload.single('img'), controller.store)
+router.post('/list', upload.single('image'), controller.store)
 
 router.get('/edit/:id?', controller.productsEdit);
-router.put('/edit/:id?', upload.single('img'), controller.update);
+router.put('/edit/:id?', upload.single('image'), controller.update);
 
 router.get('/detail/:id', controller.productsDetail);
 
-router.delete('/list/:id', controller.delete)
+router.delete('/list/:id', controller.delete);
+
+router.get('/search', controller.search);
 
 module.exports = router;

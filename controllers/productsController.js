@@ -1,117 +1,154 @@
 const path = require('path');
 const fs = require('fs');
-// const req = require('express/lib/request');
-
+const {Product, ByRoom, ByTexture, Color} = require('../database/models');
 const productsJSONpath = path.resolve(__dirname, '../data/products.json');
+const {Op} = require('sequelize')
 
 const products = JSON.parse(fs.readFileSync(productsJSONpath, 'utf-8'));
 
 
 const controller = {
-    mainRouter: (req, res) => {
+    mainRouter: async (req, res) => {
+        const otherProducts = await Product.findAll({include: ['byRoom', 'byTexture', 'color']})
         return res.render('index.ejs', {
-            products: products
+            otherProducts: otherProducts
         })
     },
-    productsDetail: (req, res) => {
+    productsDetail: async (req, res) => {
+        const otherProducts = await Product.findAll({include: ['byRoom', 'byTexture', 'color']})
         const id = Number(req.params.id);
+    try{
+		const product = await Product.findByPk(id, {include: ["byRoom", "byTexture", "color"]});              
         return res.render('./products/productDetail.ejs', {
-            products: products,
-            id: id
+            product: product,
+            id: id,
+            otherProducts: otherProducts
+            
         });
+    }
+        catch (error) { 
+            console.log(error)
+        }
     },
     productsCart: (req, res) => {
         return res.render('./products/productCart.ejs', {
             products: products
         })
     },
-    products: (req, res) => {
+    products: async (req, res) => {
+        const products = await Product.findAll({include: ["byRoom", "byTexture"]})
         return res.render('./products/products.ejs', {
-            products: products
+            products
         })
     },
-    productsCreate: (req, res) => {
-
+    productsCreate: async (req, res) => {
+           try{
+               const byroom = await ByRoom.findAll({});
+              const bytexture = await ByTexture.findAll({});
+              const color = await Color.findAll({});
+           
         return res.render('./products/productsCreate.ejs', {
-            products: products
-        })
+            products: products,
+            byroom,
+            bytexture,
+            color
+        });
+        
+    }
+    catch (error){
+        console.log(error)
+    }
     },
-    productsEdit: (req, res) => {
+    productsEdit: async (req, res) => {
         
         const productID = Number(req.params.id);
+        const byroom = await ByRoom.findAll({});
+        const bytexture = await ByTexture.findAll({});
+        const color = await Color.findAll({});
 
-		const theProduct = products.find(product => product.id === productID);
+		const product = await Product.findByPk(req.params.id, {include: ["byRoom", "byTexture", "color"]});
 
         return res.render('./products/productsEdit.ejs', {
-            theProduct: theProduct,
-            id: productID
+            product: product,
+            id: productID,
+            byroom,
+            bytexture,
+            color
         })
     },
-    store: (req, res) => {
+    store: async (req, res) => {
+        let productToStore = {
+            ...req.body,
+            image: req.file.filename,
+            byRoomId: req.body.byRoom,
+            byTextureId: req.body.byTexture
 
-        var generateID = () => {
-            return 1;
         }
-        if (products.length >= 1) {
-            generateID = () => {
-                var lastProduct = products[products.length - 1];
-
-                var lastId = lastProduct.id;
-
-                return lastId + 1;
-
-            }
-        } else {
-            generateID = () => {
-                return 1
-            }
-        };
-            products.push({
-                id: generateID (),
-                name: req.body.name,
-                description: req.body.description,
-                price: req.body.price,
-                categoriesRoom: req.body.categoryRoom,
-                categoriesTexture: req.body.categoryTexture,
-                img: req.file.filename
-            });
-            
-            fs.writeFileSync(productsJSONpath, JSON.stringify(products, null, ' '));
-
+        
+        try {
+        const productStored = await Product.create(productToStore)
+        productStored.addColor(req.body.color)
         return res.redirect('/products/list')
+        }
+        catch (error){
+            console.log(error)
+        }
     },
+   
 
-    update: (req, res) => {
+    update: async (req, res) => {
 
         const productID = Number(req.params.id);
+try {
+        const productUpdate = await Product.findByPk(productID, {
+            include : ['byRoom','byTexture','color'] });
 
-        const productUpdate = products.map(theProduct =>{
-            if(theProduct.id === productID){
-                return {
-                    ...theProduct,
-                        name: req.body.name,
-                        description: req.body.description,
-                        price: req.body.price,
-                        categoriesRoom: req.body.categoriesRoom,
-                        categoriesTexture: req.body.categoriesTexture,
-                        img: req.file ? req.file.filename : theProduct.img
-                    };
-                };
-            return theProduct;
-        });
+                if (req.body.color){
+            productUpdate.removeColor(productUpdate.color);
+            productUpdate.addColor(req.body.color);
+                }
+                
+            if (req.file){
+                productUpdate.image = req.file.filename
+                }
+            productUpdate.name = req.body.name ? req.body.name : productUpdate.name;
+            productUpdate.description = req.body.description ? req.body.description : productUpdate.description;
+            productUpdate.price = req.body.price ? req.body.price : productUpdate.price;
+            productUpdate.byRoomId = req.body.byRoom ? req.body.byRoom : productUpdate.byRoom;
+            productUpdate.byTextureId = req.body.byTexture ? req.body.byTexture : productUpdate.byTexture;
 
-        fs.writeFileSync(productsJSONpath, JSON.stringify(productUpdate, null, ' '));
+            
+            productUpdate.save();
 
         return res.redirect('/products/list')
+} catch (error){
+    console.log(error)
+}
+
     },
 
+search : async (req, res) =>{
+    const products = await Product.findAll(
+        {
+            where: {
+name:{
+[Op.like]: "%" + req.query.search + "%"
+}
+        }})
 
-    delete: (req, res) => {
+    return res.render('./products/products.ejs', {
+        products
+    })
+
+},
+
+    delete: async (req, res) => {
         const idDelete = Number(req.params.id);
+        const deletedProduct = await Product.findByPk(idDelete, {include: ["byRoom", "byTexture", "color"]})
+        deletedProduct.removeColor(deletedProduct.color)
+        Product.destroy({where: {id: idDelete}})
 
-        const arrayDelete = products.filter(oneProduct => oneProduct.id !== idDelete);
-
-        fs.writeFileSync(productsJSONpath, JSON.stringify(arrayDelete, null, ' '));
+        
 
         return res.redirect('/products/list');
     }

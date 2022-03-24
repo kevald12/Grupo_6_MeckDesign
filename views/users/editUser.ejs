@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- head -->
+<%- include('../partials/head')%>
+<body>
+     <!-- header -->
+     <%- include('../partials/header')%>
+     <!--main  -->
+<main>
+
+     <main class="main-container-create">
+
+          <div class="form-group-create">
+
+
+              <h1 class="title">Edit User <%= user.firstName %> </h1>
+              
+              <form class="form-button" action="/user/updateUser/<%= user.userId %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                  <input class="form-fields" type="text" name="firstName" value="<%= user.firstName%>" placeholder="New Name" >
+                  <br>
+                  <input class="form-fields" type="text" name="lastName" value="<%= user.lastName%>" placeholder="New Last Name">
+                  <br>
+                  <label for="image">Upload Image</label>
+                  <input class="form-fields" type="file" name="avatar" placeholder="Upload Image">
+                  <br>
+                  <!-- <label><h3>Change password</h3></label>
+                  <p>Old password*</p>
+                  <input type="password" class="form-fields" name="oldPassword" placeholder="Old Password">
+                  <p>New Password</p>
+                  <input type="password" class="form-fields" name="newPassword" placeholder="New Password"> -->
+
+                  <div><button type="submit" class="send">Edit Changes</button></div>
+              </form>
+
+          </div>
+
+
+      </main>
+
+</main>
+
+     <!-- footer -->
+     <%- include('../partials/footer')%>
+</body>
+</html>
