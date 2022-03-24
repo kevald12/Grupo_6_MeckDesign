@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 09-03-2022 a las 01:21:11
+-- Tiempo de generación: 24-03-2022 a las 19:07:36
 -- Versión del servidor: 5.7.34
 -- Versión de PHP: 7.4.21
 
@@ -18,43 +18,40 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `meckDB`
+-- Base de datos: `meckdb`
 --
-CREATE DATABASE IF NOT EXISTS `meckDB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `meckDB`;
+CREATE DATABASE IF NOT EXISTS `meckdb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `meckdb`;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `byRoom`
+-- Estructura de tabla para la tabla `byroom`
 --
 
-DROP TABLE IF EXISTS `byRoom`;
-CREATE TABLE `byRoom` (
-  `byRoomId` int(11) NOT NULL,
+CREATE TABLE `byroom` (
+  `id` int(11) NOT NULL,
   `room` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `byTexture`
+-- Estructura de tabla para la tabla `bytexture`
 --
 
-DROP TABLE IF EXISTS `byTexture`;
-CREATE TABLE `byTexture` (
-  `byTextureId` int(11) NOT NULL,
+CREATE TABLE `bytexture` (
+  `id` int(11) NOT NULL,
   `texture` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Cart`
+-- Estructura de tabla para la tabla `cart`
 --
 
-DROP TABLE IF EXISTS `Cart`;
-CREATE TABLE `Cart` (
+CREATE TABLE `cart` (
   `cartId` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   `paymentMethod` int(11) NOT NULL,
@@ -72,31 +69,32 @@ CREATE TABLE `Cart` (
 -- Estructura de tabla para la tabla `color`
 --
 
-DROP TABLE IF EXISTS `color`;
 CREATE TABLE `color` (
-  `colorId` int(11) NOT NULL,
-  `color` varchar(200) NOT NULL
+  `id` int(11) NOT NULL,
+  `color` varchar(200) NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  `deletedAt` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Products`
+-- Estructura de tabla para la tabla `products`
 --
 
-DROP TABLE IF EXISTS `Products`;
-CREATE TABLE `Products` (
-  `productID` int(10) NOT NULL,
-  `name` varchar(200) NOT NULL,
-  `price` decimal(11,0) NOT NULL,
-  `description` mediumtext NOT NULL,
-  `byRoomId` int(11) NOT NULL,
-  `byTextureId` int(11) NOT NULL,
-  `image` varchar(200) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` datetime NOT NULL,
-  `deleted_at` datetime NOT NULL,
-  `stock` int(11) NOT NULL
+CREATE TABLE `products` (
+  `id` int(10) NOT NULL,
+  `name` varchar(200) NOT NULL DEFAULT 'Producto id:',
+  `price` decimal(11,0) NOT NULL DEFAULT '199',
+  `description` mediumtext,
+  `byRoomId` int(11) DEFAULT NULL,
+  `byTextureId` int(11) DEFAULT NULL,
+  `image` varchar(200) NOT NULL DEFAULT 'default-img.jpg',
+  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updatedAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  `deletedAt` datetime DEFAULT NULL,
+  `stock` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -105,10 +103,9 @@ CREATE TABLE `Products` (
 -- Estructura de tabla para la tabla `products_cart`
 --
 
-DROP TABLE IF EXISTS `products_cart`;
 CREATE TABLE `products_cart` (
   `Id` int(11) NOT NULL,
-  `productID` int(11) NOT NULL,
+  `productId` int(11) NOT NULL,
   `cartId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -118,11 +115,13 @@ CREATE TABLE `products_cart` (
 -- Estructura de tabla para la tabla `product_color`
 --
 
-DROP TABLE IF EXISTS `product_color`;
 CREATE TABLE `product_color` (
   `id` int(10) NOT NULL,
   `productId` int(11) NOT NULL,
-  `colorId` int(11) NOT NULL
+  `colorId` int(11) NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime DEFAULT NULL,
+  `deletedAt` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -131,7 +130,6 @@ CREATE TABLE `product_color` (
 -- Estructura de tabla para la tabla `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `userId` int(11) NOT NULL,
   `firstName` varchar(200) NOT NULL,
@@ -140,9 +138,9 @@ CREATE TABLE `users` (
   `password` varchar(100) NOT NULL,
   `avatar` varchar(100) NOT NULL,
   `admin` int(1) NOT NULL DEFAULT '0',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` date DEFAULT NULL,
-  `deleted_at` date DEFAULT NULL
+  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updatedAt` date DEFAULT NULL,
+  `deletedAt` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -150,21 +148,21 @@ CREATE TABLE `users` (
 --
 
 --
--- Indices de la tabla `byRoom`
+-- Indices de la tabla `byroom`
 --
-ALTER TABLE `byRoom`
-  ADD PRIMARY KEY (`byRoomId`);
+ALTER TABLE `byroom`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `byTexture`
+-- Indices de la tabla `bytexture`
 --
-ALTER TABLE `byTexture`
-  ADD PRIMARY KEY (`byTextureId`);
+ALTER TABLE `bytexture`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `Cart`
+-- Indices de la tabla `cart`
 --
-ALTER TABLE `Cart`
+ALTER TABLE `cart`
   ADD PRIMARY KEY (`cartId`),
   ADD KEY `userId` (`userId`);
 
@@ -172,13 +170,13 @@ ALTER TABLE `Cart`
 -- Indices de la tabla `color`
 --
 ALTER TABLE `color`
-  ADD PRIMARY KEY (`colorId`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `Products`
+-- Indices de la tabla `products`
 --
-ALTER TABLE `Products`
-  ADD PRIMARY KEY (`productID`),
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `byRoomId` (`byRoomId`),
   ADD KEY `byTextureId` (`byTextureId`);
 
@@ -188,15 +186,15 @@ ALTER TABLE `Products`
 ALTER TABLE `products_cart`
   ADD PRIMARY KEY (`Id`),
   ADD KEY `cartId` (`cartId`),
-  ADD KEY `productID` (`productID`);
+  ADD KEY `productID` (`productId`);
 
 --
 -- Indices de la tabla `product_color`
 --
 ALTER TABLE `product_color`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `productId` (`productId`),
-  ADD KEY `colorId` (`colorId`);
+  ADD KEY `colorId` (`colorId`),
+  ADD KEY `productId` (`productId`);
 
 --
 -- Indices de la tabla `users`
@@ -209,6 +207,18 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `product_color`
+--
+ALTER TABLE `product_color`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
@@ -219,31 +229,31 @@ ALTER TABLE `users`
 --
 
 --
--- Filtros para la tabla `Cart`
+-- Filtros para la tabla `cart`
 --
-ALTER TABLE `Cart`
+ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`);
 
 --
--- Filtros para la tabla `Products`
+-- Filtros para la tabla `products`
 --
-ALTER TABLE `Products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`byRoomId`) REFERENCES `byRoom` (`byRoomId`),
-  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`byTextureId`) REFERENCES `byTexture` (`byTextureId`);
+ALTER TABLE `products`
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`byRoomId`) REFERENCES `byroom` (`id`),
+  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`byTextureId`) REFERENCES `bytexture` (`id`);
 
 --
 -- Filtros para la tabla `products_cart`
 --
 ALTER TABLE `products_cart`
-  ADD CONSTRAINT `products_cart_ibfk_1` FOREIGN KEY (`cartId`) REFERENCES `Cart` (`cartId`),
-  ADD CONSTRAINT `products_cart_ibfk_2` FOREIGN KEY (`productID`) REFERENCES `Products` (`productID`);
+  ADD CONSTRAINT `products_cart_ibfk_1` FOREIGN KEY (`cartId`) REFERENCES `cart` (`cartId`),
+  ADD CONSTRAINT `products_cart_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `products` (`id`);
 
 --
 -- Filtros para la tabla `product_color`
 --
 ALTER TABLE `product_color`
-  ADD CONSTRAINT `product_color_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `Products` (`productID`),
-  ADD CONSTRAINT `product_color_ibfk_2` FOREIGN KEY (`colorId`) REFERENCES `color` (`colorId`);
+  ADD CONSTRAINT `product_color_ibfk_2` FOREIGN KEY (`colorId`) REFERENCES `color` (`id`),
+  ADD CONSTRAINT `product_color_ibfk_3` FOREIGN KEY (`productId`) REFERENCES `products` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

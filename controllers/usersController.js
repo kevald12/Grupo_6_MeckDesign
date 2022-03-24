@@ -25,19 +25,11 @@ processLogin: async (req, res) => {
    if (userToLogin) {
       const passwordIsCorrect = bcryptjs.compareSync(req.body.password, userToLogin.password);
           if (passwordIsCorrect) {
-<<<<<<< HEAD
-              const userToLog = {...userToLogin}
-             delete userToLog.password;
-            //  console.log(userToLogin)
-              req.session.userLogged = userToLog; 
-            //   console.log(req.session.userLogged)
-=======
             //   const userToLog = {...userToLogin}
             //  delete userToLog.password;
          
               req.session.userLogged = userToLogin; 
             
->>>>>>> 294a2cc6a499ca6b5152f68aae42e3021b614372
         if (req.body.rememberUser){
             res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60)*60})
         }
@@ -48,23 +40,6 @@ processLogin: async (req, res) => {
     return res.render('./users/login', {loginError: loginError })
 }}},
 createUser: async (req,res)=> {
-//    var generateID = () => {
-//       return 1;
-//   }
-//   if (users.length >= 1) {
-//       generateID = () => {
-//           var lastUser = users[users.length - 1];
-
-//           var lastId = lastUser.id;
-
-//           return lastId + 1;
-
-//       }
-//   } else {
-//       generateID = () => {
-//           return 1
-//       }
-//   };
 try{
 
 var resultValidation = validationResult(req);
