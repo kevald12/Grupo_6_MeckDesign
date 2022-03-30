@@ -21,9 +21,23 @@
                                     <%= locals.loginError %> 
                                 </div>
                             <% } %>
-                            <input class="form-fields" type="email" name="email" placeholder="Email Address" required>
+                            <% if (locals.errors && errors.email) { %>
+                                <div class="text-danger">
+                                    <%= errors.email.msg %>
+                                </div>
+                                <% } %>
+                                <input type="email" name="email" id="email" placeholder="Email Address*"
+                                value="<%= locals.oldData ? oldData.email : null %>"
+                                class="form-fields<%= locals.errors && errors.email ? '-invalid' : null %>">
                             <br>
-                            <input class="form-fields" type="password" name="password" placeholder="Password" required>
+                            <% if (locals.errors && errors.password) { %>
+                                <div class="text-danger">
+                                    <%= errors.password.msg %>
+                                </div>
+                                <% } %>
+                                <input type="password" name="password" id="password" placeholder="Password*"
+                                    value="<%= locals.oldData ? oldData.password : null %>"
+                                    class="form-fields<%= locals.errors && errors.password ? '-invalid' : null %>">
                             <br>
                             <div class="terms">
                                 <input type="checkbox" name="rememberUser" id="rememberUser"> <label for="rememberUser">Remember User</label>

@@ -15,23 +15,49 @@
                     <h1 class="title">Create a new product</h1>
                     
                     <form class="form-button" action="/products/list" method="post"  enctype="multipart/form-data">
-                        <input class="form-fields" type="text" name="name" placeholder="Product Name" required>
+                        <% if (locals.errors && errors.name) { %>
+                            <div class="text-danger">
+                                <%= errors.name.msg %>
+                            </div>
+                            <% } %>
+                        <input class="form-fields<%= locals.errors && errors.name ? '-invalid' : null %>" type="text" name="name" placeholder="Product Name" value="<%= locals.oldData ? oldData.name : null %>"
+                        class="form-fields<%= locals.errors && errors.name ? '-invalid' : null %>">
                         <br>
-                        <input class="form-fields" type="textarea" name="description" placeholder="Product Description"
-                            required>
+                        <% if (locals.errors && errors.description) { %>
+                            <div class="text-danger">
+                                <%= errors.description.msg %>
+                            </div>
+                            <% } %>
+                        <input class="form-fields<%= locals.errors && errors.description ? '-invalid' : null %>" type="textarea" name="description" placeholder="Product Description"
+                        value="<%= locals.oldData ? oldData.description : null %>">
                         <br>
-                        <label for="img">Upload Image</label>
-                        <input class="form-fields" type="file" name="image" placeholder="Upload Image" required>
+                        <label for="image">Upload Image</label>
+                        <% if (locals.errors && errors.image) { %>
+                            <div class="text-danger">
+                                <%= errors.image.msg %>
+                            </div>
+                            <% } %>
+                        <input class="form-fields<%= locals.errors && errors.image ? '-invalid' : null %>" type="file" name="image" placeholder="Upload Image">
                         <br>
                         <label for="By Room">Select By Room</label>
-                        <select class="form-fields"  name="byRoom">
+                        <% if (locals.errors && errors.byRoom) { %>
+                            <div class="text-danger">
+                                <%= errors.byRoom.msg %>
+                            </div>
+                            <% } %>
+                        <select class="form-fields<%= locals.errors && errors.byRoom ? '-invalid' : null %>"  name="byRoom">
                             <% byroom.forEach(oneRoom => {%>
                             <option value=" <%= oneRoom.id %>"><%= oneRoom.room %></option>
                             <% }) %>
                         </select>
                         <br>
                         <label for="By Texture">Select By Texture</label>
-                        <select class="form-fields" name="byTexture">
+                        <% if (locals.errors && errors.byTexture) { %>
+                            <div class="text-danger">
+                                <%= errors.byTexture.msg %>
+                            </div>
+                            <% } %>
+                        <select class="form-fields<%= locals.errors && errors.byTexture ? '-invalid' : null %>" name="byTexture">
                             <% bytexture.forEach(onetexture => {%>
                                 <option value=" <%= onetexture.id %>"><%= onetexture.texture %></option>
                                 <% }) %>
@@ -40,7 +66,12 @@
                         </select>
                         <br>
                         <label for="Color">Select Color</label>
-                        <select class="form-fields" name="color" multiple>
+                        <% if (locals.errors && errors.color) { %>
+                            <div class="text-danger">
+                                <%= errors.color.msg %>
+                            </div>
+                            <% } %>
+                        <select class="form-fields<%= locals.errors && errors.color ? '-invalid' : null %>" name="color" multiple>
                             <% color.forEach(oneColor => {%>
                                 <option value=" <%= oneColor.id %>"><%= oneColor.color %></option>
                                 <% }) %>
@@ -49,8 +80,14 @@
 
                         <br>
                         <label for="price">Product Price</label>
-                        <input class="form-fields" type="number" name="price" step="any" min="1"
-                            placeholder="Insert Only Numbers" required>
+                        <% if (locals.errors && errors.price) { %>
+                            <div class="text-danger">
+                                <%= errors.price.msg %>
+                            </div>
+                            <% } %>
+                        <input class="form-fields<%= locals.errors && errors.price ? '-invalid' : null %>" type="number" name="price" step="any" min="1"
+                            placeholder="Insert Only Numbers" 
+                            value="<%= locals.oldData ? oldData.description : null %>">
 
                         <button class="send" type="submit">Submit</button>
                     </form>

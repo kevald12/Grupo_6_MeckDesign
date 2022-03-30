@@ -1,11 +1,12 @@
-# RETROSPECTIVA SPRINT 5 #
+# RETROSPECTIVA SPRINT 6#
 
 ## Start doing ##
-* Organizar tareas a cumplir, detallando como hacer las tareas en lugar de que hay que hacer.
+* Optimizar el tiempo de reuniones.
+
 
 ## Keep doing ##
+* Organizar tareas a cumplir, detallando como hacer las tareas en lugar de que hay que hacer.
 * Realizar una reunion semanal para revisar como va el proyecto.
-* Optimizar el tiempo de reuniones.
 * Planificar el cronograma de la siguiente reunion al final de cada reunion y agregarlo a trello.
 * Revisar lo que faltó el sprint anterior.
 * Avanzar en grupo al comienzo para tener una estructura en común y evitar duplicar el trabajo en la puesta en común.
@@ -33,5 +34,4 @@
 
 
 ## Stop doing ##
-* Reunirnos sin planificar el cronograma de la reunion.
-* Idle Time, mas compromiso. 
+* Confiarnos con los tiempos de entrega.

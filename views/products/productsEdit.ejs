@@ -16,9 +16,19 @@
               <h1 class="title">Edit the product <%= product.name %> </h1>
               
               <form class="form-button" action="/products/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-                  <input class="form-fields" type="text" name="name" value="<%= product.name%>" placeholder="New Name" >
+                <% if (locals.errors && errors.name) { %>
+                    <div class="text-danger">
+                        <%= errors.name.msg %>
+                    </div>
+                    <% } %>  
+                <input class="form-fields<%= locals.errors && errors.name ? '-invalid' : null %>" type="text" name="name" value="<%= locals.oldData ? oldData.name : product.name%>" placeholder="New Name" >
                   <br>
-                  <input class="form-fields" type="textarea" name="description" value="<%= product.description%>" placeholder="New Description">
+                  <% if (locals.errors && errors.description) { %>
+                    <div class="text-danger">
+                        <%= errors.description.msg %>
+                    </div>
+                    <% } %>
+                  <input class="form-fields<%= locals.errors && errors.description ? '-invalid' : null %>" type="textarea" name="description" value="<%= locals.oldData ? oldData.description : product.description%>" placeholder="New Description">
                   <br>
                   <label for="image">Upload Image</label>
                   <input class="form-fields" type="file" name="image" placeholder="Upload Image">
@@ -71,8 +81,14 @@
 
                   <br>
                   <label for="price">New Price</label>
-                  <input class="form-fields" type="number" value="<%= product.price%>" name="price" step="any" min="1"
-                      placeholder="Insert Only Numbers">
+                  <% if (locals.errors && errors.price) { %>
+                    <div class="text-danger">
+                        <%= errors.price.msg %>
+                    </div>
+                    <% } %>
+                  <input class="form-fields<%= locals.errors && errors.price ? '-invalid' : null %>" type="number" value="<%= product.price%>" name="price" step="any" min="1"
+                      placeholder="Insert Only Numbers"
+                      value="<%= locals.oldData ? oldData.description : null %>">
 
 
                 <button class="send" type="submit">Edit</button>

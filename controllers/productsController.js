@@ -6,6 +6,7 @@ const {Op} = require('sequelize')
 
 const products = JSON.parse(fs.readFileSync(productsJSONpath, 'utf-8'));
 
+const { validationResult } = require('express-validator');
 
 const controller = {
     mainRouter: async (req, res) => {
@@ -46,6 +47,7 @@ const controller = {
                const byroom = await ByRoom.findAll({});
               const bytexture = await ByTexture.findAll({});
               const color = await Color.findAll({});
+
            
         return res.render('./products/productsCreate.ejs', {
             products: products,
@@ -77,13 +79,28 @@ const controller = {
         })
     },
     store: async (req, res) => {
+        const byroom = await ByRoom.findAll({});
+        const bytexture = await ByTexture.findAll({});
+        const color = await Color.findAll({});
+
         let productToStore = {
             ...req.body,
-            image: req.file.filename,
+            image: req.file?.filename,
             byRoomId: req.body.byRoom,
             byTextureId: req.body.byTexture
 
         }
+
+        var resultValidation = validationResult(req);
+    if (resultValidation.errors.length > 0) {
+        return res.render("./products/productsCreate.ejs", {
+            errors: resultValidation.mapped(),
+            oldData: req.body,
+            byroom,
+            bytexture,
+            color
+        });
+    };
         
         try {
         const productStored = await Product.create(productToStore)
@@ -99,10 +116,24 @@ const controller = {
     update: async (req, res) => {
 
         const productID = Number(req.params.id);
+        const byroom = await ByRoom.findAll({});
+        const bytexture = await ByTexture.findAll({});
+        const color = await Color.findAll({});
+ 
 try {
         const productUpdate = await Product.findByPk(productID, {
             include : ['byRoom','byTexture','color'] });
-
+            var resultValidation = validationResult(req);
+            if (resultValidation.errors.length > 0) {
+                return res.render("./products/productsEdit", {
+                    errors: resultValidation.mapped(),
+                    oldData: req.body,
+                    byroom,
+            bytexture,
+            color,
+            product: productUpdate
+                });
+            };
                 if (req.body.color){
             productUpdate.removeColor(productUpdate.color);
             productUpdate.addColor(req.body.color);

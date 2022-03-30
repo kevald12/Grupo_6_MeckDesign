@@ -20,8 +20,19 @@ login: (req, res) => {
    return res.render('./users/login.ejs')
 },
 processLogin: async (req, res) => {
+  const loginError = 'The credentials provided are invalid'
     let userToLogin = await User.findOne({where: {email: req.body.email}});
-   
+    if(userToLogin == null){
+      return res.render('./users/login', {loginError: loginError })
+    };
+
+    var resultValidation = validationResult(req);
+    if (resultValidation.errors.length > 0) {
+        return res.render("./users/login.ejs", {
+            errors: resultValidation.mapped(),
+            oldData: req.body
+        });
+    };
    if (userToLogin) {
       const passwordIsCorrect = bcryptjs.compareSync(req.body.password, userToLogin.password);
           if (passwordIsCorrect) {
@@ -36,7 +47,6 @@ processLogin: async (req, res) => {
 
         return res.redirect("/user/profile")
    } else {
-    let loginError = 'The credentials provided are invalid'
     return res.render('./users/login', {loginError: loginError })
 }}},
 createUser: async (req,res)=> {
@@ -49,13 +59,13 @@ if (resultValidation.errors.length > 0) {
         oldData: req.body
     });
 }
-// let userAlreadyRegistered = await User.findOne({where: {email: req.body?.email}})
-//     if (userAlreadyRegistered) {
-//       return res.render("./users/register.ejs", {
-//           userAlreadyRegistered,
-//           oldData: req.body
-//       });
-//     }
+let userAlreadyRegistered = await User.findOne({where: {email: req.body?.email}})
+    if (userAlreadyRegistered) {
+      return res.render("./users/register.ejs", {
+          userAlreadyRegistered,
+          oldData: req.body
+      });
+    }
   let passEncriptada = bcryptjs.hashSync(req.body.password, 10);
       User.create({
           firstName: req.body.firstName,
