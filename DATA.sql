@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 24-03-2022 a las 19:06:46
+-- Tiempo de generación: 06-04-2022 a las 03:01:26
 -- Versión del servidor: 5.7.34
 -- Versión de PHP: 7.4.21
 
@@ -64,18 +64,18 @@ INSERT INTO `color` (`id`, `color`, `createdAt`, `updatedAt`, `deletedAt`) VALUE
 --
 
 INSERT INTO `products` (`id`, `name`, `price`, `description`, `byRoomId`, `byTextureId`, `image`, `createdAt`, `updatedAt`, `deletedAt`, `stock`) VALUES
-(11, 'Reloj Moderno', '2500', 'Diseño único', 4, 4, '1647397242868-products.jpg', '2022-03-24 18:28:27', '2022-03-24 18:28:27', NULL, NULL),
-(12, 'Funny Bottle', '350', 'Prepara tu infusion favorita en esta botella de diseño exclusivo', 2, 4, '1647397730798-products.jpg', '2022-03-24 18:37:10', '2022-03-24 18:37:10', NULL, NULL),
-(17, 'Termo To Go', '1500', 'Botella térmica ', 6, 3, '1647398636339-products.jpg', '2022-03-24 18:39:20', '2022-03-24 18:39:20', NULL, NULL),
-(19, 'Escritorio', '5000', 'Diseño escandinavo', 6, 1, '1647481717217-products.jpg', '2022-03-24 18:40:03', '2022-03-24 18:40:03', NULL, NULL),
-(20, 'Reloj de cocina', '2500', 'Ideal para espacios open concept minimalistas', 2, 4, '1647481959258-products.jpg', '2022-03-24 18:40:43', '2022-03-24 18:40:43', NULL, NULL),
-(22, 'Silla clásica', '4500', 'Añade textura a tus espacios', 4, 1, '1647482144170-products.jpg', '2022-03-24 18:41:37', '2022-03-24 18:41:37', NULL, NULL),
-(23, 'Desk chair', '4500', 'Cómoda silla para espacios de oficina', 6, 1, '1647482454175-products.jpg', '2022-03-24 18:42:26', '2022-03-24 18:42:26', NULL, NULL),
-(27, 'Caballito de madera', '7000', 'Pieza unica de diseño, ideal para incentivar la creatividad en espacios de trabajo', 6, 1, '1647559406912-products.jpg', '2022-03-24 18:43:09', '2022-03-24 18:43:09', NULL, NULL),
-(31, 'Kettle tradicional', '3500', 'Una pava que recuerda aquellas utilizadas en el campo sobre las salamandras', 2, 5, '1648147670070-products.jpg', '2022-03-24 18:47:50', '2022-03-24 18:47:50', NULL, NULL),
-(32, 'Holder de diseño', '1500', 'Ya sea como servilletero o porta retrato, este simpático animalito de madera ilumina cualquier ambiente', 4, 1, '1648147833112-products.jpg', '2022-03-24 18:50:33', '2022-03-24 18:50:33', NULL, NULL),
-(33, 'Bento basket', '6000', 'Una canasta que recuerda las bento box pero con diseño único', 2, 5, '1648147903371-products.jpg', '2022-03-24 18:51:43', '2022-03-24 18:51:43', NULL, NULL),
-(34, 'Lámpara colgante', '4000', 'De terminación matte y calidez única', 4, 3, '1648147961119-products.jpg', '2022-03-24 18:52:41', '2022-03-24 18:52:41', NULL, NULL);
+(11, 'Reloj Moderno', '2500', 'Diseño único', 4, 4, '1-6.jpg', '2022-03-31 23:22:15', '2022-03-24 19:11:40', NULL, NULL),
+(12, 'Funny Bottle', '350', 'Prepara tu infusion favorita en esta botella de diseño exclusivo', 2, 4, '1-9.jpg', '2022-03-31 23:22:38', '2022-03-24 19:11:52', NULL, NULL),
+(17, 'Termo To Go', '1500', 'Botella térmica ', 6, 3, '1-17.jpg', '2022-03-31 23:22:59', '2022-03-24 19:12:29', NULL, NULL),
+(19, 'Escritorio', '5000', 'Diseño escandinavo', 6, 1, '1.jpg', '2022-03-31 23:25:23', '2022-03-24 19:12:41', NULL, NULL),
+(20, 'Reloj de cocina', '2500', 'Ideal para espacios open concept minimalistas', 2, 4, '1-13.jpg', '2022-03-31 23:25:31', '2022-03-24 19:13:16', NULL, NULL),
+(22, 'Silla clásica', '4500', 'Añade textura a tus espacios', 4, 1, '1-16.jpg', '2022-03-31 23:25:36', '2022-03-24 19:13:28', NULL, NULL),
+(23, 'Desk chair', '4500', 'Cómoda silla para espacios de oficina', 6, 1, '1-12.jpg', '2022-03-31 23:25:41', '2022-03-24 19:13:39', NULL, NULL),
+(27, 'Caballito de madera', '7000', 'Pieza unica de diseño, ideal para incentivar la creatividad en espacios de trabajo', 6, 1, '1-2.jpg', '2022-03-31 23:24:27', '2022-03-24 18:43:09', NULL, NULL),
+(31, 'Kettle tradicional', '3500', 'Una pava que recuerda aquellas utilizadas en el campo sobre las salamandras', 2, 5, '1-7.jpg', '2022-03-31 23:24:44', '2022-03-24 18:47:50', NULL, NULL),
+(32, 'Holder de diseño', '1500', 'Ya sea como servilletero o porta retrato, este simpático animalito de madera ilumina cualquier ambiente', 4, 1, '1-19.jpg', '2022-03-31 23:25:58', '2022-03-24 18:50:33', NULL, NULL),
+(33, 'Bento basket', '6000', 'Una canasta que recuerda las bento box pero con diseño único', 2, 5, '1-10.jpg', '2022-03-31 23:26:04', '2022-03-24 18:51:43', NULL, NULL),
+(34, 'Lámpara colgante', '4000', 'De terminación matte y calidez única', 4, 3, '1-1.jpg', '2022-03-31 23:26:39', '2022-03-24 18:52:41', NULL, NULL);
 
 --
 -- Volcado de datos para la tabla `product_color`

@@ -14,7 +14,7 @@ const controller = require ('../controllers/usersController.js');
 
 // Routes
 router.get('/register', authMiddleware, controller.register);
-router.post('/register', upload.single('avatar'), controller.createUser);  //quitamos validations
+router.post('/register', upload.single('avatar'), validations, controller.createUser);  //quitamos validations
 router.get('/login', authMiddleware, controller.login);
 router.post('/login', validateLogin, controller.processLogin);
 router.get('/profile', guestMiddleware, controller.profile);

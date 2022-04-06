@@ -674,14 +674,7 @@ margin-bottom: 20px;
 
 /* boxes and Buttons */
 
-.form-fields {
-    padding: 10px;
-    border: solid 1px black;
-    width: 100%;
-    background-color: #fff;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
+
 
 .send {
     width: 100%;
@@ -717,6 +710,15 @@ transition: backgroun-color, 0.08s, color, 0.08;
 
 .form-button{
     width: 100%;
+}
+
+.form-fields {
+    padding: 10px;
+    border: solid 1px black;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 .form-fields-invalid {
