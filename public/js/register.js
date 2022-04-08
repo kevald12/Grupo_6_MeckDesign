@@ -1,5 +1,5 @@
 window.addEventListener('load', function(e){
-
+var errores = false;
     const isFormEmpty = (e) => {
         const field = e.target;
         const errorSpan = field.previousElementSibling; 
@@ -8,28 +8,28 @@ window.addEventListener('load', function(e){
             field.classList.add("form-fields-invalid");
             errorSpan.innerText = `${field.placeholder} field is required`;
             errorSpan.classList.add("text-danger");
-            
+            return errores = true;
         } else {
             field.classList.remove("form-fields-invalid");
             errorSpan.innerText = "";
             errorSpan.classList.remove("text-danger");
-            
+            return errores = false
         }
     }
-    const requiredCharacters = (e) => {
-        const field = e.target;
+    const requiredCharacters = (input, e) => {
+        const field = input || e.target;
         const errorSpan = field.previousElementSibling; 
         // console.log("ESTE ES EL FIELD", field)
         if (field.value.length < 2) {
             field.classList.add("form-fields-invalid");
             errorSpan.innerText = `${field.placeholder} must be at least 2 characters`;
             errorSpan.classList.add("text-danger");
-            
+            return errores = true
     }else {
             field.classList.remove("form-fields-invalid");
             errorSpan.innerText = "";
             errorSpan.classList.remove("text-danger");
-            
+            return errores = false 
         }
     }
 
@@ -64,11 +64,12 @@ window.addEventListener('load', function(e){
             errorSpan.innerText = `Please enter a valid ${field.placeholder}`;
             errorSpan.classList.add("text-danger");
             field.value == "field con error"
+            return errores = true 
         } else { 
             field.classList.remove("form-fields-invalid");
             errorSpan.innerText = "";
             errorSpan.classList.remove("text-danger");
-            
+            return errores = false  
     }});
 
     
@@ -81,38 +82,46 @@ window.addEventListener('load', function(e){
             field.classList.add("form-fields-invalid");
             errorSpan.innerText = `${field.placeholder} must be at least 8 characters`;
             errorSpan.classList.add("text-danger");
-
+             return errores = true  
     }else {
             field.classList.remove("form-fields-invalid");
             errorSpan.innerText = "";
             errorSpan.classList.remove("text-danger");
-            
+            return errores = false  
     }
     });
      let formRegister = document.getElementById('registerForm')
-    
+    console.log("FORM REGISTER", formRegister)
     formRegister.addEventListener('submit', function(e){
-        let errores = false;
+        // let errores = false;
+       
     let formElements = [...formRegister.elements]
+    formElements.pop()
     formElements.pop()
     
     formElements.forEach(oneElement => {
         const errorSpan = oneElement.previousElementSibling; 
+            console.log("SPAN", errorSpan)
         if (oneElement.value.trim() === ""){
             oneElement.classList.add("form-fields-invalid")
-        errorSpan.innerText = `${field.placeholder} error`;
+        errorSpan.innerText = `${oneElement.placeholder} error`;
         errorSpan.classList.add("text-danger");
         errores = true;
         }
-        else {
-            oneElement.classList.remove("form-fields-invalid");
-            errorSpan.innerText = "";
-            errorSpan.classList.remove("text-danger");
+        // else {
+        //     oneElement.classList.remove("form-fields-invalid");
+        //     errorSpan.innerText = "";
+        //     errorSpan.classList.remove("text-danger");
             
+        // }
+        if(oneElement.value.trim()!== "" && ( oneElement.name == "firstName" ||  oneElement.name == "lastName")){
+            requiredCharacters(oneElement)
         }
     })
+    console.log("errores for each", errores)
     if (errores){
         e.preventDefault();
+
     }
     
 })
