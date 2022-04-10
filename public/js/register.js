@@ -13,7 +13,8 @@ window.addEventListener('load', function (e) {
             errorSpan.innerText = `${field.placeholder} field is required`;
             errorSpan.classList.add("text-danger");
             return errores = true;
-        } else if (field.value.length > 2) {
+        } else if ((field.name == "password" && field.value.length >= 8) || ((field.name == "firstName" || field.name == "lastName") && field.value.length > 2)) {
+            console.log("field name en else de isformempty", field.name)
             field.classList.remove("form-fields-invalid");
             errorSpan.innerText = "";
             console.log("field dentro del else de isformempty", field)
@@ -21,8 +22,8 @@ window.addEventListener('load', function (e) {
             return errores = false
         }
     }
-    const requiredCharacters = (e) => {
-        const field = e.target;
+    const requiredCharacters = (e, input) => {
+        const field = e.target || input;
         // console.log("input en requiredCharacters", input)
         console.log("e target value or input", field)
         const errorSpan = field.previousElementSibling;
@@ -44,6 +45,25 @@ window.addEventListener('load', function (e) {
         } else {
             console.log("field length 41", field.value.length)
 
+            field.classList.remove("form-fields-invalid");
+            errorSpan.innerText = "";
+            errorSpan.classList.remove("text-danger");
+            return errores = false
+        }
+    }
+    const avatarValidation = (e, input)=>{
+        const field = e.target || input;
+        const errorSpan = field.previousElementSibling;
+        console.log("AVATAR value", avatar.value)
+        let avatarExtention = avatar.value.toLowerCase().split(".")
+        console.log("!!!!!!",avatarExtention[1])
+        let regex = /jpg|jpeg|png/
+        if(!avatarExtention[1].match(regex)){
+            field.classList.add("form-fields-invalid");
+                errorSpan.innerText = `Valid avatar extentions are .jpg. jpeg or .png`;
+                errorSpan.classList.add("text-danger");
+                return errores = true;
+        }else {
             field.classList.remove("form-fields-invalid");
             errorSpan.innerText = "";
             errorSpan.classList.remove("text-danger");
@@ -92,21 +112,15 @@ window.addEventListener('load', function (e) {
     let email = document.getElementById('email')
     let password = document.getElementById('password')
 
-    //********Validations on inputs
+    //********EVENTS ----- Validations on inputs
     firstName.addEventListener("blur", isFormEmpty);
     firstName.addEventListener("keyup", requiredCharacters)
-    // firstName.addEventListener("blur", requiredCharacters)
 
     lastName.addEventListener("blur", isFormEmpty);
     lastName.addEventListener("keyup", requiredCharacters);
 
-    // console.log("AVATAR", avatar)
     avatar.addEventListener("blur", isFormEmpty);
-    // avatar.addEventListener("change", (e)=>{
-    //     if(avatar.file!=".jpg", ".jpeg", ".png"){
-
-    //     }
-    // });
+    avatar.addEventListener("change", avatarValidation);
 
     email.addEventListener("blur", isFormEmpty);
     email.addEventListener("keyup", emailValidation);
@@ -117,19 +131,25 @@ window.addEventListener('load', function (e) {
     //*********Validations for submit button
     let formRegister = document.getElementById('registerForm')
     // console.log("FORM REGISTER", formRegister)
-    formRegister.addEventListener('submit', function (e) {
+ 
+    
+    const formFunction = function (e) {
         // let errores = false;
         let formElements = [...formRegister.elements]
+        console.log("form elements 125",formElements)
         formElements.pop()
         formElements.pop()
          formElements.forEach(oneElement => {
             const errorSpan = oneElement.previousElementSibling;
             console.log("SPAN", errorSpan)
+            console.log("errores en form submit 127", errores)
+
             if (oneElement.value.trim() === "") {
                 oneElement.classList.add("form-fields-invalid")
                 errorSpan.innerText = `${oneElement.placeholder} error`;
                 errorSpan.classList.add("text-danger");
                 errores = true;
+                console.log("errores en form submit 134", errores)
             }
             // else {
             //     oneElement.classList.remove("form-fields-invalid");
@@ -140,6 +160,9 @@ window.addEventListener('load', function (e) {
             if (oneElement.value.trim() !== "" && (oneElement.name == "firstName" || oneElement.name == "lastName")) {
                 requiredCharacters(oneElement)
             }
+            if (oneElement.value.trim() !== "" && oneElement.name == "avatar") {
+                avatarValidation(oneElement)
+            }
             if (oneElement.value.trim() !== "" && oneElement.name == "email") {
                 emailValidation(oneElement)
             }
@@ -148,10 +171,11 @@ window.addEventListener('load', function (e) {
             }
         })
                 if (errores) {
-                    console.log("errores", errores)
+                    console.log("ERROR DE PREVENT DEFAULT errores", errores)
                     e.preventDefault();
-
+                    // console.log("prevent default", e.preventDefault())
                 }
 
-    })
+    }
+    formRegister.addEventListener('submit', formFunction);
 })
