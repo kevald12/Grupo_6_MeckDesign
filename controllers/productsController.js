@@ -163,7 +163,7 @@ search : async (req, res) =>{
         {
             where: {
 name:{
-[Op.like]: "%" + req.query.search + "%"
+[Op.like]: "%" + req.query.search + "%" 
 }
         }})
 
