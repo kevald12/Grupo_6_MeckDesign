@@ -1,68 +1,61 @@
 window.addEventListener('load', function (e) {
-    var errores = false;
-
-    let localErrors = document.getElementById('localErrors');
-    if(localErrors){
-        localErrors.innerTXT = ""
-    };
-
-    //********Event handlers ---- Validation functions
-    const isFormEmpty = (e, input) => {
-        const field = e.target || input;
-        console.log("field in isFormEmpty", field.value)
-        const errorSpan = field.previousElementSibling;
-        console.log("errorSpan de isformEmpty", errorSpan)
-        if (field.value.trim() === "") {
-            console.log("THE FORM IS EMPTY!!!")
+    //******* Error handlers */
+const setError = (field, errorSpan, msg)=>{
             field.classList.add("form-fields-invalid");
-            errorSpan.innerText = `${field.placeholder} field is required`;
+            if(field.placeholder == undefined){
+            errorSpan.innerText = `${msg}`;
+            }else {
+                errorSpan.innerText = `${field.placeholder} ${msg}`;
+            }
             errorSpan.classList.add("text-danger");
-            return errores = true;
-        } else if ((field.name == "description" && field.value.length >= 20) || ((field.name == "name" || field.name == "name") && field.value.length > 5) || (field.name == "price" && field.value.length >= 1) || field.id === "submitButton") {
-            field.classList.remove("form-fields-invalid");
+            return true;
+}
+
+const setSuccess = (field, errorSpan) => {
+    field.classList.remove("form-fields-invalid");
             field.classList.add("form-fields")
             errorSpan.innerText = "";
             errorSpan.classList.remove("text-danger");
-            return errores = false
+            return false
+}
+    //********Event handlers ---- Validation functions
+    const isFormEmpty = (e, input) => {
+        const field = e.target || input;
+        const errorSpan = field.previousElementSibling;
+        // console.log("errorSpan de isformEmpty", errorSpan)
+        if (field.value.trim() === "") {
+            if(setError(field, errorSpan, "field cannot be blank")){
+                return true
+            }
+        } else if ((field.name == "description" && field.value.length >= 20) || ((field.name == "name" || field.name == "name") && field.value.length > 5) || (field.name == "price" && field.value.length >= 1) || field.id === "submitButton") {
+            setSuccess(field, errorSpan)
         }
     }
     const requiredCharacters = (e, input) => {
         const field = e.target || input;
-        console.log("INPUTTTT or FIELD", field)
         const errorSpan = field.previousElementSibling;
    
         if ( field.value.length < 5) {
-            field.classList.add("form-fields-invalid");
-            errorSpan.innerText = `${field.placeholder} must be at least 5 characters`;
-            errorSpan.classList.add("text-danger");
-            console.log("field placeholder", field.placeholder)
-            return errores = true
+           if(setError(field, errorSpan, "must be at least 5 characters"))
+            {
+                return true
+            }
         } else {
-            field.classList.remove("form-fields-invalid");
-            field.classList.add("form-fields")
-            errorSpan.innerText = "";
-            errorSpan.classList.remove("text-danger");
-            return errores = false
+            setSuccess(field, errorSpan)
         }
     }
     const imageValidation = (e, input)=>{
         const field = e.target || input;
         const errorSpan = field.previousElementSibling;
-        console.log("image value", image.value)
         let imageExtention = image.value.toLowerCase().split(".")
         console.log("!!!!!!",imageExtention[1])
         let regex = /jpg|jpeg|png/
         if(!imageExtention[1].match(regex)){
-            field.classList.add("form-fields-invalid");
-                errorSpan.innerText = `Valid image extentions are .jpg. jpeg or .png`;
-                errorSpan.classList.add("text-danger");
-                return errores = true;
+                if(setError(field, errorSpan, "valid extentions are .jpg, .jpeg, .png")){
+                    return true
+                }
         }else {
-            field.classList.remove("form-fields-invalid");
-            field.classList.add("form-fields")
-            errorSpan.innerText = "";
-            errorSpan.classList.remove("text-danger");
-            return errores = false
+            setSuccess(field, errorSpan)
         }
     }
 
@@ -70,38 +63,25 @@ window.addEventListener('load', function (e) {
         const field = e.target || input;
         const errorSpan = field.previousElementSibling;
         if (field.value.length < 20) {
-            field.classList.add("form-fields-invalid");
-            errorSpan.innerText = `${field.placeholder} must be at least 20 characters`;
-            errorSpan.classList.add("text-danger");
-             errores = true
-             console.log("error de description", errores)
+             if(setError(field, errorSpan, "must be at least 20 characters")){
+                return true
+            }
         } else {
-            field.classList.remove("form-fields-invalid");
-            field.classList.add("form-fields")
-            errorSpan.innerText = "";
-            errorSpan.classList.remove("text-danger");
-            return errores = false
+            setSuccess(field, errorSpan)
         }
     }
-    console.log("error de description por fuera", errores)
-
 
     const colorValidation = (e, input)=>{
         const field = e.target || input;
         const errorSpan = document.getElementById('colorErrorSpan');
         console.log("errorSpan", errorSpan)
-        console.log(" color field", field.option)
+        console.log(" color field", field.placeholder)
         if (field.value.length < 1){
-            field.classList.add("form-fields-invalid");
-            errorSpan.innerText = `You must choose at least 1 color`;
-            errorSpan.classList.add("text-danger");
-            return errores = true
+            if(setError(field, errorSpan, "You must select at least 1 color")){
+                return true
+            }
         }else {
-            field.classList.remove("form-fields-invalid");
-            field.classList.add("form-fields")
-            errorSpan.innerText = "";
-            errorSpan.classList.remove("text-danger");
-            return errores = false
+            setSuccess(field, errorSpan)
         }
     }
 
@@ -124,15 +104,9 @@ console.log("color element", color)
     image.addEventListener("blur", isFormEmpty);
     image.addEventListener("change", imageValidation);
 
-    color.addEventListener("change focus", colorValidation)
+    color.addEventListener("focus", colorValidation)
 
-    price.addEventListener("blur", isFormEmpty);
-
-    function submitAll () {
-        isFormEmpty();
-
-    }
-
+    price.addEventListener("keyup", isFormEmpty);
 
     //*********Validations for submit button
     let productsForm = document.getElementById('productsForm')
@@ -140,46 +114,39 @@ console.log("color element", color)
     
     let formElements = [...productsForm.elements]
         formElements.pop()
-        console.log("FORM ELEMENTS", formElements)
-console.log("errores al final", errores)
-
-
     const buttonFunction = function (e) {
         let formElements = [...productsForm.elements]
         formElements.pop()
-        let errores = false;
+        // let errores = false;
+        // e.preventDefault()
          formElements.forEach(oneElement => {
-                    console.log("este es el forEach", oneElement)
             if (oneElement.value.trim() !== "" && (oneElement.name == "name")) {
-                console.log("RRRRRequired character de abajo")
-
-                requiredCharacters(e, oneElement)
-            }
-            if (oneElement.value.trim() !== "" && oneElement.name == "image") {
-                console.log("image validation de abajo")
-                imageValidation(e, oneElement)
-            }
-            if (oneElement.value.trim() !== "" && oneElement.name == "description") {
-                console.log("description de abajo")
-                descriptionValidation(e, oneElement)
-            }
-            if (oneElement.value.trim() !== "" && oneElement.name == "color") {
-                console.log("color validation de abajo")
-                colorValidation(e, oneElement)
-            }
-            if (oneElement.value.trim() === "") {
-                console.log("el form empty de abajo")
-                isFormEmpty(e, oneElement)
-
-            } 
-        })
-                if (!errores) {
-                    console.log("Errores fue false")
-                  
-                } else if (errores == true) {
+                if (requiredCharacters("", oneElement)){
                     e.preventDefault()
                 }
-
+                console.log("requiredCharacters del forEach", requiredCharacters("", oneElement))
+            }
+            if (oneElement.value.trim() !== "" && oneElement.name == "image") {
+                if (imageValidation("", oneElement)){
+                    e.preventDefault()
+                }
+            }
+            if (oneElement.value.trim() !== "" && oneElement.name == "description") {
+                if (descriptionValidation("", oneElement)){
+                    e.preventDefault()
+                } 
+            }
+            if (oneElement.value.trim() !== "" && oneElement.name == "color") {
+                if (colorValidation("", oneElement)){
+                    e.preventDefault()
+                } 
+            }
+            if (oneElement.value.trim() === "" && oneElement.name != "color") {
+                if (isFormEmpty("", oneElement)){
+                    e.preventDefault()
+                }
+            } 
+        })
     }
     productsForm.addEventListener('submit', buttonFunction, true);
     // buttonSubmit.addEventListener("click", buttonFunction);
