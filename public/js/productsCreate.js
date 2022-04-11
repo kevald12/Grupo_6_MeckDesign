@@ -75,7 +75,7 @@ const setSuccess = (field, errorSpan) => {
         const field = e.target || input;
         const errorSpan = document.getElementById('colorErrorSpan');
         console.log("errorSpan", errorSpan)
-        console.log(" color field", field.placeholder)
+        console.log(" color field value", field.value.length)
         if (field.value.length < 1){
             if(setError(field, errorSpan, "You must select at least 1 color")){
                 return true
@@ -113,7 +113,7 @@ console.log("color element", color)
 
     //*********Validations for submit button
     let productsForm = document.getElementById('productsForm')
-    let buttonSubmit = document.getElementById('submitButton')
+    // let buttonSubmit = document.getElementById('submitButton')
     
     let formElements = [...productsForm.elements]
         formElements.pop()
@@ -142,7 +142,7 @@ console.log("color element", color)
                     e.preventDefault()
                 } 
             }
-            if (oneElement.value.trim() !== "" && oneElement.name == "color") {
+            if (oneElement.name == "color") {
                 if (colorValidation("", oneElement)){
                     e.preventDefault()
                 } 
