@@ -100,13 +100,16 @@ console.log("color element", color)
 
     description.addEventListener("blur", isFormEmpty);
     description.addEventListener("keyup", descriptionValidation);
+    // condicional para form edit - de esta manera pueden no subir una imagen nueva
+    console.log("image en event", image)
+    if(image){
+        image.addEventListener("blur", isFormEmpty);
+        image.addEventListener("change", imageValidation);
+    }
 
-    image.addEventListener("blur", isFormEmpty);
-    image.addEventListener("change", imageValidation);
+    color.addEventListener("blur", colorValidation, true)
 
-    color.addEventListener("focus", colorValidation)
-
-    price.addEventListener("keyup", isFormEmpty);
+    price.addEventListener("blur", isFormEmpty);
 
     //*********Validations for submit button
     let productsForm = document.getElementById('productsForm')
@@ -126,9 +129,12 @@ console.log("color element", color)
                 }
                 console.log("requiredCharacters del forEach", requiredCharacters("", oneElement))
             }
-            if (oneElement.value.trim() !== "" && oneElement.name == "image") {
-                if (imageValidation("", oneElement)){
-                    e.preventDefault()
+            if(image){
+                if (oneElement.value.trim() !== "" && oneElement.name == "image") {
+                    console.log("image", image)
+                    if (imageValidation("", oneElement)){
+                        e.preventDefault()
+                    }
                 }
             }
             if (oneElement.value.trim() !== "" && oneElement.name == "description") {
@@ -141,11 +147,19 @@ console.log("color element", color)
                     e.preventDefault()
                 } 
             }
-            if (oneElement.value.trim() === "" && oneElement.name != "color") {
-                if (isFormEmpty("", oneElement)){
-                    e.preventDefault()
-                }
-            } 
+            if(image){
+                if (oneElement.value.trim() === "" && oneElement.name != "color") {
+                    if (isFormEmpty("", oneElement)){
+                        e.preventDefault()
+                    }
+                } 
+            }else {
+                if (oneElement.value.trim() === "" && oneElement.name != "color" && oneElement.name != "image") {
+                    if (isFormEmpty("", oneElement)){
+                        e.preventDefault()
+                    }
+                } 
+            }
         })
     }
     productsForm.addEventListener('submit', buttonFunction, true);

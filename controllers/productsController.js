@@ -114,13 +114,13 @@ const controller = {
    
 
     update: async (req, res) => {
-
+        
+    try {
         const productID = Number(req.params.id);
         const byroom = await ByRoom.findAll({});
         const bytexture = await ByTexture.findAll({});
         const color = await Color.findAll({});
  
-try {
         const productUpdate = await Product.findByPk(productID, {
             include : ['byRoom','byTexture','color'] });
             var resultValidation = validationResult(req);
