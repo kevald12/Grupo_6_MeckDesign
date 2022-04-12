@@ -15,7 +15,8 @@
                     <div class="seccion-account1">
                         <h1 class="title">Have a MeckDesign account?</h1>
                         <p>Access it now to save time when you shop</p>
-                        <form class="form-button" action="/user/login" method="post">
+                        <form class="form-button" action="/user/login" method="post" id="loginForm">
+                            
                             <% if (locals.loginError) { %>
                                 <div class="text-danger">
                                     <%= locals.loginError %> 
@@ -26,7 +27,8 @@
                                     <%= errors.email.msg %>
                                 </div>
                                 <% } %>
-                                <input type="email" name="email" id="email" placeholder="Email Address*"
+                                <span></span>
+                                <input type="email" name="email" id="email" placeholder="Email Address"
                                 value="<%= locals.oldData ? oldData.email : null %>"
                                 class="form-fields<%= locals.errors && errors.email ? '-invalid' : null %>">
                             <br>
@@ -35,7 +37,8 @@
                                     <%= errors.password.msg %>
                                 </div>
                                 <% } %>
-                                <input type="password" name="password" id="password" placeholder="Password*"
+                                <span></span>
+                                <input type="password" name="password" id="password" placeholder="Password"
                                     value="<%= locals.oldData ? oldData.password : null %>"
                                     class="form-fields<%= locals.errors && errors.password ? '-invalid' : null %>">
                             <br>
@@ -68,6 +71,7 @@
 
             <!-- <<<< footer >>>> -->
             <%- include('../partials/footer') %>
+            <script src="/js/login.js"></script>
     </body>
 
 </html>

@@ -15,19 +15,18 @@
 
               <h1 class="title">Edit User <%= user.firstName %> </h1>
               
-              <form class="form-button" action="/user/updateUser/<%= user.userId %>?_method=PUT" method="POST" enctype="multipart/form-data">
-                  <input class="form-fields" type="text" name="firstName" value="<%= user.firstName%>" placeholder="New Name" >
+              <form class="form-button" action="/user/updateUser/<%= user.userId %>?_method=PUT" method="POST" enctype="multipart/form-data" id="userEditForm">
+                   <span></span>
+                  <input class="form-fields" type="text"  id="firstName" name="firstName" value="<%= user.firstName%>" placeholder="New Name" >
                   <br>
-                  <input class="form-fields" type="text" name="lastName" value="<%= user.lastName%>" placeholder="New Last Name">
+                  <span></span>
+                  <input class="form-fields" type="text" id="lastName"  name="lastName" value="<%= user.lastName%>" placeholder="New Last Name">
                   <br>
                   <label for="image">Upload Image</label>
+                  <span></span>
                   <input class="form-fields" type="file" name="avatar" placeholder="Upload Image">
                   <br>
-                  <!-- <label><h3>Change password</h3></label>
-                  <p>Old password*</p>
-                  <input type="password" class="form-fields" name="oldPassword" placeholder="Old Password">
-                  <p>New Password</p>
-                  <input type="password" class="form-fields" name="newPassword" placeholder="New Password"> -->
+               
 
                   <div><button type="submit" class="send">Edit Changes</button></div>
               </form>
@@ -41,5 +40,6 @@
 
      <!-- footer -->
      <%- include('../partials/footer')%>
+     <script src="/js/editUser.js"></script>
 </body>
 </html>

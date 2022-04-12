@@ -1,3 +1,4 @@
+
 // admite la session para todas las vistas
 
 function userLoggedMiddleware (req, res, next) {
