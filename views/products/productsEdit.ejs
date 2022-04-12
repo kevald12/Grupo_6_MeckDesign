@@ -2,106 +2,106 @@
 <html lang="en">
 <!-- head -->
 <%- include('../partials/head')%>
+
 <body>
-     <!-- header -->
-     <%- include('../partials/header')%>
-     <!--main  -->
-<main>
+  <!-- header -->
+  <%- include('../partials/header')%>
+  <!--main  -->
+  <main>
 
-     <main class="main-container-create">
+    <main class="main-container-create">
 
-          <div class="form-group-create">
-
-
-              <h1 class="title">Edit the product <%= product.name %> </h1>
-              
-              <form class="form-button" action="/products/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-                <% if (locals.errors && errors.name) { %>
-                    <div class="text-danger">
-                        <%= errors.name.msg %>
-                    </div>
-                    <% } %>  
-                <input class="form-fields<%= locals.errors && errors.name ? '-invalid' : null %>" type="text" name="name" value="<%= locals.oldData ? oldData.name : product.name%>" placeholder="New Name" >
-                  <br>
-                  <% if (locals.errors && errors.description) { %>
-                    <div class="text-danger">
-                        <%= errors.description.msg %>
-                    </div>
-                    <% } %>
-                  <input class="form-fields<%= locals.errors && errors.description ? '-invalid' : null %>" type="textarea" name="description" value="<%= locals.oldData ? oldData.description : product.description%>" placeholder="New Description">
-                  <br>
-                  <label for="image">Upload Image</label>
-                  <input class="form-fields" type="file" name="image" placeholder="Upload Image">
-                  <br>
-                  <label for="By Room">Select By Room</label>
-                  <select class="form-fields"  name="byRoom">
-                    <% for( let i = 0; i < byroom.length; i++ ) { %>
-                        <% if (byroom[i].id == product.byRoom.id) { %>
-                            <option value=" <%= product.byRoom.id %>" selected>
-                                <%= product.byRoom.room %></option>
-                         
-                                <% } else {%>
-                                    <option value=" <%= byroom[i].id %>">
-                                        <%= byroom[i].room %></option>
-                                        <% } %>
-                                        
-                                        <% } %>
-
-                  </select>
-                  <br>
-                  <label for="By Texture">Select By Texture</label>
-                  <select class="form-fields" name="byTexture">
-                      <% for( let i = 0; i < bytexture.length; i++ ) { %>
-                        <% if (bytexture[i].id == product.byTexture.id) { %>
-                            <option value=" <%= product.byTexture.id %>" selected>
-                                <%= product.byTexture.texture %></option>
-                         
-                                <% } else {%>
-                                    <option value=" <%= bytexture[i].id %>">
-                                        <%= bytexture[i].texture %></option>
-                                        <% } %>
-                                        
-                                        <% } %>
-
-                  </select>
-                  <br>
-                  <label for="Color">Select Color</label>
-                  <select class="form-fields" name="color" multiple>
-                    <% for (let i = 0; i < color.length; i++){%>
-                         <option value=" <%= color[i].id %>">
-                            <%= color[i].color %></option>
-                            <% } %>
-                
-                </select>
+      <div class="form-group-create">
 
 
+        <h1 class="title">Edit the product <%= product.name %> </h1>
 
-
-
-
-                  <br>
-                  <label for="price">New Price</label>
-                  <% if (locals.errors && errors.price) { %>
-                    <div class="text-danger">
-                        <%= errors.price.msg %>
-                    </div>
-                    <% } %>
-                  <input class="form-fields<%= locals.errors && errors.price ? '-invalid' : null %>" type="number" value="<%= product.price%>" name="price" step="any" min="1"
-                      placeholder="Insert Only Numbers"
-                      value="<%= locals.oldData ? oldData.description : null %>">
-
-
-                <button class="send" type="submit">Edit</button>
-              </form>
-
+        <form class="form-button" action="/products/edit/<%= product.id %>?_method=PUT" method="POST"
+          enctype="multipart/form-data" id="productsForm">
+          <% if (locals.errors && errors.name) { %>
+          <div class="text-danger">
+            <%= errors.name.msg %>
           </div>
+          <% } %>
+          <span></span>
+          <input class="form-fields<%= locals.errors && errors.name ? '-invalid' : null %>" type="text" id="name" name="name"
+            value="<%= locals.oldData ? oldData.name : product.name%>" placeholder="New Name">
+          <br>
+          <% if (locals.errors && errors.description) { %>
+          <div class="text-danger">
+            <%= errors.description.msg %>
+          </div>
+          <% } %>
+          <span></span>
+          <input class="form-fields<%= locals.errors && errors.description ? '-invalid' : null %>" type="textarea" id="description"
+            name="description" value="<%= locals.oldData ? oldData.description : product.description%>"
+            placeholder="New Description">
+          <br>
+          <label for="image">Upload Image</label>
+          <span></span>
+          <input class="form-fields" type="file" name="image" placeholder="Upload Image">
+          <br>
+          <label for="By Room">Select By Room</label>
+          <span></span>
+          <select class="form-fields" name="byRoom">
+            <% for( let i = 0; i < byroom.length; i++ ) { %>
+            <% if (byroom[i].id == product.byRoom.id) { %>
+            <option value=" <%= product.byRoom.id %>" selected>
+              <%= product.byRoom.room %></option>
 
+            <% } else {%>
+            <option value=" <%= byroom[i].id %>">
+              <%= byroom[i].room %></option>
+            <% } %>
 
-      </main>
+            <% } %>
 
-</main>
+          </select>
+          <br>
+          <label for="By Texture">Select By Texture</label>
+          <span></span>
+          <select class="form-fields" name="byTexture">
+            <% for( let i = 0; i < bytexture.length; i++ ) { %>
+            <% if (bytexture[i].id == product.byTexture.id) { %>
+            <option value=" <%= product.byTexture.id %>" selected>
+              <%= product.byTexture.texture %></option>
 
-     <!-- footer -->
-     <%- include('../partials/footer')%>
+            <% } else {%>
+            <option value=" <%= bytexture[i].id %>">
+              <%= bytexture[i].texture %></option>
+            <% } %>
+
+            <% } %>
+
+          </select>
+          <br>
+          <label for="Color">Select Color</label>
+          <span id="colorErrorSpan"></span>
+          <select class="form-fields" id="color" name="color" multiple>
+            <% for (let i = 0; i < color.length; i++){%>
+            <option value=" <%= color[i].id %>">
+              <%= color[i].color %></option>
+            <% } %>
+          </select>
+          <br>
+          <label for="price">New Price</label>
+          <% if (locals.errors && errors.price) { %>
+          <div class="text-danger">
+            <%= errors.price.msg %>
+          </div>
+          <% } %>
+          <span></span>
+          <input class="form-fields<%= locals.errors && errors.price ? '-invalid' : null %>" type="number"
+            value="<%= product.price%>" id="price" name="price" step="any" min="1" placeholder="New Price"
+            value="<%= locals.oldData ? oldData.description : null %>">
+          <button class="send" type="submit">Edit</button>
+        </form>
+      </div>
+    </main>
+  </main>
+  <!-- footer -->
+  <%- include('../partials/footer')%>
+  <script src="/js/productsCreate.js"></script>
 </body>
+
 </html>
