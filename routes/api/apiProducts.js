@@ -2,15 +2,14 @@ const express = require('express');
 
 const router = express.Router();
 
-const apiProduct = require ('../../controllers/api/apiProducts')
+const apiProductsController = require ('../../controllers/api/apiProductsController')
 
 
+router.get("/", apiProductsController.count);
 
-router.get("/api/products/", movieController.count);
+router.get("/:id", apiProductsController.show);
 
-router.get("/api/products/:id", movieController.show);
-
-router.get("/api/products/:id", movieController.store);
+router.post("/store", apiProductsController.store);
 
 
 
