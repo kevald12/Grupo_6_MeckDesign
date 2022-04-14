@@ -26,6 +26,14 @@ const autoLogin = require("./middlewares/autoLoginMiddleware");
 const userLogged = require("./middlewares/userLoggedMiddleware");
 
 
+// api users
+const apiRouterUsers = require('./routes/api/apiUsers')
+app.use('/api/users',apiRouterUsers)
+
+// api products
+const apiRouterProducts = require('./routes/api/apiProducts')
+app.use('/api/products',apiRouterProducts)
+
 app.use(session({
     secret: 'ok',
     resave: 'false', 
