@@ -1,17 +1,24 @@
 const {User} = require ('../../database/models');
-// const{Op} = require('sequelize');
-// const res = require('express/lib/response');
+
 
 module.exports = {
     show: async (req,res) => {
 const users = await User.findAll();
-// console.log("users COMPLETO", users.User.dataValues.userId)
-return res.json({
+    let usersArray = users.map(oneUser =>{
+    let usuario = {
+            id: oneUser.dataValues.userId,
+            firstName: oneUser.dataValues.firstName,
+            lastName: oneUser.dataValues.lastName,
+            email: oneUser.dataValues.email,
+            detail: `http://localhost:4000/api/users/${oneUser.dataValues.userId}`,
+        }
+        return usuario
+    })
+return res.status(200).json({
     total: users.length,
-    users: users,
+    users: usersArray,
     status: 200
-})
-    },
+})},
     detail:  async (req,res) =>{ 
         const id = req.params.id
         const userFounded = await User.findByPk(id)

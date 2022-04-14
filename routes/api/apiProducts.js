@@ -7,9 +7,9 @@ const apiProductsController = require ('../../controllers/api/apiProductsControl
 
 router.get("/", apiProductsController.count);
 
-router.get("/:id", apiProductsController.show);
+router.get("/:id", apiProductsController.detail);
 
-router.post("/store", apiProductsController.store);
+
 
 
 
