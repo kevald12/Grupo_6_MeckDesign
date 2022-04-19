@@ -31,9 +31,11 @@ const controller = {
             console.log(error)
         }
     },
-    productsCart: (req, res) => {
+    productsCart: async (req, res) => {
+        const otherProducts = await Product.findAll({include: ['byRoom', 'byTexture', 'color']})
         return res.render('./products/productCart.ejs', {
-            products: products
+            products: products,
+            otherProducts: otherProducts
         })
     },
     products: async (req, res) => {
