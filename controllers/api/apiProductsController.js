@@ -36,9 +36,10 @@ module.exports = {
                         description: oneProduct.dataValues.description,
                         byRoom: oneProduct.dataValues.byRoom.room,
                         byTexture: oneProduct.dataValues.byTexture.texture,
+                        price: oneProduct.dataValues.price,
                         color: colores,
-                        image: `http://localhost:4000/img/usersImg/${oneProduct.dataValues.image}`,
-                        detail: `http://localhost:4000/api/users/${oneProduct.dataValues.id}`,
+                        image: `http://localhost:4000/img/products/${oneProduct.dataValues.image}`,
+                        detail: `http://localhost:4000/products/detail/${oneProduct.dataValues.id}`,
                     }
                     return producto
                 })
