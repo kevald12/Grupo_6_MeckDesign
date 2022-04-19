@@ -40,8 +40,13 @@ const controller = {
     },
     products: async (req, res) => {
         const products = await Product.findAll({include: ["byRoom", "byTexture"]})
+        const byRoom = await ByRoom.findAll()
+        const byTexture = await ByTexture.findAll()
+
         return res.render('./products/products.ejs', {
-            products
+            products,
+            byRoom,
+            byTexture
         })
     },
     productsCreate: async (req, res) => {
@@ -159,8 +164,47 @@ const controller = {
 }
 
     },
+searchByRoom:  async (req, res) =>{
+    const byRoom = await ByRoom.findAll()
+    const byTexture = await ByTexture.findAll()
+    const products = await Product.findAll(
+        {
+            where: {
+byRoomId:{
+[Op.eq]: req.query.searchByRoom 
+}
+        },
+        include: ["byRoom", "byTexture", "color"]})
+console.log("req query", req.query.searchByRoom )
+    return res.render('./products/products.ejs', {
+        products,
+        byRoom,
+        byTexture
+    })
 
+},
+searchByTexture:  async (req, res) =>{
+    const byRoom = await ByRoom.findAll()
+    const byTexture = await ByTexture.findAll()
+    const products = await Product.findAll(
+        {
+            where: {
+byTextureId:{
+[Op.eq]: req.query.searchByTexture 
+}
+        },
+        include: ["byRoom", "byTexture", "color"]})
+console.log("req query", req.query.searchByTexture )
+    return res.render('./products/products.ejs', {
+        products,
+        byRoom,
+        byTexture
+    })
+
+},
 search : async (req, res) =>{
+    const byRoom = await ByRoom.findAll()
+    const byTexture = await ByTexture.findAll()
     const products = await Product.findAll(
         {
             where: {
@@ -170,7 +214,9 @@ name:{
         }})
 
     return res.render('./products/products.ejs', {
-        products
+        products,
+        byRoom,
+        byTexture
     })
 
 },

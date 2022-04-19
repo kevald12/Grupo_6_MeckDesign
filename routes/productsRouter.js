@@ -54,4 +54,9 @@ router.delete('/list/:id', controller.delete);
 
 router.get('/search', controller.search);
 
+router.get('/byRoom', controller.searchByRoom);
+
+router.get('/byTexture', controller.searchByTexture);
+
+
 module.exports = router;

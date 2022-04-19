@@ -16,6 +16,35 @@
                 <h2>Products</h2>
             </a>
         </div>
+        <!-- <h3>Products by category</h3> -->
+        <div class="filterCategories">
+        <div>
+        <h3>Filter By Room</h3>
+        <form class="filterCategories"id="selects"  action="/products/byRoom" method="GET">
+            <div id="categorySearch">
+            <select name="searchByRoom" id="select">
+                <% for( let i = 0; i < byRoom.length; i++ ) { %>
+                <option value="<%= byRoom[i].id%>"><%= byRoom[i].room%></option>
+                <% } %>
+            </select>
+            <button type="submit" id="selectButton"><i class="fas fa-search"></i></button>
+        </div>
+        </form>
+         </div>
+        <div>
+        <h3>Filter By Texture</h3>
+        <form  class="filterCategories"action="/products/byTexture" method="GET">
+            <div id="categorySearch">
+        <select name="searchByTexture" id="select">
+            <% for( let i = 0; i < byTexture.length; i++ ) { %>
+            <option value="<%= byTexture[i].id%>"><%= byTexture[i].texture%></option>
+            <% } %>
+        </select>
+        <button type="submit" id="selectButton"><i class="fas fa-search"></i></button>
+    </div>
+        </form>
+    </div>
+</div>
         <section class="product-list-section">
 <% for( let i = 0; i < products.length; i++ ) { %>
     <article class="product-list-article">
@@ -43,5 +72,6 @@
 </main> 
 <!-- footer -->
 <%- include('../partials/footer')%>
+<script src="/js/products.js"></script>
 </body>
 </html>

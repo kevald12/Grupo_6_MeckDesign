@@ -823,8 +823,35 @@ transition: backgroun-color, 0.08s, color, 0.08;
 }
 
 
+#select {
+    width: 100%;
+    border-bottom: solid 0.5px #000;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    height: 25px;
+    font-size: 18px;
+    font-family: "Poppins";
+    text-transform: uppercase;
+    font-weight: 200;
+}
+#selectButton {
 
-
+    border: 0px;
+    border-bottom: solid 0.5px #000;
+    background-color: #fff;
+    height: 25px;
+    font-size: 16px;
+}
+.filterCategories {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+#categorySearch{
+    display: flex;
+    align-items: center
+}
 
 /* Tablets */
 
@@ -1088,6 +1115,7 @@ transition: backgroun-color, 0.08s, color, 0.08;
         width: 15vw;
     }
 
+
     .search-bar-desktop {
         width: 15vw;
         border-bottom: solid 0.5px #000;
@@ -1100,7 +1128,34 @@ transition: backgroun-color, 0.08s, color, 0.08;
         text-transform: uppercase;
         font-weight: 200;
     }
-
+    .filterCategories {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly
+    }
+    #categorySearch{
+        display: flex;
+        align-items: center
+    }
+    #select {
+        width: 100%;
+        border-bottom: solid 0.5px #000;
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
+        height: 25px;
+        font-size: 18px;
+        font-family: "Poppins";
+        text-transform: uppercase;
+        font-weight: 200;
+    }
+    #selectButton {
+        border: 0px;
+        border-bottom: solid 0.5px #000;
+        background-color: #fff;
+        height: 25px;
+        font-size: 16px;
+    }
     .search-desktop button {
         border: 0px;
         border-bottom: solid 0.5px #000;
