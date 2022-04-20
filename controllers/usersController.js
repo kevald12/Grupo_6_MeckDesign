@@ -103,12 +103,12 @@ updateUser: async (req, res) => {
     let userToUpdate = await User.findByPk(req.params.id);
     if (req.file){
       userToUpdate.avatar = req.file.filename
-      }
+      req.session.userLogged.avatar = req.file.avatar}
   userToUpdate.firstName = req.body.firstName ? req.body.firstName : userToUpdate.firstName;
   userToUpdate.lastName = req.body.lastName ? req.body.lastName : userToUpdate.lastName;
   // userToUpdate.password = req.body.oldPassword ? req.body.lastName : userToUpdate.lastName;
-
-
+  req.session.userLogged.firstName = req.body.firstName
+  req.session.userLogged.lastName = req.body.lastName
   userToUpdate.save();
   return res.redirect('/user/profile')
   } catch(error){
