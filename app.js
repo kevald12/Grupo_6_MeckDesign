@@ -22,9 +22,10 @@ app.listen(4000, () => {
 const mainRouter = require('./routes/mainRouter.js')
 const usersRouter = require('./routes/usersRouter.js')
 const productsRouter = require ('./routes/productsRouter.js')
+//Global Middlewares 
 const autoLogin = require("./middlewares/autoLoginMiddleware");
 const userLogged = require("./middlewares/userLoggedMiddleware");
-
+const isUserAdmin = require("./middlewares/adminMiddleware")
 
 // api users
 const apiRouterUsers = require('./routes/api/apiUsers')
@@ -43,6 +44,8 @@ app.use(session({
 app.use(autoLogin);
 
 app.use(userLogged);
+
+app.use(isUserAdmin);
 
 app.use('/', mainRouter);
 

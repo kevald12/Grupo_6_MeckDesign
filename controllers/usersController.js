@@ -25,7 +25,7 @@ processLogin: async (req, res) => {
     if(userToLogin == null){
       return res.render('./users/login', {loginError: loginError })
     };
-
+      console.log("el user to login", userToLogin.dataValues.admin)
     var resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
         return res.render("./users/login.ejs", {
@@ -36,13 +36,13 @@ processLogin: async (req, res) => {
    if (userToLogin) {
       const passwordIsCorrect = bcryptjs.compareSync(req.body.password, userToLogin.password);
           if (passwordIsCorrect) {
-            //   const userToLog = {...userToLogin}
-            //  delete userToLog.password;
-         
               req.session.userLogged = userToLogin; 
             
         if (req.body.rememberUser){
             res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60)*60})
+        }
+         if(userToLogin.dataValues.admin !== 0){
+          req.session.isAdmin = true
         }
 
         return res.redirect("/user/profile")

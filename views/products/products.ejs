@@ -17,28 +17,37 @@
             </a>
         </div>
         <!-- <h3>Products by category</h3> -->
-        <div class="filterCategories">
-        <div>
+        <div class="filterConteiner"">
+        <div class=<%= locals.imInByRoom && locals.byRoom ? "filterCategories" : "displayNone" %>>
         <h3>Filter By Room</h3>
         <form class="filterCategories"id="selects"  action="/products/byRoom" method="GET">
             <div id="categorySearch">
             <select name="searchByRoom" id="select">
                 <% for( let i = 0; i < byRoom.length; i++ ) { %>
-                <option value="<%= byRoom[i].id%>"><%= byRoom[i].room%></option>
+                    <% if (locals.roomQuery && locals.roomQuery == byRoom[i].id) { %>
+                        <option value="<%=locals.roomQuery%>" selected><%= byRoom[(Number(locals.roomQuery)-1)].room%></option>
+                        <% } else { %>
+                            <option value="<%= byRoom[i].id%>" ><%= byRoom[i].room%></option>
+                        <% } %>
                 <% } %>
             </select>
             <button type="submit" id="selectButton"><i class="fas fa-search"></i></button>
         </div>
         </form>
          </div>
-        <div>
-        <h3>Filter By Texture</h3>
+        <div class=<%= locals.imInByTexture && locals.byTexture ? "filterCategories" : "displayNone" %>>
+        <h2>Filter By Texture</h2>
         <form  class="filterCategories"action="/products/byTexture" method="GET">
             <div id="categorySearch">
         <select name="searchByTexture" id="select">
             <% for( let i = 0; i < byTexture.length; i++ ) { %>
-            <option value="<%= byTexture[i].id%>"><%= byTexture[i].texture%></option>
+                <% if (locals.textureQuery && locals.textureQuery == byTexture[i].id) { %>
+            <option value="<%=locals.textureQuery%>" selected><%= byTexture[(Number(locals.textureQuery)-1)].texture%></option>
+            <% } else { %>
+                <option value="<%= byTexture[i].id%>" ><%= byTexture[i].texture%></option>
             <% } %>
+            <% } %>
+
         </select>
         <button type="submit" id="selectButton"><i class="fas fa-search"></i></button>
     </div>
@@ -64,9 +73,9 @@
     </article>
 <% } %>
 </section>
-    <div class="pages">
+    <!-- <div class="pages">
         <p><a href="#">Pagina 1 2</a></p>
-    </div>
+    </div> -->
 
 
 </main> 

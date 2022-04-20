@@ -847,10 +847,20 @@ transition: backgroun-color, 0.08s, color, 0.08;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
+
+}
+
+.filterConteiner {
+    display: flex;
+    justify-content: center;
 }
 #categorySearch{
     display: flex;
     align-items: center
+}
+
+.displayNone {
+    display: none
 }
 
 /* Tablets */
@@ -1130,8 +1140,9 @@ transition: backgroun-color, 0.08s, color, 0.08;
     }
     .filterCategories {
         display: flex;
-        flex-direction: row;
-        justify-content: space-evenly
+        flex-direction: column;
+        justify-content: space-evenly;
+        
     }
     #categorySearch{
         display: flex;

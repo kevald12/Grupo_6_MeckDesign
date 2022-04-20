@@ -7,6 +7,7 @@ const controller = require('../controllers/productsController.js')
 
 // Middlewares 
 const productValidate = require ('../middlewares/productValidate')
+const adminAccessMiddleware = require('../middlewares/adminAccessMiddleware');
 
 const multer = require ('multer');
 // const { path } = require('express/lib/application');
@@ -42,11 +43,11 @@ router.get('/list', controller.products);
 
 router.get('/cart', controller.productsCart);
 
-router.get('/create', controller.productsCreate);
+router.get('/create', adminAccessMiddleware, controller.productsCreate);
 router.post('/list',  upload.single('image'), productValidate, controller.store)
 
-router.get('/edit/:id?', controller.productsEdit);
-router.put('/edit/:id?',  upload.single('image'), productValidate, controller.update);
+router.get('/edit/:id?', adminAccessMiddleware, controller.productsEdit);
+router.put('/edit/:id?',  upload.single('image'), productValidate, adminAccessMiddleware, controller.update);
 
 router.get('/detail/:id', controller.productsDetail);
 
@@ -60,3 +61,4 @@ router.get('/byTexture', controller.searchByTexture);
 
 
 module.exports = router;
+//alert a eliminar product

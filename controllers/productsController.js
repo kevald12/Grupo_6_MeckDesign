@@ -167,6 +167,9 @@ const controller = {
 searchByRoom:  async (req, res) =>{
     const byRoom = await ByRoom.findAll()
     const byTexture = await ByTexture.findAll()
+    const imInByRoom = true
+    const roomQuery = req.query.searchByRoom
+
     const products = await Product.findAll(
         {
             where: {
@@ -175,17 +178,21 @@ byRoomId:{
 }
         },
         include: ["byRoom", "byTexture", "color"]})
-console.log("req query", req.query.searchByRoom )
+console.log("req query", req.query )
     return res.render('./products/products.ejs', {
         products,
         byRoom,
-        byTexture
+        byTexture,
+        imInByRoom,
+        roomQuery
     })
 
 },
 searchByTexture:  async (req, res) =>{
     const byRoom = await ByRoom.findAll()
     const byTexture = await ByTexture.findAll()
+    const imInByTexture = true
+    const textureQuery = req.query.searchByTexture
     const products = await Product.findAll(
         {
             where: {
@@ -198,7 +205,9 @@ console.log("req query", req.query.searchByTexture )
     return res.render('./products/products.ejs', {
         products,
         byRoom,
-        byTexture
+        byTexture,
+        imInByTexture,
+        textureQuery
     })
 
 },

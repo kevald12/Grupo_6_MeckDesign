@@ -24,9 +24,12 @@
 
 
         <div class="icons-header">
-         <% if (locals.isUserLogged) { %>
-          
+            <% if (locals.isUserAdmin) { %>
+            
             <a href="/products/create"><i class="fas fa-magic"></i></a>
+            <% } %> 
+
+            <% if (locals.isUserLogged) { %>
             <a href="/user/profile"><i class="fas fa-user"></i> Hi <%= userData.firstName %></a>
             
             <% } else { %> 
