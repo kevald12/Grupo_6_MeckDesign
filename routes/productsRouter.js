@@ -4,11 +4,13 @@ const router = express.Router();
 const path = require('path')
 
 const controller = require('../controllers/productsController.js')
+const cartController = require('../controllers/cartController.js')
+
 
 // Middlewares 
 const productValidate = require ('../middlewares/productValidate')
 const adminAccessMiddleware = require('../middlewares/adminAccessMiddleware');
-
+const cartMiddleware = require('../middlewares/cartMiddleware')
 const multer = require ('multer');
 // const { path } = require('express/lib/application');
 
@@ -59,6 +61,8 @@ router.get('/byRoom', controller.searchByRoom);
 
 router.get('/byTexture', controller.searchByTexture);
 
+router.post('/addCart/:id', cartController.add)
+router.get('/cartCreated', cartMiddleware, cartController.cartCreated)
 
 module.exports = router;
 //alert a eliminar product

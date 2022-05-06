@@ -12,12 +12,15 @@
             <article class="product-detail-article">
                 <div class="product-detail-image">
 
-                    <img src="/img/products/<%=product.image%>" alt="Product">
+                    <img src="/img/products/<%=product.image%>" id="productImage" alt="Product">
                 </div>
+                <!-- <input type="input" id="unInput">
+                <input type="input" id="unInput2"> -->
+
                 <div class="product-detail-info">
                     <div class="product-detail">
                         <div class="edit-product">
-                        <h2 class="title-product" >
+                        <h2 class="title-product" id="productName">
                             <%= product.name %>  </h2>
                             <% if (locals.isUserAdmin) { %>
                            <a href="/products/edit/<%= product.id %> "><i class="fas fa-pencil-alt"></i></a> 
@@ -26,7 +29,7 @@
                            </form>
                            <% } %>
                         </div>
-                        <p class="product-price">
+                        <p class="product-price" id="productPrice">
                             $<%= product.price %> </p>
 
                     </div>
@@ -58,12 +61,11 @@
                         <span> <%= product.byTexture.texture %> </span>
                             <%}%>
                         </div>
-                    <!-- <div> -->
-                        <form class="form-shopping" action="" method="post">
+                            <p>shipping and payment info</p>
                             <div class="quantity">
                                 <label>Qty</label>
-                                <select name="cantidad" id="1" class="quantity-button1">
-                                    <option value="1" selected>1</option>
+                                <select name="cantidad" id="qty-select" class="quantity-button1">
+                                    <option value="1" >1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
@@ -76,11 +78,16 @@
 
                                 </select>
                             </div>
+                            <% if (locals.userData) { %>
+                                <form class="form-shopping" action="/products/addCart/<%= product.id %> " method="post">
                             <div class="cart-button"></div>
-                            <input type="submit" value="Add to Cart" class="add-to-cart">
-                    <!-- </div> -->
-
-                    </form>
+                            
+                                <input type="submit" value="Add to Cart" class="add-to-cart">
+                            </form>
+                            
+                           <% } else{ %> 
+                               <button id="addCartButton" type="submit" value="Add to Cart" class="add-to-cart">Add to Cart</button>
+                               <%} %>
                 </div>
                 </div>
             </article>
@@ -91,6 +98,7 @@
     </main>
     <!-- footer -->
     <%- include('../partials/footer')%>
+    <script src="/js/cartStorage.js"></script>
 </body>
 
 </html>

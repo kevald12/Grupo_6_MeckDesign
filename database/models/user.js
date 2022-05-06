@@ -17,11 +17,11 @@ module.exports = (sequelize,DataTypes) => {
        tableName: 'users',       
        paranoid: true
     });
+    User.associate = function(models) {
+        User.hasMany(models.Cart, {
+            as: "cart",
+            foreignKey: "userId"
+        })
+    }
     return User;
-    // Users.associate = function(models) {
-    //     Users.belongsTo(models.byRoom, {
-    //         as: "byRoom",
-    //         foreignKey: "byRoomId"
-    //     })
-    // }
 }

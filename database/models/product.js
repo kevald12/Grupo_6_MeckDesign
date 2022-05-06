@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
             Product.belongsTo(models.ByTexture, {
                 as: "byTexture",
                 foreignKey: "byTextureId"
-            })
+            }),
 
         Product.belongsToMany(models.Color, {
             as: 'color',
@@ -33,6 +33,13 @@ module.exports = (sequelize, DataTypes) => {
             otherKey: 'colorId',
             timestamps: false
 
+        }),
+        Product.belongsToMany(models.Cart, {
+            as: 'cart',
+            through: 'products_cart',
+            foreignKey: 'productId',
+            otherKey: 'cartId',
+            timestamps: false
         })
     }
     return Product;

@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const {Product, ByRoom, ByTexture, Color} = require('../database/models');
+const {Product, ByRoom, ByTexture, Color, Cart} = require('../database/models');
 const productsJSONpath = path.resolve(__dirname, '../data/products.json');
 const {Op} = require('sequelize')
 
@@ -14,6 +14,7 @@ const controller = {
         return res.render('index.ejs', {
             otherProducts: otherProducts
         })
+        
     },
     productsDetail: async (req, res) => {
         const otherProducts = await Product.findAll({include: ['byRoom', 'byTexture', 'color']})
@@ -33,9 +34,17 @@ const controller = {
     },
     productsCart: async (req, res) => {
         const otherProducts = await Product.findAll({include: ['byRoom', 'byTexture', 'color']})
+        const cart = await Cart.findByPk(req.session.cartId, {include: "product"})
+        if(cart){
+            for(let i = 0; i < cart.product.length; i++){
+                console.log("carrito en cart", cart.product[i].dataValues.name)
+
+            }
+        }
         return res.render('./products/productCart.ejs', {
             products: products,
-            otherProducts: otherProducts
+            otherProducts: otherProducts,
+            cart: cart
         })
     },
     products: async (req, res) => {

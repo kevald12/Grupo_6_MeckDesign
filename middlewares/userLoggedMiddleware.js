@@ -10,6 +10,7 @@ function userLoggedMiddleware (req, res, next) {
 			firstName: req.session.userLogged.firstName,
             lastName: req.session.userLogged.lastName,
 			avatar: req.session.userLogged.avatar,
+			userId: req.session.userLogged.id
 		}
 	}
 
